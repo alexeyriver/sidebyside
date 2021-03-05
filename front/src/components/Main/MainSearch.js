@@ -3,6 +3,7 @@ import Map from './Map'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import {useState} from 'react'
+import SelectSerch from 'react-select-search'
 
 
 
@@ -32,12 +33,19 @@ function MainSearch(props) {
        <DatePicker placeholderText="Конечная дата" selected ={selectedDateSecond}
       onChange={date=>setSelectedDateSecond(date)}
       dateFormat='dd.MM.yyyy'
-      minDate={new Date()}
+      minDate={selectedDate}
       isClearable
       showYearDropdown
       scrollableMonthYearDropdown
       />
       
+    {/* <SelectSearch
+        options={countries}
+        search
+        filterOptions={fuzzySearch}
+        placeholder="Select your country" */}
+    
+
       </div>
       </div>
      
