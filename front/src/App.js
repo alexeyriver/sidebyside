@@ -1,4 +1,3 @@
-import React from "react";
 import MainPage from './components/Main/MainPage'
 import MainSearch from './components/Main/MainSearch'
 import CreateJourney from './components/Main/CreateJourney'
@@ -48,6 +47,4 @@ function App() {
       </div>
     </Router>
   );
-}
-
-export default App;
+  }
