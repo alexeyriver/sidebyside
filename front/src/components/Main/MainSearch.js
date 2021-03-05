@@ -2,6 +2,8 @@ import React from 'react';
 import Maps from './Maps'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+import {useState} from 'react'
+import SelectSerch from 'react-select-search'
 import { useState, useEffect } from 'react'
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 
@@ -30,7 +32,9 @@ console.log(dataFetch);
 
   return (
     <div>
-      <h1>ПОИСКОВАЯ ФОРМА</h1>
+     <h1>ПОИСКОВАЯ ФОРМА</h1>
+     
+   
 
       <div style={{ display: 'flex' }}>
         <div className='searchDiv'>
@@ -50,7 +54,7 @@ console.log(dataFetch);
           <DatePicker placeholderText="Конечная дата" selected={selectedDateSecond}
             onChange={date => setSelectedDateSecond(date)}
             dateFormat='dd.MM.yyyy'
-            minDate={new Date()}
+            minDate={selectedDate}
             isClearable
             showYearDropdown
             scrollableMonthYearDropdown
