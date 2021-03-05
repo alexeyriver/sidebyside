@@ -13,7 +13,7 @@ function TestMap(props) {
       geometry={{
         type: 'LineString',
         coordinates: [
-          [55.76, 37.64],[59.76, 37.64] ,
+          [55.76, 37.64],'Kazan',
           [52.51, 13.38],
         ],
       }}
