@@ -1,12 +1,14 @@
 import MainPage from './components/Main/MainPage'
 import MainSearch from './components/Main/MainSearch'
 import CreateJourney from './components/Main/CreateJourney'
+import MainMap from './components/Map/MainMap';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
 
 
 function App() {
@@ -28,9 +30,9 @@ function App() {
           </li>
         </ul>
 
-      
+        <MainMap />
 
-       
+
         <Switch>
           <Route exact path="/">
             <MainPage />
@@ -47,5 +49,5 @@ function App() {
       </div>
     </Router>
   );
-  }
-  export default App
+}
+export default App;
