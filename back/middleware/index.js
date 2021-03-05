@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 
 const config = (app) => {
     dotenv.config()
-    app.use(express.json)
+    app.use(express.json())
     app.use(cors())
 }
 
