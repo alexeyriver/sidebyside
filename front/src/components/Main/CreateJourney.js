@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Main(props) {
+function CreateJourney(props) {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Main(props) {
   );
 }
 
-export default Main;
+export default CreateJourney;
