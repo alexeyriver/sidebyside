@@ -17,14 +17,13 @@ const createToken = (id) => {
 //проверка адреса
 router.route('/')
   .get((req, res) => {
-    res.send('OK')
+    res.send('signup')
   })
 
   .post(async (req, res) => {
-    const username = req.body.username;
-    const email = req.body.email;
-    const password = req.body.password;
-    const candidat = await User.findOne({ email: email });
+    const {name, email, password } = req.body;
+
+    const candidat = await User.findOne({ email });
     if (candidat) {
       res.status(409).json({
         message: 'Такой пользователь уже есть',
@@ -32,8 +31,8 @@ router.route('/')
     } else {
       const salt = bcrypt.genSaltSync(10);
       const user = new User({
-        username: username,
-        email: email,
+        name,
+        email,
         password: bcrypt.hashSync(password, salt),
       });
       await user.save();
