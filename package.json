@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/alexeyriver/sidebyside/issues"
   },
-  "homepage": "https://github.com/alexeyriver/sidebyside#readme"
+  "homepage": "https://github.com/alexeyriver/sidebyside#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
+  }
 }
