@@ -12,7 +12,7 @@ const preloadedState = window.localStorage.getItem('state') || '{}'
 const store = createStore(rootReducer, JSON.parse(preloadedState), composeWithDevTools(applyMiddleware(thunk)))
 store.subscribe(() => {
   const state = store.getState()
-  window.localStorage.setItem('state', JSON.stringify(state))
+  // window.localStorage.setItem('state', JSON.stringify(state))
 })
 
 
