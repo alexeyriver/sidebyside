@@ -26,13 +26,13 @@ function App() {
             <Link to="/findroute">Найти Маршрут</Link>
           </li>
           <li>
-            <Link to="/createroute">Создать Маршрут</Link>
+            <Link to="/createjourney">Создать Маршрут</Link>
           </li>
         </ul>
 
-        <MainMap/>
+        <MainMap />
 
-       
+
         <Switch>
           <Route exact path="/">
             <MainPage />
@@ -42,12 +42,12 @@ function App() {
             <MainSearch />
           </Route>
 
-          <Route path="/createroute">
+          <Route path="/createjourney">
             <CreateJourney />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-  }
-  export default App;
+}
+export default App;

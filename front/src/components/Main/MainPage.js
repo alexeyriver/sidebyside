@@ -4,23 +4,26 @@ import {useHistory} from 'react-router-dom'
 
 function MainPage(props) {
 
+const history = useHistory()
 
-// findButtonHandler=()=>{
-// console.log(5)
-// history.push('/findroute')
-// }
+const findButtonHandler=(event)=>{
+  event.preventDefault()
+console.log(5)
+history.push('/findroute')
+}
 
-// createButtonHandler=()=>{
-//   console.log(2)
-//   history.push('/createroute')
-// }
+const createButtonHandler=(event)=>{
+  event.preventDefault()
+  console.log(2)
+  history.push('/createjourney')
+}
 
   return (
 
     <>
     <div>
-      {/* <button onClick={findButtonHandler} type='button' name='find'>Найти маршрут</button>
-      <button onClick={createButtonHandler} type='button' name='create'>Создать маршрут</button> */}
+      <button onClick={findButtonHandler} type='button' name='find'>Найти маршрут</button>
+      <button onClick={createButtonHandler} type='button' name='create'>Создать маршрут</button>
     </div>
       
     </>
