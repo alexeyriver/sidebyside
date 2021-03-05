@@ -59,10 +59,10 @@ console.log(dataFetch);
         </div>
       </div>
 
-      {dataFetch.length==2 && value.length>2 && <YMaps> <Map
+      {dataFetch.length===2 && value.length>2 && <YMaps> <Map
         defaultState={{
           center: [dataFetch[1],dataFetch[0]],
-          zoom: 5,
+          zoom: 8,
         }} height={500} width={700}
         // onClick={(e)=>MapHandlerClick(e._sourceEvent.originalEvent.coords)} 
         onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
