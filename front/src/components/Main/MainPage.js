@@ -4,15 +4,18 @@ import {useHistory} from 'react-router-dom'
 
 function MainPage(props) {
 
+const history = useHistory()
 
-findButtonHandler=()=>{
+const findButtonHandler=(event)=>{
+  event.preventDefault()
 console.log(5)
 history.push('/findroute')
 }
 
-createButtonHandler=()=>{
+const createButtonHandler=(event)=>{
+  event.preventDefault()
   console.log(2)
-  history.push('/createroute')
+  history.push('/createjourney')
 }
 
   return (
