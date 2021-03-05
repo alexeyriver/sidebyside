@@ -1,9 +1,11 @@
 import express from 'express'
-import config from "./middleware/index.js";
+import appConfig from './middleware/appConfig.js'
+import dbConnect from './misc/dbConnect.js'
+
 const app = express()
 
-
-config(app)
+appConfig(app)
+dbConnect();
 
 export default app
 
