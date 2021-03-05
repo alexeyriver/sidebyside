@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Map(props) {
+function Maps(props) {
   return (
     <div>
       <h1>ТУТ БУДЕТ КАРТА</h1>
@@ -8,4 +8,4 @@ function Map(props) {
   );
 }
 
-export default Map;
+export default Maps;
