@@ -2,9 +2,11 @@ import React from 'react';
 import Maps from './Maps'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-// import {useState} from 'react'
-// import countries from '../../Countries/Countries'
-// import SelectSearch from 'react-select-search'
+
+
+
+import SelectSerch from 'react-select-search'
+
 import { useState, useEffect } from 'react'
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 import ru from 'date-fns/locale/ru'
@@ -30,6 +32,12 @@ function MainSearch(props) {
 
   }, [value])
   
+
+
+  
+
+
+
 console.log(dataFetch);
 console.log();
 
@@ -73,10 +81,10 @@ console.log();
         </div>
       </div>
 
-      {dataFetch.length==2 && value.length>2 && <YMaps> <Map
+      {dataFetch.length===2 && value.length>2 && <YMaps> <Map
         defaultState={{
           center: [dataFetch[1],dataFetch[0]],
-          zoom: 5,
+          zoom: 8,
         }} height={500} width={700}
         // onClick={(e)=>MapHandlerClick(e._sourceEvent.originalEvent.coords)} 
         onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
