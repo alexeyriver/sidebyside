@@ -1,7 +1,6 @@
 import MainPage from './components/Main/MainPage'
 import MainSearch from './components/Main/MainSearch'
 import CreateJourney from './components/Main/CreateJourney'
-import MainMap from './components/Map/MainMap';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,8 +28,6 @@ function App() {
             <Link to="/createjourney">Создать Маршрут</Link>
           </li>
         </ul>
-
-        <MainMap />
 
 
         <Switch>
