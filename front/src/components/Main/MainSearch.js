@@ -2,7 +2,6 @@ import React from 'react';
 import Maps from './Maps'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-import {useState} from 'react'
 import SelectSerch from 'react-select-search'
 import { useState, useEffect } from 'react'
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
@@ -28,6 +27,12 @@ function MainSearch(props) {
 
   }, [value])
   
+
+
+  
+
+
+
 console.log(dataFetch);
 
   return (
