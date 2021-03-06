@@ -7,29 +7,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
-
+import Navbar from './components/Navbar/Navbar'
+import Cabinet from './components/Cabinet/Cabinet'
 
 function App() {
   return (
     <Router>
-
-
-
+      <Navbar/>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Главная</Link>
-          </li>
-          <li>
-            <Link to="/findroute">Найти Маршрут</Link>
-          </li>
-          <li>
-            <Link to="/createjourney">Создать Маршрут</Link>
-          </li>
-        </ul>
-
-
         <Switch>
           <Route exact path="/">
             <MainPage />
@@ -41,6 +26,9 @@ function App() {
 
           <Route path="/createjourney">
             <CreateJourney />
+          </Route>
+          <Route path="/profile">
+            <Cabinet />
           </Route>
         </Switch>
       </div>
