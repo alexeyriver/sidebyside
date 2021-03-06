@@ -26,9 +26,9 @@ function CreateJourney(props) {
 
   return (
     <div>
-      <h1>Тут можно создать путешествие</h1>
-
-      <div style={{ display: 'flex' }}>
+      <h1>Создайте свой маршрут путешествия</h1>
+      <form>
+      <div style={{ display: 'flex',border:'solid 1px',maxWidth:'900px',minHeight:'50px',alignItems:'center'}}>
       <DatePicker placeholderText="Начальная дата" selected={selectedDate}
             onChange={date => setSelectedDate(date)}
             dateFormat='dd.MM.yyyy'
@@ -51,9 +51,17 @@ function CreateJourney(props) {
             scrollableMonthYearDropdown
             locale={ru}
           />
+          <input placeholder="бюджет"></input>
+          
+          
 
         </div>
+        <div>
+            <textarea require rows='10' cols="70" placeholder="Информация о себе и поездке" ></textarea>
+            <button>Создать путешествие </button>
+          </div>
         <MainMap />
+    </form>
     </div>
   );
 }

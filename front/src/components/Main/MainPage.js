@@ -8,13 +8,11 @@ const history = useHistory()
 
 const findButtonHandler=(event)=>{
   event.preventDefault()
-console.log(5)
 history.push('/findroute')
 }
 
 const createButtonHandler=(event)=>{
   event.preventDefault()
-  console.log(2)
   history.push('/createjourney')
 }
 

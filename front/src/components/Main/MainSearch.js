@@ -60,7 +60,7 @@ function MainSearch(props) {
       {dataFetch.length===2 && <YMaps> <Map
         defaultState={{
           center: [dataFetch[1],dataFetch[0]],
-          zoom: 10,
+          zoom: 6,
         }} height={500} width={700}
         // onClick={(e)=>MapHandlerClick(e._sourceEvent.originalEvent.coords)} 
         onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
