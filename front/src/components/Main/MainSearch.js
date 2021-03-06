@@ -2,9 +2,11 @@ import React from 'react';
 import Maps from './Maps'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
+
 import SelectSerch from 'react-select-search'
 import { useState, useEffect } from 'react'
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
+import ru from 'date-fns/locale/ru'
 
 
 
@@ -34,6 +36,7 @@ function MainSearch(props) {
 
 
 console.log(dataFetch);
+console.log();
 
   return (
     <div>
@@ -52,6 +55,8 @@ console.log(dataFetch);
             isClearable
             showYearDropdown
             scrollableMonthYearDropdown
+            locale={ru}
+            
           />
 
 
@@ -63,6 +68,7 @@ console.log(dataFetch);
             isClearable
             showYearDropdown
             scrollableMonthYearDropdown
+            locale={ru}
           />
 
         </div>
