@@ -3,7 +3,8 @@ import Maps from './Maps'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 // import {useState} from 'react'
-import SelectSerch from 'react-select-search'
+// import countries from '../../Countries/Countries'
+// import SelectSearch from 'react-select-search'
 import { useState, useEffect } from 'react'
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 import ru from 'date-fns/locale/ru'
@@ -36,7 +37,11 @@ console.log();
     <div>
      <h1>ПОИСКОВАЯ ФОРМА</h1>
      
-   
+     {/* <SelectSearch
+        options={countries}
+        search
+        filterOptions={fuzzySearch}
+        placeholder="Select your country" /> */}
 
       <div style={{ display: 'flex' }}>
         <div className='searchDiv'>
