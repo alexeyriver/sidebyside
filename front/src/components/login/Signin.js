@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './style.css'
+import {AUTH_SUCCESSFULLY} from "../../redux/types";
+
 function Signin(props) {
   const [error, setError] = useState('');
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ function Signin(props) {
       password: { value: password },
     } = event.target;
     event.preventDefault();
-    fetch(process.env.REACT_APP_URL3, {
+    fetch(process.env.REACT_APP_URL_SIGNIN, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({
@@ -21,8 +22,7 @@ function Signin(props) {
       .then((responce) => responce.json())
       .then((data) => {
         if (data.success == true) {
-          localStorage.setItem('token', data.token);
-          dispatch({ type: 'AUTH_SUCCESS', payload: data.user });
+          dispatch({ type: AUTH_SUCCESSFULLY, payload: data.user });
           setError('');
         } else setError(data.message);
       });
