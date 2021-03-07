@@ -47,7 +47,7 @@ function Chat() {
             <div>
                 <div>
                     {
-                        messages && messages.map(el =>  <ul ><li>{el}</li></ul>)
+                        messages && messages.map(el =>  <ul key={performance.now()} ><li>{el}</li></ul>)
                     }
                 </div>
                 <input onChange={(e) => setMessageText(e.target.value)}/>

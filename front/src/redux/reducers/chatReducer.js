@@ -16,11 +16,11 @@ export const chatReducer = (state = preloadState, action) => {
     switch (action.type) {
         case START_CHAT:
             return {
-                ...state,chats:action.payload
+                ...state,chats:{...action.payload}
             }
         case SEND_MESSAGE:
             return {
-                ...state,chats:{...state.chats.messages,messages:[...state.chats.messages,action.payload]}
+                ...state,chats:{...state.chats,messages:[...state.chats.messages,action.payload]}
             }
 
 
