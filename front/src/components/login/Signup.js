@@ -8,16 +8,16 @@ function Signup(props) {
   const dispatch = useDispatch();
   const handlerSign = (event) => {
     const {
-      username: { value: username },
+      username: { value: name },
       email: { value: email },
       password: { value: password },
     } = event.target;
     event.preventDefault();
-    fetch(process.env.REACT_APP_URL2, {
+    fetch(process.env.REACT_APP_URL_SIGNUP, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify({
-        username,
+        name,
         email,
         password,
       }),
@@ -34,10 +34,10 @@ function Signup(props) {
   return (
     <div className="formWrapper">
       <form className="formWrapper__wrapper" onSubmit={handlerSign}>
-        <label htmlFor="username">
-          Username
+        <label htmlFor="name">
+          Name
         </label>
-          <input type="text" name="username" required></input>
+          <input type="text" name="name" required></input>
         <label htmlFor="email">
           Email
         </label>
