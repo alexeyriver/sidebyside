@@ -33,6 +33,7 @@ function CreateTrip(props) {
             onChange={date => setSelectedDate(date)}
             dateFormat='dd.MM.yyyy'
             minDate={new Date()}
+            maxDate={selectedDateSecond}
             isClearable
             showYearDropdown
             scrollableMonthYearDropdown
