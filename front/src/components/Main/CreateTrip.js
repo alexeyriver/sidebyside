@@ -8,7 +8,9 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import MainMap from '../Map/MainMap';
 
-function CreateJourney(props) {
+
+
+function CreateTrip(props) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
 
@@ -64,4 +66,4 @@ function CreateJourney(props) {
   );
 }
 
-export default CreateJourney;
+export default CreateTrip;
