@@ -11,10 +11,10 @@ router.route('/')
 
   })
   .post(async (req, res) => {
-    console.log(req.body);
+    console.log(req.body,'req-body');
     const { budget, country, startDate, endDate, tripInfo, email } = req.body;
     const user = await User.findOne({ email });
-
+console.log(user);
     // const cardToFind = await AdCard.find().populate('author');
     // let resultArray = cardToFind.filter((el) =>
     //   el.author.email == email)
@@ -30,14 +30,14 @@ router.route('/')
         author: user,
         country,
         budget,
-        startDate,
-        endDate,
+        startDate: Date(startDate),
+        endDate: Date(endDate),
         tripInfo,
         participants: user
       });
 
       await newCard.save()
-      res.json()
+      res.json({body:req.body})
 
     } catch (err) {
       res.json({ message: "поездка с указанными параметрами уже существует, найдите карточку поездки через личный кабинет и отредактируйте ее" })

@@ -39,7 +39,7 @@ function CreateTrip(props) {
         startDate:startDate.value,
         endDate:endDate.value,
         tripInfo:tripInfo.value,
-        author:email
+        email:email
       })
     })
     .then(res=>res.json())
@@ -49,7 +49,7 @@ function CreateTrip(props) {
   return (
     <div>
       <h1>Создайте свой маршрут путешествия</h1>
-      <form onSubmit={tripHandler}>
+      <form onSubmit={(e)=>tripHandler(e)}>
         <div style={{
           display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
         }}
