@@ -16,7 +16,7 @@ function MainSearch(props) {
       .then((data) => { if (data.response?.GeoObjectCollection.featureMember[0].GeoObject.Point.pos) { setDataFetch(data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')); } });
     setDataFetch('');
   };
-  console.log(dataFetch);
+  // console.log(dataFetch);
 
   // useEffect(() => {
   //   if (value.length >= 4) {

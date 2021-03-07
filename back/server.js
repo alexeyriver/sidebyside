@@ -2,8 +2,8 @@ import app from "./app.js";
 import http from 'http'
 
 import {Server} from "socket.io";
-// import {messageHandler} from "./sockets/messageHandler";
-// import {usersHandler} from "./sockets/usersHandler.js";
+import {messageHandler} from "./sockets/messageHandler";
+import {usersHandler} from "./sockets/usersHandler.js";
 
 const port = process.env.PORT || 4000
 const server = http.createServer(app)
@@ -20,8 +20,8 @@ io.on('connection', (socket) => {
     socket.roomID = roomID;
     socket.join(roomID);
 
-    // messageHandler(io, socket);
-    // usersHandler(io, socket);
+    messageHandler(io, socket);
+    usersHandler(io, socket);
 
     socket.on('disconnect', () => {
         console.log('disconnected');
