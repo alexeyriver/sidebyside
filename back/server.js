@@ -2,7 +2,7 @@ import app from "./app.js";
 import http from 'http'
 
 import {Server} from "socket.io";
-import {messageHandler} from "./sockets/messageHandler";
+import {messageHandler} from "./sockets/messageHandler.js";
 import {usersHandler} from "./sockets/usersHandler.js";
 
 const port = process.env.PORT || 4000
