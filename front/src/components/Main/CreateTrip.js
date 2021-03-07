@@ -31,7 +31,7 @@ function CreateTrip(props) {
     fetch(process.env.REACT_APP_URL_ADDTRIP,{
       method:'POST',
       headers:{
-        'Content-type':'Applycation/json'
+        'Content-type':'Application/json'
       },
       body:JSON.stringify({
         country:country.value,
