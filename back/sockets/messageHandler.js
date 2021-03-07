@@ -1,9 +1,12 @@
-import Chat from '../Chat.js';
-import Message from '../Message.js';
+
+import Chat from '../models/Chat.js';
+import Message from '../models/Message.js';
+
 
 export const messageHandler = (io, socket) => {
   const getMessages = async () => {
     const messages = await Chat.find().populate('messages');
+
     io.in(socket.chatID).emit('messages', messages);
   };
 
@@ -12,6 +15,7 @@ export const messageHandler = (io, socket) => {
     const chat = await Chat.findById(chatID)
     chat.messages.push(messageText)
     await chat.save()
+
     await getMessages();
   };
 
