@@ -4,15 +4,14 @@ import Message from '../Message.js';
 export const messageHandler = (io, socket) => {
   const getMessages = async () => {
     const messages = await Chat.find().populate('messages');
-    console.log(messages);
-    io.in(socket.roomId).emit('messages', messages);
+    io.in(socket.chatID).emit('messages', messages);
   };
 
-  const addMessage = async (message) => {
-    await Chat.create({
-      messages: message,
-    });
-
+  const addMessage = async (data) => {
+    const {chatID,userID,messageText} = data
+    const chat = await Chat.findById(chatID)
+    chat.messages.push(messageText)
+    await chat.save()
     await getMessages();
   };
 
