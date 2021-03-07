@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import {AUTH_SUCCESSFULLY} from "../../redux/types";
 
 function Signup(props) {
   const [error, setError] = useState('');
@@ -8,11 +9,19 @@ function Signup(props) {
   const dispatch = useDispatch();
   const handlerSign = (event) => {
     const {
+<<<<<<< HEAD
       username: { value: name },
+=======
+      name: { value: name },
+>>>>>>> 603b3275e3156030ce699624e8e6265901d47bcf
       email: { value: email },
       password: { value: password },
     } = event.target;
     event.preventDefault();
+<<<<<<< HEAD
+=======
+    console.log(name,email,password)
+>>>>>>> 603b3275e3156030ce699624e8e6265901d47bcf
     fetch(process.env.REACT_APP_URL_SIGNUP, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -22,11 +31,11 @@ function Signup(props) {
         password,
       }),
     })
-      .then((responce) => responce.json())
+      .then((response) => response.json())
       .then((data) => {
         if (data.success == true) {
           localStorage.setItem('token', data.token);
-          dispatch({ type: 'REG_SUCCESS', payload: data.user });
+          dispatch({ type: AUTH_SUCCESSFULLY, payload: data.user });
           setError('');
         } else setError(data.message);
       });

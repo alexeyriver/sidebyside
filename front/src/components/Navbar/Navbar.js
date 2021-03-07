@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function Navbar(props) {
-  const isAuth = useSelector((state) => state.isAuth);
+  const isAuth = useSelector((state) => state.auth.isAuth);
 
   return (
     <div>
@@ -20,6 +20,7 @@ function Navbar(props) {
           <Link to="/createtrip">Создать Маршрут</Link>
         </div>
 
+
         <div>{isAuth && <Link to="/cabinet">Личный кабинет</Link>}</div>
         <div>
           {!isAuth && (
@@ -33,6 +34,11 @@ function Navbar(props) {
             <Link className="link" to="/signin">
               Войти
             </Link>
+          )}
+          {isAuth && (
+              <Link className="link" to="/logout">
+                Выход
+              </Link>
           )}
         </div>
       </div>
