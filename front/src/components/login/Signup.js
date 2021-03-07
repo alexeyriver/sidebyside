@@ -37,7 +37,7 @@ function Signup(props) {
     <div className="formWrapper">
       <form className="formWrapper__wrapper" onSubmit={handlerSign}>
         <label htmlFor="name">
-          Username
+          Name
         </label>
           <input type="text" name="name" required></input>
         <label htmlFor="email">
