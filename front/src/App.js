@@ -14,6 +14,7 @@ import {useSelector} from "react-redux";
 import Logout from "./components/login/Logout";
 import Signin from "./components/login/Signin";
 import Signup from "./components/login/Signup";
+import Chat from "./components/Chat/Chat";
 
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <MainPage/>
+                    </Route>
+                    <Route path="/chat">
+                        <Chat/>
                     </Route>
                     <Route path="/findroute">
                         <MainSearch/>
