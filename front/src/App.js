@@ -15,10 +15,23 @@ import Logout from "./components/login/Logout";
 import Signin from "./components/login/Signin";
 import Signup from "./components/login/Signup";
 import Chat from "./components/Chat/Chat";
+import {useEffect} from "react";
+import {chatCreatorFetchAC} from "./redux/Thunk/chatFetchesAC";
 
 
 function App() {
+
+
+
+
     const isAuth = useSelector(state => state.auth.isAuth)
+    const userID = useSelector(state => state.auth.user._id)
+
+    useEffect(() => {
+        console.log('here')
+        chatCreatorFetchAC(userID)
+    },[])
+
     return (
         <Router>
             <Navbar/>
