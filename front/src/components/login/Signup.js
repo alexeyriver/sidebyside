@@ -9,19 +9,12 @@ function Signup(props) {
   const dispatch = useDispatch();
   const handlerSign = (event) => {
     const {
-<<<<<<< HEAD
-      username: { value: name },
-=======
       name: { value: name },
->>>>>>> 603b3275e3156030ce699624e8e6265901d47bcf
       email: { value: email },
       password: { value: password },
     } = event.target;
     event.preventDefault();
-<<<<<<< HEAD
-=======
     console.log(name,email,password)
->>>>>>> 603b3275e3156030ce699624e8e6265901d47bcf
     fetch(process.env.REACT_APP_URL_SIGNUP, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
