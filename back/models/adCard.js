@@ -1,20 +1,21 @@
 import mongoose from 'mongoose';
+// import {Schema} from 'mongoose'
 
 const adCardSchema = new mongoose.Schema({
   startDate: Date,
   endDate: Date,
   author: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
   },
   budget: Number,
+  participants: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'users'
+    }
+  ],
   postedStatus: {
-    participants: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'users'
-      }
-    ],
     type: Boolean,
     default: true
   },
@@ -26,4 +27,6 @@ const adCardSchema = new mongoose.Schema({
   tripInfo: String 
 });
 
-export default mongoose.model('adCards', cardSchema);
+
+
+export default mongoose.model('adCards', adCardSchema);
