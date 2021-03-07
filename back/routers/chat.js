@@ -9,7 +9,6 @@ const router = express.Router()
 
 
 router.route('/')
-
     .post(async (req,res) => {
         const { userID } = req.body
         const user = await User.findById(userID)
@@ -17,6 +16,9 @@ router.route('/')
             user:user._id
         })
         res.json(chat)
+    })
+    .put(async (req,res) => {
+
     })
 
 
