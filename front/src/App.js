@@ -1,6 +1,6 @@
 import MainPage from './components/Main/MainPage'
 import MainSearch from './components/Main/MainSearch'
-import CreateJourney from './components/Main/CreateJourney'
+import CreateTrip from './components/Main/CreateTrip'
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar'
 import Cabinet from './components/Cabinet/Cabinet'
+
 
 function App() {
   return (
@@ -24,12 +25,13 @@ function App() {
             <MainSearch />
           </Route>
 
-          <Route path="/createjourney">
-            <CreateJourney />
+          <Route path="/createtrip">
+            <CreateTrip />
           </Route>
-          <Route path="/profile">
+          <Route path="/cabinet">
             <Cabinet />
           </Route>
+          
         </Switch>
       </div>
     </Router>
