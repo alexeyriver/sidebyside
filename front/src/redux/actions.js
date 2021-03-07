@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FROM_CITY_TO_COORDS } from './types';
+import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY } from './types';
 // export function changeDepAC(changedep) {
 //   return {
 //     type: CHANGE_DEPARTMENT,
@@ -15,12 +15,15 @@ export function fetchFromCityToCoordsAC() {
   };
 }
 
-// export function inputAC(input){
-//   return {
-//     type: INPUT_PETYX,
-//     payload: input
-//   }
-// }
+export function fetchCreateJourneyAC(value){
+  return async (dispatch) => {
+    const response = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=84f3099a-6de5-4986-816c-186384023e64&format=json&geocode=${value}`);
+    // const json = await resp.json()
+    // dispatch({ type: FETCH_CREATE_JOURNEY, payload: response.data.response });
+    dispatch({ type: FETCH_CREATE_JOURNEY, payload: response.data.response });
+    
+  };
+}
 
 // export function dogAC(){
 //   return {

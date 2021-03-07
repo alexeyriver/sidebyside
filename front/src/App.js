@@ -17,7 +17,7 @@ import Signup from "./components/login/Signup";
 import Chat from "./components/Chat/Chat";
 import {useEffect} from "react";
 import {chatCreatorFetchAC} from "./redux/Thunk/chatFetchesAC";
-
+// import {ProtectedRouter} from "./components/ProtectedRoute"
 
 function App() {
 
