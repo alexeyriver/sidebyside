@@ -24,7 +24,10 @@ const adCardSchema = new mongoose.Schema({
     default: false
   },
 
-  tripInfo: String 
+  tripInfo: String ,
+  startCoords: String,
+  finalCoords: String,
+  betweenCoords: []
 });
 
 

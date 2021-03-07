@@ -1,7 +1,5 @@
-
 import Chat from '../models/Chat.js';
 import Message from '../models/Message.js';
-
 
 export const messageHandler = (io, socket) => {
   const getMessages = async () => {
