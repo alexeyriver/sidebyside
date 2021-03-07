@@ -34,7 +34,6 @@ function Chat() {
 
     const sendMessage = () => {
         dispatch(sendMessageAC(messageText))
-
         socketRef.current.emit('message:add',{
             chatID,
             userID,
