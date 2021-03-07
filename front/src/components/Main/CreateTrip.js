@@ -13,8 +13,8 @@ import MainMap from '../Map/MainMap';
 function CreateTrip(props) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
-  const user =useSelector(store=>store.auth.user._id)
- console.log(user);
+  const email =useSelector(store=>store.auth.user.email)
+ console.log(email);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFromCityToCoordsAC());
@@ -25,7 +25,7 @@ function CreateTrip(props) {
  
   const tripHandler=(event)=>{
     event.preventDefault()
-    const {budget,startDate,endDate,tripInfo,country,user}=event.target
+    const {budget,startDate,endDate,tripInfo,country}=event.target
     
     console.log('------>',budget.value);
     fetch(process.env.REACT_APP_URL_ADDTRIP,{
@@ -39,7 +39,7 @@ function CreateTrip(props) {
         startDate:startDate.value,
         endDate:endDate.value,
         tripInfo:tripInfo.value,
-        author:user
+        author:email
       })
     })
     .then(res=>res.json())
