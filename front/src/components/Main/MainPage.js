@@ -13,7 +13,7 @@ history.push('/findroute')
 
 const createButtonHandler=(event)=>{
   event.preventDefault()
-  history.push('/createjourney')
+  history.push('/createtrip')
 }
 
   return (
