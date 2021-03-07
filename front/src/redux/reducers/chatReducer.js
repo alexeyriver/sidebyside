@@ -17,7 +17,7 @@ export const chatReducer = (state = preloadState, action) => {
             }
         case SEND_MESSAGE:
             return {
-                ...state,chats:[...state.chats.messages,{messages:action.payload.message,user:action.payload.user}]
+                ...state,chats:{...state.chats.chats,messages:[...state.chats.messages,action.payload]}
             }
 
 

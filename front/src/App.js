@@ -10,7 +10,7 @@ import MainSearch from './components/Main/MainSearch';
 import CreateTrip from './components/Main/CreateTrip';
 import Navbar from './components/Navbar/Navbar';
 import Cabinet from './components/Cabinet/Cabinet';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Logout from "./components/login/Logout";
 import Signin from "./components/login/Signin";
 import Signup from "./components/login/Signup";
@@ -22,14 +22,14 @@ import {chatCreatorFetchAC} from "./redux/Thunk/chatFetchesAC";
 function App() {
 
 
-
+const dispatch = useDispatch()
 
     const isAuth = useSelector(state => state.auth.isAuth)
     const userID = useSelector(state => state.auth.user._id)
 
     useEffect(() => {
         console.log('here')
-        chatCreatorFetchAC(userID)
+       dispatch(chatCreatorFetchAC(userID))
     },[])
 
     return (
