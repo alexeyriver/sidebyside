@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import { useDispatch, useSelector } from 'react-redux';
+import {addTripFetchAC} from "../../redux/Thunk/tripsFetchesAC";
 
 
 function FirstPointMap({ props }) {
