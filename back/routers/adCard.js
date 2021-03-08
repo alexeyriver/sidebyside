@@ -1,6 +1,7 @@
 import express from 'express';
 import AdCard from '../models/AdCard.js';
 import User from '../models/User.js';
+import moment from "moment";
 
 const router = express.Router();
 
@@ -8,7 +9,7 @@ router.route('/')
   .get(async (req, res) => {
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
-      postedStatus: true, 
+      postedStatus: true,
     }).populate('participants');
     res.json(cardsToRender);
   })
@@ -21,7 +22,7 @@ router.route('/')
     }).populate('author');
     console.log(querysToRender);
 
-    res.json({ response: querysToRender });
+    res.json({ message: 'Поездка создана', response: querysToRender });
 
   })
 
@@ -30,25 +31,16 @@ router.route('/new')
     console.log(req.body, 'req-body');
     const { budget, country, startDate, endDate, tripInfo, email, startCoords, finalCoords, betweenCoords } = req.body;
     const user = await User.findOne({ email });
-    console.log(Date(startDate));
-    // console.log(user);
-    // const cardToFind = await AdCard.find().populate('author');
-    // let resultArray = cardToFind.filter((el) =>
-    //   el.author.email == email)
+    const testDate = moment(startDate, "DD-MM-YYYY")
+    console.log(testDate, 'test')
 
-
-    // if (!cardToFind) {
     try {
-      // const cardToFind = await AdCard.find().populate('author');
-
-
       const newCard = new AdCard({
-
         author: user,
         country,
         budget,
-        startDate,
-        endDate,
+        startDate: moment(startDate, "DD-MM-YYYY"),
+        endDate: moment(endDate, "DD-MM-YYYY"),
         tripInfo,
         participants: user,
         betweenCoords,
@@ -65,6 +57,19 @@ router.route('/new')
 
     // }
   });
+
+router.route('/:id')
+  .delete(async (req, res) => {
+    const { id } = req.params;
+    
+    try {
+      const cardToDelete = await AdCard.findOneAndDelete({ _id: id })
+      // const querysToRender = await AdCard.filter(el => el._id !== req.params.id);
+      res.status(200).json({ message: 'Поездка удалена' });
+    } catch {
+      res.json({ message: "Не найдена поездка с указанным id" })
+    }
+  })
 
 
 
