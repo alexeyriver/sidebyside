@@ -88,7 +88,7 @@ function CreateTrip(props) {
 
 {/* ФОрму запихать в элемент FirstPointMap */}
 
-        <form onSubmit={(e) => tripHandler(e)}>
+        {/* <form onSubmit={(e) => tripHandler(e)}>
         <div style={{
           display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
         }}
@@ -127,8 +127,7 @@ function CreateTrip(props) {
           <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
           <button >Создать путешествие </button>
         </div>
-
-      </form>
+      </form> */}
       </>
       }
     </div>
