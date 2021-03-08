@@ -5,10 +5,15 @@ import User from '../models/User.js';
 const router = express.Router();
 
 router.route('/')
-  .get((req, res) => {
+  .get(async (req, res) => {
     res.send('newtrip')
-    // const cardsToRender = await AdCard.find({postedStatus: true});
-
+    console.log(Date.now());
+    const cardsToRender = await AdCard.find({
+      postedStatus: true, 
+      startDate: { $lt: Date.now() }
+    });
+    console.log(cardsToRender);
+    res.json(cardsToRender);
 
   })
 
