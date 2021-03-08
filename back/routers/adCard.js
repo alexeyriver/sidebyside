@@ -6,12 +6,12 @@ const router = express.Router();
 
 router.route('/')
   .get(async (req, res) => {
-    res.send('newtrip')
+    // res.send('newtrip')
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
       postedStatus: true, 
       // startDate: { $lt: Date.now() }
-    });
+    }).populate('participants');
     console.log(cardsToRender);
     res.json(cardsToRender);
 
@@ -22,6 +22,7 @@ router.route('/new')
     console.log(req.body, 'req-body');
     const { budget, country, startDate, endDate, tripInfo, email } = req.body;
     const user = await User.findOne({ email });
+    console.log(Date(startDate));
     // console.log(user);
     // const cardToFind = await AdCard.find().populate('author');
     // let resultArray = cardToFind.filter((el) =>
