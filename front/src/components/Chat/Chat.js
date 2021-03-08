@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import { FormControl, InputGroup, Button } from 'react-bootstrap';
 import {io} from 'socket.io-client';
 import {useDispatch, useSelector} from "react-redux";
-import {sendMessageAC} from "../../redux/actionCreators";
+import {sendMessageAC} from "../../redux/actionCreators.js";
 
 
 const SERVER = 'http://localhost:4000';

@@ -114,7 +114,9 @@ const SubmitFormFirstPoint =  async (e) =>{
           <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
           <button >Создать путешествие </button>
         </div>
-        {/* <MainMap /> */}
+        <MainMap />
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
       </form>
 
       {/* {/* first version /\/\/\/\} */}
