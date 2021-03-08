@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 
 function Trips() {
 
-  const trips = useSelector(state => state.tripReducer.trips)
+  const trips = useSelector(state => state.tripState.trips)
 
   return (
     <>

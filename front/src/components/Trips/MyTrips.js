@@ -5,7 +5,7 @@ import {deleteTripsFetchAC} from '../../redux/Thunk/tripsFetchesAC'
 function MyTrips(props) {
  const dispatch =useDispatch()
 
-  let trips = useSelector(state => state.trips.trips)
+  let trips = useSelector(state => state.tripState.trips)
     console.log(trips)
   const user = useSelector(state => state.auth.user)
   if(trips.length>0){

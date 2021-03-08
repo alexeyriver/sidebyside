@@ -2,9 +2,9 @@ import {INIT_TRIPS, DELETE_TRIPS, ADD_TRIPS} from '../types';
 
 const windowState = JSON.parse(window.localStorage.getItem('state'));
 let preloadState = {};
-if (windowState && windowState.tripReducer) {
+if (windowState && windowState.tripState) {
   preloadState = {
-   trips: windowState.tripReducer.trips
+   trips: windowState.tripState.trips
   }
 } else {
   preloadState = {trips:[]}

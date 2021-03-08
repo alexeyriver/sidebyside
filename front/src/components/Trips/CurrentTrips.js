@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 function CurrentTrips(props) {
 
 
-    let trips = useSelector(state => state.tripReducer.trips)
+    let trips = useSelector(state => state.tripState.trips)
   const user = useSelector(state => state.auth.user)
   trips = trips.filter(el => el.participants.includes(user._id))
 
