@@ -1,6 +1,7 @@
 import express from 'express';
 import AdCard from '../models/AdCard.js';
 import User from '../models/User.js';
+import moment from "moment";
 
 const router = express.Router();
 
@@ -30,16 +31,11 @@ router.route('/new')
     console.log(req.body, 'req-body');
     const { budget, country, startDate, endDate, tripInfo, email, startCoords, finalCoords, betweenCoords } = req.body;
     const user = await User.findOne({ email });
-    console.log(Date(startDate));
-    // console.log(user);
-    // const cardToFind = await AdCard.find().populate('author');
-    // let resultArray = cardToFind.filter((el) =>
-    //   el.author.email == email)
+    const testDate = moment(startDate,"DD-MM-YYYY")
+      console.log(testDate,'test')
 
-
-    // if (!cardToFind) {
     try {
-      // const cardToFind = await AdCard.find().populate('author');
+
 
 
       const newCard = new AdCard({
@@ -47,8 +43,8 @@ router.route('/new')
         author: user,
         country,
         budget,
-        startDate,
-        endDate,
+        startDate:moment(startDate,"DD-MM-YYYY"),
+        endDate:moment(endDate,"DD-MM-YYYY"),
         tripInfo,
         participants: user,
         betweenCoords,
