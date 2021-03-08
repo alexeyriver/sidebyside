@@ -13,6 +13,7 @@ router.route('/')
       // startDate: { $lt: Date.now() }
     }).populate('participants');
     console.log(cardsToRender);
+
     res.json(cardsToRender);
 
   })
