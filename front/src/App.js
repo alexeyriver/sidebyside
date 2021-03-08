@@ -8,7 +8,7 @@ import  {
 import MainPage from './components/Main/MainPage';
 import MainSearch from './components/Main/MainSearch';
 import CreateTrip from './components/Main/CreateTrip';
-import Navbar from './components/Navbar/Navbar';
+import Navbars from './components/Navbar/Navbar';
 import Cabinet from './components/Cabinet/Cabinet';
 import {useDispatch, useSelector} from "react-redux";
 import Logout from "./components/login/Logout";
@@ -29,7 +29,7 @@ const dispatch = useDispatch()
 
     return (
         <Router>
-            <Navbar/>
+            <Navbars/>
             <div>
                 <Switch>
                     <Route exact path="/">
