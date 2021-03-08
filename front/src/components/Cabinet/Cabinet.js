@@ -14,7 +14,6 @@ function Cabinet(props) {
    dispatch(initTripsFetchAC()) 
   },[dispatch])
 
-  console.log(trips);
   return (
     <div>
      

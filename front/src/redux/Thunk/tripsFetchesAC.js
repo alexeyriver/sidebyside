@@ -6,7 +6,7 @@ export const initTripsFetchAC = () => (dispatch) => {
 };
 
 export const deleteTripsFetchAC = (itemId) => (dispatch) => {
-  fetch(`process.env.REACT_APP_URL_FIND_ALL_TRIP/${itemId}`,{
+  fetch(`${process.env.REACT_APP_URL_FIND_ALL_TRIP}/${itemId}`,{
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -17,4 +17,17 @@ export const deleteTripsFetchAC = (itemId) => (dispatch) => {
         dispatch(deleteTripAC(itemId))
       }
     })
+}
+
+
+export const addTripFetchAC = () => (dispatch) => {
+  fetch(process.env.REACT_APP_URL_ADDTRIP,{
+method:'post',
+headers:{
+  'content-type':'application/json'
+},
+body:{
+  
+}
+  })
 }

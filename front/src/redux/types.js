@@ -21,3 +21,4 @@ export const SEND_MESSAGE = 'SEND_MESSAGE'
 //TRIPS
 export const INIT_TRIPS = 'INIT_TRIPS'
 export const DELETE_TRIPS ='DELETE_TRIPS'
+export const ADD_TRIPS = 'ADD_TRIPS'
