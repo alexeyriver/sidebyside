@@ -1,5 +1,6 @@
 export const FROM_CITY_TO_COORDS = 'FROM_CITY_TO_COORDS';
-export const FETCH_CAT = 'FETCH_CAT';
+
+export const FETCH_CREATE_JOURNEY = 'FETCH_CREATE_JOURNEY';
 export const INPUT_PETYX = 'INPUT_PETYX';
 export const FETCH_DOG = 'FETCH_DOG';
 export const FETCH_KEK = 'FETCH_KEK';
