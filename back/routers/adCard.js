@@ -6,16 +6,11 @@ const router = express.Router();
 
 router.route('/')
   .get(async (req, res) => {
-    // res.send('newtrip')
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
       postedStatus: true, 
-      // startDate: { $lt: Date.now() }
     }).populate('participants');
-    console.log(cardsToRender);
-
     res.json(cardsToRender);
-
   })
 
 router.route('/new')
@@ -40,8 +35,8 @@ router.route('/new')
         author: user,
         country,
         budget,
-        startDate: Date(startDate),
-        endDate: Date(endDate),
+        startDate,
+        endDate,
         tripInfo,
         participants: user, 
         betweenCoords,

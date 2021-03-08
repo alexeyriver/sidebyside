@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useState } from "react";
+import MyTrips from '../Trips/MyTrips';
+import CurrentTrips from '../Trips/CurrentTrips'
+import PastTrips from '../Trips/PastTrips'
+import {BrowserRouter as Router, Link, Route,Switch} from 'react-router-dom'
 
-function Trips({ownTrips}) {
+function Trips() {
+
+
   return (
     <>
-      <h1>Тут будут Trips</h1>
-      <h2>Прошедшие поездки</h2>
-      <h2>Текущие поездки</h2> 
-      <h2>Поездки которые предложил сам</h2>
-    {ownTrips && ownTrips.map(el=><div style={{border:'1px black solid'}} key={performance.now()}>
-    <p>{el.author}</p>
-      <p>{el.tripInfo}</p>
-      <p>{el.startDate}</p>
-      <p>{el.endDate}</p>
-      <p>{el.budget}</p>
-      <p>{el.participants}</p>
-      </div>)}
-    <div>
-    </div>
-    </>
+    <h1>Поездки</h1>
+     <Router>
+    <ul>
+    <li><Link to='/mytrips'>Мною созданные поездки</Link></li>
+    <li><Link to='/current'>Текущие поездки</Link></li>
+    <li><Link to='/past'>Прошедшие поездки</Link></li>
+  </ul>
+  <Switch>
+    <Route path='/mytrips'>
+    <MyTrips/>
+    </Route>
+    <Route path='/current'>
+    <CurrentTrips/>
+    </Route> 
+    <Route path='/past'>
+    <PastTrips/>
+    </Route>
+  </Switch>
+  </Router>
+</> 
   );
 }
 
