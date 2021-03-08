@@ -1,4 +1,4 @@
-import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY,FETCH_FIND_ALL_JOURNEY } from '../types';
+import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY,FETCH_FIND_ALL_JOURNEY,FETCH_FIND_QUERY_JOURNEY } from '../types';
 
 const initialState = {
   fetch: [],
@@ -16,6 +16,10 @@ export const fetchReducer = (state = initialState, action) => {
         case FETCH_FIND_ALL_JOURNEY:
         return {
           ...state, fetchFindAllJourney: action.payload,
+        }
+        case FETCH_FIND_QUERY_JOURNEY:
+        return {
+          ...state, fetchFindQueryJourney: action.payload,
         }
     default: return state;
   }

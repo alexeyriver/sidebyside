@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.route('/')
   .get(async (req, res) => {
-    // res.send('newtrip')
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
       postedStatus: true, 
@@ -15,6 +14,18 @@ router.route('/')
     console.log(cardsToRender);
 
     res.json(cardsToRender);
+
+  })
+  .post(async (req, res) => {
+console.log(req.body);
+const coord= [req.body.coords[1], req.body.coords[0]]
+    const querysToRender = await AdCard.find({
+      startCoords: coord
+      
+    }).populate('participants');
+    console.log(querysToRender);
+
+    res.json({response:querysToRender});
 
   })
 
@@ -58,5 +69,18 @@ router.route('/new')
 
     // }
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default router;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY } from './types';
+import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY,FETCH_FIND_QUERY_JOURNEY } from './types';
 
 
 export function fetchFromCityToCoordsAC() {
@@ -27,4 +27,12 @@ export function fetchFindAllJourneyAC(){
   };
 }
 
-
+export function fetchFindQueryJourneyAC(value){
+  return async (dispatch) => {
+    const response = await axios.post(process.env.REACT_APP_URL_FIND_ALL_TRIP,{
+      coords: value
+    });
+    console.log(response);
+    dispatch({ type: FETCH_FIND_QUERY_JOURNEY, payload: response.data.response });
+  };
+}
