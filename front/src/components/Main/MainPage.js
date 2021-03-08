@@ -7,15 +7,15 @@ function MainPage(props) {
   const history = useHistory();
 
 
-  const findButtonHandler = (event) => {
-    event.preventDefault()
-    history.push('/findroute')
-  }
+const findButtonHandler=(event)=>{
+  event.preventDefault()
+history.push('/findroute')
+}
 
-  const createButtonHandler = (event) => {
-    event.preventDefault()
-    history.push('/createtrip')
-  }
+const createButtonHandler=(event)=>{
+  event.preventDefault()
+  history.push('/createtrip')
+}
 
 
   return (
