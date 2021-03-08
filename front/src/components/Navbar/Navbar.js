@@ -7,6 +7,7 @@ function Navbars(props) {
   const isAuth = useSelector((state) => state.auth.isAuth);
 
   return (
+
     <Container>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
         <Nav className="mr-auto">
@@ -54,6 +55,7 @@ function Navbars(props) {
               </Link>
             )}
             {isAuth && (
+
               <Link className="link" to="/logout">
                 Выход
               </Link>
