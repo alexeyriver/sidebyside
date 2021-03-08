@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
+
 // import {Schema} from 'mongoose'
 
 const adCardSchema = new mongoose.Schema({
-  startDate: String,
-  endDate: String,
+  startDate: Date,
+  endDate: Date,
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
