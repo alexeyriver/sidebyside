@@ -12,6 +12,10 @@ function MainSearch(props) {
   const [dataFetch, setDataFetch] = useState('');
   const [flagMapSearch, setFlagMapSearch] = useState(true);
 
+  const [clickMapSearch, setClickFlagMapSearch] = useState(false);
+
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFindAllJourneyAC())
@@ -20,6 +24,10 @@ function MainSearch(props) {
 
   let stateofAll = useSelector(state => state.fetch.fetchFindAllJourney)
   console.log(stateofAll);
+  const ClickonRoute = (el) => {
+    console.log(el)
+    setClickFlagMapSearch(el)
+  }
 
   const HandlerChanger = (e) => {
     setFlagMapSearch(false)
@@ -36,7 +44,7 @@ function MainSearch(props) {
     setDataFetch('');
   };
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
-console.log(stateofQuery);
+  console.log(stateofQuery);
   return (
     <div>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
@@ -48,51 +56,63 @@ console.log(stateofQuery);
         </div>
       </form>
 
-      {flagMapSearch && <YMaps>
+      {flagMapSearch &&
+        <>
+          <YMaps>
 
-        <Map
-          defaultState={{
-            center: [55.75, 37.57],
-            zoom: 6,
-          }}
-          height={500}
-          width={700}
-
-          onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
-        >
-          {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
-            onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
-            onContextMenu={(e) => {
-              console.log(e.originalEvent.target.geometry._coordinates);
-
-            }} />
-            <GeoObject
-              geometry={{
-                type: 'LineString',
-                coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
+            <Map
+              defaultState={{
+                center: [55.75, 37.57],
+                zoom: 6,
               }}
-              options={{
-                geodesic: true,
-                strokeWidth: 5,
-                strokeColor: '#F008',
-                openBalloonOnClick: true,
-              }}
-              onClick={(e) => console.log(e.originalEvent.target.geometry._coordPath._coordinates)}
-            />
-            <Placemark geometry={el.finalCoords}
-              onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
-              onContextMenu={(e) => {
-                console.log(e.originalEvent.target.geometry._coordinates);
+              height={500}
+              width={700}
 
-              }} />
+              onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
+            >
+              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
+                onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
+                onContextMenu={(e) => {
+                  console.log(e.originalEvent.target.geometry._coordinates);
 
-          </>
-          )}
+                }} />
+                <GeoObject
+                  geometry={{
+                    type: 'LineString',
+                    coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
+                  }}
+                  options={{
+                    geodesic: true,
+                    strokeWidth: 5,
+                    strokeColor: '#F008',
+                    openBalloonOnClick: true,
+                  }}
+                  onClick={(e) => {
+                    console.log(e.originalEvent.target.geometry._coordPath._coordinates);
+                    ClickonRoute(el)
+                  }}
+                />
+                <Placemark geometry={el.finalCoords}
+                  onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
+                  onContextMenu={(e) => {
+                    console.log(e.originalEvent.target.geometry._coordinates);
+
+                  }} />
+
+              </>
+              )}
 
 
-        </Map>
+            </Map>
 
-      </YMaps>}
+          </YMaps>
+
+            {clickMapSearch&&  <div>{clickMapSearch.tripInfo} </div>}
+
+
+        </>
+
+      }
 
 
       {!flagMapSearch && dataFetch.length === 2 && (
@@ -140,7 +160,7 @@ console.log(stateofQuery);
             </Map>
           </YMaps>
 
-          {stateofQuery && stateofQuery.map(el=><div key ={el}>{el.tripInfo}</div> )}
+          {stateofQuery && stateofQuery.map(el => <div key={el}>{el.tripInfo}</div>)}
         </>
 
 
