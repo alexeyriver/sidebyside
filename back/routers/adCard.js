@@ -8,13 +8,9 @@ router.route('/')
   .get(async (req, res) => {
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
-      postedStatus: true,
-      // startDate: { $lt: Date.now() }
+      postedStatus: true, 
     }).populate('participants');
-    console.log(cardsToRender);
-
     res.json(cardsToRender);
-
   })
   .post(async (req, res) => {
     console.log(req.body);
@@ -51,8 +47,8 @@ router.route('/new')
         author: user,
         country,
         budget,
-        startDate: Date(startDate),
-        endDate: Date(endDate),
+        startDate,
+        endDate,
         tripInfo,
         participants: user,
         betweenCoords,

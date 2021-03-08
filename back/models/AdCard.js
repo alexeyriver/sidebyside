@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 // import {Schema} from 'mongoose'
 
 const adCardSchema = new mongoose.Schema({
-  startDate: Date,
-  endDate: Date,
+  startDate: String,
+  endDate: String,
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users'
@@ -23,7 +23,7 @@ const adCardSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  closeStatus: {
+  cancelStatus: {
     type: Boolean,
     default: false
   },
