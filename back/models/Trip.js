@@ -1,10 +1,10 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 
-const tripSchema = new mongoose.Schema({
-  startDate: Date,
-  endDate: Date,
-  participants: [],
-  feedback:[]
-});
+// const tripSchema = new mongoose.Schema({
+//   startDate: Date,
+//   endDate: Date,
+//   participants: [],
+//   feedback:[]
+// });
 
-export default mongoose.model('trips', tripSchema);
+// export default mongoose.model('trips', tripSchema);

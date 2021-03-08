@@ -127,6 +127,7 @@ function CreateTrip(props) {
           <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
           <button >Создать путешествие </button>
         </div>
+
       </form>
       </>
       }
