@@ -11,8 +11,9 @@ router.route('/')
     const cardsToRender = await AdCard.find({
       postedStatus: true, 
       // startDate: { $lt: Date.now() }
-    });
-    // console.log(cardsToRender);
+    }).populate('participants');
+    console.log(cardsToRender);
+
     res.json(cardsToRender);
 
   })
@@ -22,6 +23,7 @@ router.route('/new')
     console.log(req.body, 'req-body');
     const { budget, country, startDate, endDate, tripInfo, email, startCoords,finalCoords ,betweenCoords} = req.body;
     const user = await User.findOne({ email });
+    console.log(Date(startDate));
     // console.log(user);
     // const cardToFind = await AdCard.find().populate('author');
     // let resultArray = cardToFind.filter((el) =>

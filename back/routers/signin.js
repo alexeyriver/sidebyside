@@ -24,9 +24,7 @@ router.route('/')
       // Проверка пароля
       const passwordResult = bcrypt.compareSync(password, user.password);
       if (passwordResult) {
-        const token = createToken(user._id);
-        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
-        res.status(200).json({ user: user, token, success: true });
+        res.status(200).json({ user: user, success: true });
       } else {
         res.status(401).json({
           message: 'Пароли не совпали',
