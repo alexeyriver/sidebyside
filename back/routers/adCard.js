@@ -12,11 +12,23 @@ router.route('/')
     }).populate('participants');
     res.json(cardsToRender);
   })
+  .post(async (req, res) => {
+    console.log(req.body);
+    const coord = [req.body.coords[1], req.body.coords[0]]
+    const querysToRender = await AdCard.find({
+      startCoords: coord
+
+    }).populate('author');
+    console.log(querysToRender);
+
+    res.json({ response: querysToRender });
+
+  })
 
 router.route('/new')
   .post(async (req, res) => {
     console.log(req.body, 'req-body');
-    const { budget, country, startDate, endDate, tripInfo, email, startCoords,finalCoords ,betweenCoords} = req.body;
+    const { budget, country, startDate, endDate, tripInfo, email, startCoords, finalCoords, betweenCoords } = req.body;
     const user = await User.findOne({ email });
     console.log(Date(startDate));
     // console.log(user);
@@ -38,7 +50,7 @@ router.route('/new')
         startDate,
         endDate,
         tripInfo,
-        participants: user, 
+        participants: user,
         betweenCoords,
         startCoords,
         finalCoords
@@ -53,5 +65,18 @@ router.route('/new')
 
     // }
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default router;

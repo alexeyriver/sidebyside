@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import MainMap from '../Map/MainMap';
 import FirstPointMap from '../Map/FirstPointMap';
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 
 
@@ -64,7 +65,7 @@ function CreateTrip(props) {
 
 
   return (
-    <div>
+    <Container>
       <h1>Создайте свой маршрут путешествия</h1>
     
 
@@ -130,7 +131,7 @@ function CreateTrip(props) {
       </form> */}
       </>
       }
-    </div>
+    </Container>
   );
 }
 

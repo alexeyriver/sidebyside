@@ -8,7 +8,6 @@ import Trips from '../Trips/Trips';
 function Cabinet(props) {
 
    const trips = useSelector(store=>store.trips)
-
   const dispatch = useDispatch()
 
   useEffect(()=>{
