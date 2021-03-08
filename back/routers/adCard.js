@@ -10,7 +10,7 @@ router.route('/')
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
       postedStatus: true, 
-      startDate: { $lt: Date.now() }
+      // startDate: { $lt: Date.now() }
     });
     console.log(cardsToRender);
     res.json(cardsToRender);
