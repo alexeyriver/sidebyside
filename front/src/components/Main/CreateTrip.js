@@ -89,6 +89,8 @@ function CreateTrip(props) {
           <button >Создать путешествие </button>
         </div>
         <MainMap />
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
       </form>
     </div>
   );
