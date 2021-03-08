@@ -8,4 +8,4 @@ export const sendMessageAC = (payload) => ({type: SEND_MESSAGE, payload});
 
 //TRIPS
 export const initTripsAC = (data)=>({type:INIT_TRIPS,payload:data})
-export const deleteTripAC = (data)=>({type:DELETE_TRIPS})
+export const deleteTripAC = (itemId)=>({type:DELETE_TRIPS,payload:itemId})

@@ -1,31 +1,29 @@
-import { INIT_TRIPS,DELETE_TRIPS} from '../types';
+import { INIT_TRIPS,DELETE_TRIPS,ADD_TRIPS} from '../types';
 
 const windowState = JSON.parse(window.localStorage.getItem('state'));
 let preloadState = {};
 if (windowState && windowState.trips) {
-  preloadState = windowState 
-  
+  preloadState = windowState.trips
 } else {
   preloadState = {}
 }
 
-export const tripReducer = (state = preloadState, action) => {
+export const tripReducer = (trips = preloadState, action) => {
   switch (action.type) {
     case INIT_TRIPS:
-      console.log(state.trips,'init');
-      return  state.trips,action.payload    
+      console.log(trips,'init');
+      return  action.payload    
+
       case ADD_TRIPS:
-        return{
-          ...state,trips:[...state.trips,action.payload]
-        }
+        return [...trips, action.payload]
 
       case DELETE_TRIPS:
-        console.log(state.trips,'delet');
-        return {...state.trips.filter(el=>el._id != action.payload)}
+        console.log(trips,'delet');
+        return trips.filter(el=>el._id != action.payload)
       
     
     default:
-      return state;
+      return trips;
   }
 };
 
