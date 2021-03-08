@@ -1,19 +1,19 @@
 import mongoose from 'mongoose';
 
 const feedSchema = new mongoose.Schema({
-  trip: {
+  adCard: {
     type: Schema.Types.ObjectId,
-    ref: 'trips'
+    ref: 'adCards'
   },
-  author: {
+  feedAuthor: {
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  text: String,
-  closeStatus: {
-    type: Boolean,
-    default: false
-  }
+  text: String
+  // closeStatus: {
+  //   type: Boolean,
+  //   default: false
+  // }
 });
 
-export default mongoose.model('cards', feedSchema);
+export default mongoose.model('feedbacks', feedSchema);
