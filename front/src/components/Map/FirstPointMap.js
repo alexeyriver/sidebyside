@@ -32,7 +32,7 @@ function FirstPointMap({ props }) {
     const { budget, startDate, endDate, tripInfo, country } = event.target
     let firstPoint = routePoint[0]
     let lastPoint = routePoint[routePoint.length - 1]
-    let between = routePoint.map((el, i) => { if (i != 0 || i != (routePoint.length - 1)) return el })
+    let between = routePoint.filter((el, i) => { if (i != 0 && i != (routePoint.length - 1)) return el })
     console.log('------>', budget.value);
     fetch(process.env.REACT_APP_URL_ADDTRIP, {
       method: 'POST',
