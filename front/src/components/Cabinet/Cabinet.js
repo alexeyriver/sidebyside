@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Trips from '../Trips/Trips';
 
 function Cabinet(props) {
-    const trips = useSelector(state => state.tripReducer.trips)
+    const trips = useSelector(state => state.tripState.trips)
 
   const dispatch = useDispatch()
 
