@@ -1,4 +1,4 @@
-import { INIT_TRIPS} from '../types';
+import { INIT_TRIPS,DELETE_TRIPS} from '../types';
 
 const windowState = JSON.parse(window.localStorage.getItem('state'));
 let preloadState = {};
@@ -13,6 +13,9 @@ export const tripReducer = (state = preloadState, action) => {
   switch (action.type) {
     case INIT_TRIPS:
       return  state, action.payload      
+
+      case DELETE_TRIPS:
+        return {...state,trips:[...state.trips.filter(el=>el.id!==action.payload)]}
       
     
     default:
