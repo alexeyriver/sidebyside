@@ -21,7 +21,7 @@ router.route('/')
 router.route('/new')
   .post(async (req, res) => {
     console.log(req.body, 'req-body');
-    const { budget, country, startDate, endDate, tripInfo, email } = req.body;
+    const { budget, country, startDate, endDate, tripInfo, email, startCoords,finalCoords ,betweenCoords} = req.body;
     const user = await User.findOne({ email });
     console.log(Date(startDate));
     // console.log(user);
@@ -43,7 +43,10 @@ router.route('/new')
         startDate: Date(startDate),
         endDate: Date(endDate),
         tripInfo,
-        participants: user
+        participants: user, 
+        betweenCoords,
+        startCoords,
+        finalCoords
       });
 
       await newCard.save()
