@@ -16,3 +16,6 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 //CHAT
 export const START_CHAT = 'START_CHAT'
 export const SEND_MESSAGE = 'SEND_MESSAGE'
+
+//TRIPS
+export const INIT_TRIPS = 'INIT_TRIPS'
