@@ -15,7 +15,6 @@ function CreateTrip(props) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
   const email = useSelector(store => store.auth.user.email)
-  console.log(email);
   const dispatch = useDispatch();
   
 
