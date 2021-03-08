@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchFromCityToCoordsAC ,fetchCreateJourneyAC} from '../../redux/actions';
-
+import { fetchFromCityToCoordsAC, fetchCreateJourneyAC } from '../../redux/actions';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
@@ -14,68 +13,82 @@ import FirstPointMap from '../Map/FirstPointMap';
 function CreateTrip(props) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
-  const email =useSelector(store=>store.auth.user.email)
- console.log(email);
+  const email = useSelector(store => store.auth.user.email)
+  console.log(email);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchFromCityToCoordsAC());
-  }, []);
+  
 
-  // const data = useSelector((state) => state.fetch.fetch);
-  // console.log(data);
- 
-  const tripHandler=(event)=>{
+  const tripHandler = (event) => {
     event.preventDefault()
-    const {budget,startDate,endDate,tripInfo,country}=event.target
-    
-    console.log('------>',budget.value);
-    fetch(process.env.REACT_APP_URL_ADDTRIP,{
-      method:'POST',
-      headers:{
-        'Content-type':'Application/json'
+    const { budget, startDate, endDate, tripInfo, country } = event.target
+
+    console.log('------>', budget.value);
+    fetch(process.env.REACT_APP_URL_ADDTRIP, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'Application/json'
       },
-      body:JSON.stringify({
-        country:country.value,
-        budget:budget.value,
-        startDate:startDate.value,
-        endDate:endDate.value,
-        tripInfo:tripInfo.value,
-        email:email
+      body: JSON.stringify({
+        country: country.value,
+        budget: budget.value,
+        startDate: startDate.value,
+        endDate: endDate.value,
+        tripInfo: tripInfo.value,
+        email: email
       })
     })
-    .then(res=>res.json())
-    .then(data=>console.log(data))
+      .then(res => res.json())
+      .then(data => console.log(data))
   }
 
 
-// старая логика сверху
+  // старая логика сверху
 
-// новая логика:
-const [clickfirstPoint, setClickfirstPoint] = useState(false);
-const [propsfirstPoint, setPropsfirstPoint] = useState('');
-
-
-const SubmitFormFirstPoint =  async (e) =>{
-  e.preventDefault();
-  console.log(e.target.firstPoint.value);
-  dispatch(fetchCreateJourneyAC(e.target.firstPoint.value))
-  const response = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=84f3099a-6de5-4986-816c-186384023e64&format=json&geocode=${e.target.firstPoint.value}`);
-  
-  setPropsfirstPoint( response.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos) 
-  
-  setClickfirstPoint(clickfirstPoint=>clickfirstPoint=true)
-  
-
+  // новая логика:
+  const [clickfirstPoint, setClickfirstPoint] = useState(false);
+  const [propsfirstPoint, setPropsfirstPoint] = useState('');
  
 
-}
+  const SubmitFormFirstPoint = async (e) => {
+    e.preventDefault();
+    if (e.target.firstPoint.value.length) {
+      const response = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${e.target.firstPoint.value}`);
+      if (response.data.response?.GeoObjectCollection.featureMember[0].GeoObject.Point.pos) {
+        const cords = response.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')
+        setPropsfirstPoint(propsfirstPoint => propsfirstPoint = [cords[1], cords[0]])
+      }
+    }
+    setClickfirstPoint(clickfirstPoint => clickfirstPoint = true)
+  }
 
 
 
   return (
     <div>
       <h1>Создайте свой маршрут путешествия</h1>
-      <form onSubmit={(e)=>tripHandler(e)}>
+    
+
+      {/* {/* first version /\/\/\/\} */}
+      {/* new version \/\/\/\/ */}
+      <div>hello</div>
+
+
+
+      {!clickfirstPoint &&
+        <form onSubmit={(e) => SubmitFormFirstPoint(e)} >
+          <input type="text" name="firstPoint" placeholder="Введите начальную точку"></input>
+          <button type="submit">Сохранить</button>
+        </form>
+      }
+
+      {clickfirstPoint &&
+      <>
+        <FirstPointMap props={{ data: propsfirstPoint }} />
+      
+
+{/* ФОрму запихать в элемент FirstPointMap */}
+
+        <form onSubmit={(e) => tripHandler(e)}>
         <div style={{
           display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
         }}
@@ -114,25 +127,10 @@ const SubmitFormFirstPoint =  async (e) =>{
           <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
           <button >Создать путешествие </button>
         </div>
-        <MainMap />
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
       </form>
-
-      {/* {/* first version /\/\/\/\} */}
-      {/* new version \/\/\/\/ */}
-<div>hello</div>
-<form onSubmit={(e) =>SubmitFormFirstPoint(e)} >
-<input type="text" name="firstPoint" placeholder="Введите начальную точку"></input>
-  <button type="submit">Сохранить</button>
-</form>
-
-{clickfirstPoint&&  <FirstPointMap props={{mapcenter:[55.751574, 37.573856],point:[60.751574, 37.573856],data:propsfirstPoint}}/> }
-
-
-
-
-
+      </>
+      }
     </div>
   );
 }
