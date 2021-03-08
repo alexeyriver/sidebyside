@@ -10,6 +10,8 @@ const routersConfig = (app) => {
   app.use('/signin', signinRouter);
   app.use('/logout', logoutRouter);
   app.use('/newtrip', adCardRouter) ;
+  app.use('/trips', adCardRouter) ;
+
 
 
 }

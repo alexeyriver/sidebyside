@@ -21,7 +21,7 @@ function Signin(props) {
     })
       .then((responce) => responce.json())
       .then((data) => {
-        if (data.success == true) {
+        if (data.success === true) {
           dispatch({ type: AUTH_SUCCESSFULLY, payload: data.user });
           setError('');
         } else setError(data.message);

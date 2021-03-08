@@ -23,10 +23,14 @@ const adCardSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  closeStatus: {
+    type: Boolean,
+    default: false
+  },
 
   tripInfo: String ,
-  startCoords: String,
-  finalCoords: String,
+  startCoords: [],
+  finalCoords: [],
   betweenCoords: []
 });
 

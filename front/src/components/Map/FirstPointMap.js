@@ -1,27 +1,38 @@
 import React, { useState, useEffect } from 'react';
+import { YMaps, Map, GeoObject, Placemark, } from 'react-yandex-maps';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchFromCityToCoordsAC, fetchCreateJourneyAC } from '../../redux/actions';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
-import MainMap from '../Map/MainMap';
-import FirstPointMap from '../Map/FirstPointMap';
+import { useDispatch, useSelector } from 'react-redux';
 
 
+function FirstPointMap({ props }) {
+  const [routePoint, setRoutePoint] = useState([props.data])
+  console.log(props);
+  const HandlerCreateRoute = (e) => {
+    console.log(e._sourceEvent.originalEvent.coords)
+    setRoutePoint(routePoint => routePoint = [...routePoint, e._sourceEvent.originalEvent.coords])
+  }
+  const HandlerEditRoute = (e) => {
+    console.log(e.originalEvent.target.geometry._coordinates)
+    setRoutePoint(routePoint => routePoint = routePoint.filter((el) => el != e.originalEvent.target.geometry._coordinates))
+  }
 
-function CreateTrip(props) {
+  ////// old logic from create trip \/\/\/\/
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
   const email = useSelector(store => store.auth.user.email)
   console.log(email);
   const dispatch = useDispatch();
-  
+
 
   const tripHandler = (event) => {
     event.preventDefault()
     const { budget, startDate, endDate, tripInfo, country } = event.target
-
+    let firstPoint = routePoint[0]
+    let lastPoint = routePoint[routePoint.length - 1]
+    let between = routePoint.filter((el, i) => { if (i != 0 && i != (routePoint.length - 1)) return el })
     console.log('------>', budget.value);
     fetch(process.env.REACT_APP_URL_ADDTRIP, {
       method: 'POST',
@@ -35,6 +46,12 @@ function CreateTrip(props) {
         endDate: endDate.value,
         tripInfo: tripInfo.value,
         email: email
+        // new logic\/\/\/\/
+        , startCoords: firstPoint,
+        finalCoords: lastPoint,
+        betweenCoords: between
+
+
       })
     })
       .then(res => res.json())
@@ -42,53 +59,47 @@ function CreateTrip(props) {
   }
 
 
-  // старая логика сверху
-
-  // новая логика:
-  const [clickfirstPoint, setClickfirstPoint] = useState(false);
-  const [propsfirstPoint, setPropsfirstPoint] = useState('');
- 
-
-  const SubmitFormFirstPoint = async (e) => {
-    e.preventDefault();
-    if (e.target.firstPoint.value.length) {
-      const response = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${e.target.firstPoint.value}`);
-      if (response.data.response?.GeoObjectCollection.featureMember[0].GeoObject.Point.pos) {
-        const cords = response.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')
-        setPropsfirstPoint(propsfirstPoint => propsfirstPoint = [cords[1], cords[0]])
-      }
-    }
-    setClickfirstPoint(clickfirstPoint => clickfirstPoint = true)
-  }
-
 
 
   return (
     <div>
-      <h1>Создайте свой маршрут путешествия</h1>
-    
+      <YMaps>
+        <Map defaultState={{
+          center: props.data,
+          zoom: 5,
+        }}
+          height={500}
+          width={700}
 
-      {/* {/* first version /\/\/\/\} */}
-      {/* new version \/\/\/\/ */}
-      <div>hello</div>
+          onClick={(e) => HandlerCreateRoute(e)}
+        >
+          {routePoint && routePoint.map(el =>
+            <Placemark key={el} geometry={el}
+              onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
+              onContextMenu={(e) => {
+                console.log(e.originalEvent.target.geometry._coordinates);
+                HandlerEditRoute(e)
+              }} />)}
 
+          {routePoint.length >= 2 && (
+            <GeoObject
+              geometry={{
+                type: 'LineString',
+                coordinates: routePoint,
+              }}
+              options={{
+                geodesic: true,
+                strokeWidth: 5,
+                strokeColor: '#F008',
+                openBalloonOnClick: true,
+              }}
+              onClick={(e) => console.log(e.originalEvent.target.geometry._coordPath._coordinates)}
+            />
+          )}
+        </Map>
+      </YMaps>
 
-
-      {!clickfirstPoint &&
-        <form onSubmit={(e) => SubmitFormFirstPoint(e)} >
-          <input type="text" name="firstPoint" placeholder="Введите начальную точку"></input>
-          <button type="submit">Сохранить</button>
-        </form>
-      }
-
-      {clickfirstPoint &&
-      <>
-        <FirstPointMap props={{ data: propsfirstPoint }} />
-      
-
-{/* ФОрму запихать в элемент FirstPointMap */}
-
-        {/* <form onSubmit={(e) => tripHandler(e)}>
+      <form onSubmit={(e) => tripHandler(e)}>
         <div style={{
           display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
         }}
@@ -127,11 +138,19 @@ function CreateTrip(props) {
           <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
           <button >Создать путешествие </button>
         </div>
-      </form> */}
-      </>
-      }
+      </form>
+
+
+
+
+
+
+
+
+
+
     </div>
   );
 }
 
-export default CreateTrip;
+export default FirstPointMap;

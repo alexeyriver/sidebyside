@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
   },
+  rating: Number,
+  feedback: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'feedbacks'
+  }]
 });
 
 export default mongoose.model('users', userSchema);
