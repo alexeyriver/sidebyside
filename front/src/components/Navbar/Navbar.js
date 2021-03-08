@@ -19,10 +19,6 @@ function Navbar(props) {
         <div>
           <Link to="/createtrip">Создать Маршрут</Link>
         </div>
-        <div>
-          <Link to="/chat">Чат</Link>
-        </div>
-
 
         <div>{isAuth && <Link to="/cabinet">Личный кабинет</Link>}</div>
         <div>
