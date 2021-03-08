@@ -1,6 +1,6 @@
 import { initTripsAC } from "../actionCreators";
 export const initTripsFetchAC = () => (dispatch) => {
-  fetch(process.env.REACT_APP_URL_TRIPS)
+  fetch('http://localhost:4000/trips')
     .then((res) => res.json())
     .then((data) => dispatch(initTripsAC(data)));
 };

@@ -6,13 +6,13 @@ const router = express.Router();
 
 router.route('/')
   .get(async (req, res) => {
-    res.send('newtrip')
+    // res.send('newtrip')
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
       postedStatus: true, 
       // startDate: { $lt: Date.now() }
     });
-    console.log(cardsToRender);
+    // console.log(cardsToRender);
     res.json(cardsToRender);
 
   })
