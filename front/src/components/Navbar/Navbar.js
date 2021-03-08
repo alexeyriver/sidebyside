@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Container, Navbar, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
-function Navbar(props) {
+function Navbars(props) {
   const isAuth = useSelector((state) => state.auth.isAuth);
 
   return (
-    <div>
-      <div>
+    <Container>
+      <Navbar expand="lg" variant="light" bg="light">
         <div>
           <Link to="/">Главная</Link>
         </div>
@@ -39,14 +40,14 @@ function Navbar(props) {
             </Link>
           )}
           {isAuth && (
-              <Link className="link" to="/logout">
-                Выход
-              </Link>
+            <Link className="link" to="/logout">
+              Выход
+            </Link>
           )}
         </div>
-      </div>
-    </div>
+      </Navbar>
+    </Container>
   );
 }
 
-export default Navbar;
+export default Navbars;
