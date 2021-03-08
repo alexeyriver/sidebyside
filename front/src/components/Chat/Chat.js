@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import { FormControl, InputGroup, Button } from 'react-bootstrap';
 import {io} from 'socket.io-client';
 import {useDispatch, useSelector} from "react-redux";
-import {sendMessageAC} from "../../redux/actionCreators";
+import {sendMessageAC} from "../../redux/actionCreators.js";
 
 
 const SERVER = 'http://localhost:4000';
@@ -10,6 +10,7 @@ const SERVER = 'http://localhost:4000';
 function Chat() {
     const dispatch = useDispatch()
     const [messageText,setMessageText] = useState('')
+    const messages = useSelector(state => state.chats.chats.messages)
     const user = useSelector(state => state.auth.user)
     const userID = user._id
     const chat = useSelector(state=> state.chats.chats)
@@ -32,8 +33,7 @@ function Chat() {
  })
 
     const sendMessage = () => {
-        dispatch(sendMessageAC(chatID,userID,messageText))
-
+        dispatch(sendMessageAC(messageText))
         socketRef.current.emit('message:add',{
             chatID,
             userID,
@@ -46,12 +46,9 @@ function Chat() {
         <>
             <div>
                 <div>
-                    <ul>
-                        <li>
-
-                        </li>
-                    </ul>
-
+                    {
+                        messages && messages.map(el =>  <ul key={performance.now()} ><li>{el}</li></ul>)
+                    }
                 </div>
                 <input onChange={(e) => setMessageText(e.target.value)}/>
                 <button onClick={sendMessage}>Отправить</button>
