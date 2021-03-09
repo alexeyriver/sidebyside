@@ -12,6 +12,8 @@ export const SAGA_DOG_TAKE_EVERY = 'SAGA_DOG_TAKE_EVERY';
 export const AUTH_SUCCESSFULLY = 'AUTH_SUCCESSFULLY';
 export const LOGOUT = 'LOGOUT';
 export const AUTH_ERROR = 'AUTH_ERROR';
+export const CHANGE_DATA = 'CHANGE_DATA'
+export const CHANGE_ERROR = 'CHANGE_ERROR';
 
 
 //CHAT

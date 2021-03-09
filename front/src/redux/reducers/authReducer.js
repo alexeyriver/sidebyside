@@ -1,4 +1,4 @@
-import { AUTH_ERROR, AUTH_SUCCESSFULLY, LOGOUT } from '../types';
+import {AUTH_ERROR, AUTH_SUCCESSFULLY, CHANGE_DATA, CHANGE_ERROR, LOGOUT} from '../types';
 
 const windowState = JSON.parse(window.localStorage.getItem('state'));
 let preloadState = {};
@@ -24,6 +24,13 @@ export const authReducer = (state = preloadState, action) => {
       return {
         ...state, isAuth: false, user: { }, authError: null, changeError: null, customer: {},
       };
+    case CHANGE_DATA:
+         return {
+        ...state, user: { ...state.user, name: action.payload.name, email: action.payload.email }
+         };
+
+    case CHANGE_ERROR:
+      return { ...state, changeError: action.payload };
     default:
       return state;
   }
