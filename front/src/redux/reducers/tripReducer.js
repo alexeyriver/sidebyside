@@ -1,14 +1,8 @@
 import {INIT_TRIPS, DELETE_TRIPS, ADD_TRIPS} from '../types';
 
-const windowState = JSON.parse(window.localStorage.getItem('state'));
+
 let preloadState = {};
-if (windowState && windowState.tripState) {
-  preloadState = {
-   trips: windowState.tripState.trips
-  }
-} else {
-  preloadState = {trips:[]}
-}
+
 
 export const tripReducer = (state = preloadState, action) => {
   switch (action.type) {
