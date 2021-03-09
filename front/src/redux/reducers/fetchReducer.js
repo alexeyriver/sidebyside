@@ -1,7 +1,7 @@
 import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY,FETCH_FIND_ALL_JOURNEY,FETCH_FIND_QUERY_JOURNEY } from '../types';
 
 const initialState = {
-  fetch: [],
+
 };
 export const fetchReducer = (state = initialState, action) => {
   switch (action.type) {
