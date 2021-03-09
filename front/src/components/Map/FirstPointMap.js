@@ -48,7 +48,7 @@ function FirstPointMap({ props }) {
     })
 
     dispatch(fetchSubmitJourneyAC({
-      country: country.value,
+      // country: country.value,
       budget: budget.value,
       startDate: startDate.value,
       endDate: endDate.value,
