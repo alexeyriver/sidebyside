@@ -43,9 +43,9 @@ export function fetchSubmitJourneyAC(value){
       country: value.country, budget: value.budget, startDate: value.startDate,
       endDate: value.endDate,
       tripInfo: value.tripInfo,
-      email: value.email, startCoords: value.firstPoint,
-      finalCoords: value.lastPoint,
-      betweenCoords: value.between
+      email: value.email, startCoords: value.startCoords,
+      finalCoords: value.finalCoords,
+      betweenCoords: value.betweenCoords
     });
     console.log(response);
     dispatch({ type: FETCH_SUBMIT_CREATED_JOURNEY, payload: response.data });
