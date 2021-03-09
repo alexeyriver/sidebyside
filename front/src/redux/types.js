@@ -16,8 +16,8 @@ export const CHANGE_DATA = 'CHANGE_DATA'
 export const CHANGE_ERROR = 'CHANGE_ERROR';
 
 
-//CHAT
-export const START_CHAT = 'START_CHAT'
+//MESSAGE
+
 export const SEND_MESSAGE = 'SEND_MESSAGE'
 
 //TRIPS

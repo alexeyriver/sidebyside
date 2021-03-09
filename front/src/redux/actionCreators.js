@@ -1,4 +1,4 @@
-import {SEND_MESSAGE, START_CHAT, INIT_TRIPS, DELETE_TRIPS, ADD_TRIPS, CHANGE_DATA, CHANGE_ERROR} from "./types";
+import {SEND_MESSAGE, INIT_TRIPS, DELETE_TRIPS, ADD_TRIPS, CHANGE_DATA, CHANGE_ERROR} from "./types";
 //AUTH
 
 export const changeDataAC = (payload) => ({type:CHANGE_DATA,payload})
@@ -6,7 +6,6 @@ export const changeErrorAC = (payload) => ({type:CHANGE_ERROR,payload})
 
 //CHAT
 
-export const startChatAC = (data) => ({type:START_CHAT,payload:data})
 export const sendMessageAC = (payload) => ({type: SEND_MESSAGE, payload});
 
 //TRIPS
