@@ -9,22 +9,25 @@ import moment from 'moment'
 
 
 function EditTrips(props) {
-const[newStartDate,setNewStartDate]=useState(null)
-const[newEndDate,setNewEndDate]=useState(null)
-
-
-
-
-
-
-
-
+  
+  // const[newStartDate,setNewStartDate]=useState(null)
+  // const[newEndDate,setNewEndDate]=useState(null)
+  
+  
+  
+  
+  
+  
   const { id } = useParams();console.log(id);
   const trips = useSelector((state) => state.tripState.trips);
+  
   const oneTrip = trips.filter((el) => el._id === id);
   const dispatch = useDispatch();
-
   
+  
+  
+  const[newStartDate,setNewStartDate]=useState(null)
+  const[newEndDate,setNewEndDate]=useState(null)
 
     const[budget,setBudget]=useState(oneTrip[0].budget)
     const[tripinfo,setTripinfo]=useState(oneTrip[0].tripInfo)
@@ -58,9 +61,9 @@ console.log(e.target.value);
       display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
     }}>
       <form  onSubmit={editHandler}>
-        <input name="budget" onChange={(e)=>{HandlerBudget(e)}}  defaultValue={budget}></input>
+        <label>Бюджет<input name="budget" type ='number' onChange={(e)=>{HandlerBudget(e)}}  defaultValue={budget}></input></label>
         
-        <DatePicker
+        <DatePicker 
             name="startDate"
             placeholderText="Начальная дата"
             selected={newStartDate}
@@ -73,7 +76,7 @@ console.log(e.target.value);
             scrollableMonthYearDropdown
             locale={ru}
           />
-        <DatePicker
+        <DatePicker 
             name="endDate"
             placeholderText="Конечная дата"
             selected={newEndDate}
@@ -86,7 +89,7 @@ console.log(e.target.value);
             locale={ru}
           />
       
-        <textarea  name="tripInfo" defaultValue={tripinfo}/>
+      <label>Информация о поездке<textarea  name="tripInfo" defaultValue={tripinfo}/></label>
           <button>Изменить</button>
      </form>
     </div>

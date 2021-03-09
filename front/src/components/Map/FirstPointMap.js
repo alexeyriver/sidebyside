@@ -140,7 +140,7 @@ function FirstPointMap({ props }) {
             scrollableMonthYearDropdown
             locale={ru}
           />
-          <input required placeholder="бюджет" name="budget" />
+          <input required type='number' placeholder="бюджет" name="budget" />
 
         </div>
         <div>
