@@ -23,8 +23,8 @@ function MyTrips(props) {
   return (
     <div>
           <h2>Поездки которые предложил сам</h2>
-          {trips && trips.length &&
-            trips.map((el) => (
+          {trips && trips.length>0
+          ? trips.map((el) => (
               <div
                 style={{ border: "1px black solid" }}
                 key={performance.now()}
@@ -39,7 +39,7 @@ function MyTrips(props) {
                 <button>Редактировать</button>
                 <button data-id={el._id} onClick={deleteHandler}>Удалить</button>
               </div>
-            ))}
+            )):'Отсутствуют'}
         </div>
   );
 }

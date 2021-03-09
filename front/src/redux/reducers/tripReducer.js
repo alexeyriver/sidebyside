@@ -10,7 +10,7 @@ if (windowState && windowState.tripState) {
   preloadState = {trips:[]}
 }
 
-export const tripReducer = (trips = preloadState, action) => {
+export const tripReducer = (state = preloadState, action) => {
   switch (action.type) {
     case INIT_TRIPS:
       return {
@@ -29,7 +29,7 @@ export const tripReducer = (trips = preloadState, action) => {
       
     
     default:
-      return trips;
+      return state;
   }
 };
 
