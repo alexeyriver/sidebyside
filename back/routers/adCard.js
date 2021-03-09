@@ -92,6 +92,10 @@ router
 
       // cardToEdit.startDate=startDate
       // cardToEdit.endDate=endDate
+      cardToEdit.startDate= moment(startDate, "DD-MM-YYYY")
+      cardToEdit.endDate=moment(endDate, "DD-MM-YYYY")
+      // startDate: moment(startDate, "DD-MM-YYYY"),
+      // endDate: moment(endDate, "DD-MM-YYYY"),
 
       cardToEdit.budget = budget;
       cardToEdit.tripInfo = tripInfo;
