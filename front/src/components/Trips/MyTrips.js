@@ -20,8 +20,6 @@ function MyTrips(props) {
   const deleteHandler = (event) => {
     event.preventDefault()
 
-    const itemId = event.target.getAttribute('data-id');
-
 
     const itemId = event.target.getAttribute("data-id");
 

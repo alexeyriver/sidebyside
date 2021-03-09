@@ -4,6 +4,7 @@ import Maps from './Maps';
 import { fetchFindAllJourneyAC, fetchFindQueryJourneyAC } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+import OneRegionCard from './OneRegionCard'
 
 function MainSearch(props) {
   const [value, setValue] = useState('');
@@ -142,7 +143,8 @@ function MainSearch(props) {
               )}
             </Map>
           </YMaps>
-          {stateofQuery && stateofQuery.map(el => <div key={el}>{el.tripInfo}</div>)}
+
+          {stateofQuery && stateofQuery.map(el => <div key={el}><OneRegionCard el={el}/></div>)}
         </>
 
       )}
