@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {deleteTripsFetchAC} from '../../redux/Thunk/tripsFetchesAC'
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTripsFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 
 function MyTrips(props) {
- const dispatch =useDispatch()
+  const dispatch = useDispatch();
 
   let trips = useSelector(state => state.tripState.trips)
     console.log(trips)
@@ -11,22 +11,20 @@ function MyTrips(props) {
   if(trips.length>0){
     trips = trips.filter(el => el.author._id === user._id)
   }
-  
 
-  const deleteHandler =(event)=>{
-    event.preventDefault()
-    
-    const itemId = event.target.getAttribute('data-id');
+  const deleteHandler = (event) => {
+    event.preventDefault();
 
-    dispatch(deleteTripsFetchAC(itemId))
+    const itemId = event.target.getAttribute("data-id");
 
-  }
+    dispatch(deleteTripsFetchAC(itemId));
+  };
 
   return (
     <div>
           <h2>Поездки которые предложил сам</h2>
-          {trips && trips.length &&
-            trips.map((el) => (
+          {trips && trips.length>0
+          ? trips.map((el) => (
               <div
                 style={{ border: "1px black solid" }}
                 key={performance.now()}
@@ -41,7 +39,7 @@ function MyTrips(props) {
                 <button>Редактировать</button>
                 <button data-id={el._id} onClick={deleteHandler}>Удалить</button>
               </div>
-            ))}
+            )):'Отсутствуют'}
         </div>
   );
 }
