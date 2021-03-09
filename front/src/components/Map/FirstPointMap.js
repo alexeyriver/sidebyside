@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addTripFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import { fetchSubmitJourneyAC } from '../../redux/actions';
 
-
 function FirstPointMap({ props }) {
   const [routePoint, setRoutePoint] = useState([props.data])
   const HandlerCreateRoute = (e) => {
@@ -23,7 +22,6 @@ function FirstPointMap({ props }) {
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
   const email = useSelector(store => store.auth.user.email)
   const dispatch = useDispatch();
-
 
   const tripHandler = async (event) => {
     event.preventDefault()
@@ -66,9 +64,6 @@ function FirstPointMap({ props }) {
     //   .then(data => console.log(data))
     
   }
-
-
-
 
   return (
     <div>
@@ -113,7 +108,7 @@ function FirstPointMap({ props }) {
           display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
         }}
         >
-          <input placeholder="Страна" name="country" />
+          {/* <input placeholder="Страна" name="country" /> */}
           <DatePicker
             name="startDate"
             placeholderText="Начальная дата"
