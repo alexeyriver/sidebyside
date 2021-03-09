@@ -18,6 +18,7 @@ import CurrentTrips from "./components/Trips/CurrentTrips";
 import PastTrips from "./components/Trips/PastTrips";
 import MyTrips from "./components/Trips/MyTrips";
 import Trips from './components/Trips/Trips'
+import EditTrips from './components/Trips/EditTrips'
 
 function App() {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ function App() {
             <Trips/>
           </Route>
 
-          <Route path="/mytrips">
+          <Route exact path="/mytrips">
             <MyTrips />
           </Route>
           <Route path="/current">
@@ -65,6 +66,13 @@ function App() {
           <Route path="/past">
             <PastTrips />
           </Route>
+
+          <Route exact path="/mytrips/:id">
+          {/* <Route  path="/:id"> */}
+
+            <EditTrips/>
+          </Route>
+          
         </Switch>
       </div>
     </Router>
