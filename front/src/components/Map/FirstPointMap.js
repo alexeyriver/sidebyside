@@ -40,7 +40,7 @@ function FirstPointMap({ props }) {
 
   const tripHandler = async (event) => {
     event.preventDefault()
-    const { budget, startDate, endDate, tripInfo, country } = event.target
+    const { budget, startDate, endDate, tripInfo } = event.target
     let firstPoint = routePoint[0]
     let lastPoint = routePoint[routePoint.length - 1]
     let between = routePoint.filter((el, i) => {
@@ -48,7 +48,11 @@ function FirstPointMap({ props }) {
     })
 
     dispatch(fetchSubmitJourneyAC({
+<<<<<<< HEAD
       // country: country.value,
+=======
+     
+>>>>>>> f163dd71e6aef9e7ed0187d492c7c749aa9f6831
       budget: budget.value,
       startDate: startDate.value,
       endDate: endDate.value,

@@ -34,6 +34,7 @@ router.route('/:id')
     })
 
 .put(async (req, res) => {
+  
         const { id } = req.params;
         const { name, email } = req.body;
         try {
