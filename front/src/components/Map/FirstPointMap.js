@@ -62,7 +62,7 @@ function FirstPointMap({ props }) {
     // })
     //   .then(res => res.json())
     //   .then(data => console.log(data))
-    
+
   }
 
   return (
@@ -79,6 +79,12 @@ function FirstPointMap({ props }) {
         >
           {routePoint && routePoint.map(el =>
             <Placemark key={el} geometry={el}
+            options={{ 
+              iconLayout: 'default#image',
+                    
+                  iconImageOffset: [-16, -38],
+                  iconImageHref: 'https://static.thenounproject.com/png/320187-200.png'
+                    }}
               onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
               onContextMenu={(e) => {
                 console.log(e.originalEvent.target.geometry._coordinates);
