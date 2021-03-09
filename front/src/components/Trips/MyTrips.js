@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTripsFetchAC } from "../../redux/Thunk/tripsFetchesAC";
+import { deleteTripsFetchAC, initTripsFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import HistoryMap from "../Map/HistoryMap";
 import moment from "moment";
 
 function MyTrips(props) {
   const dispatch = useDispatch();
-
+  useEffect(() => {
+    dispatch(initTripsFetchAC())
+  }, [])
   let trips = useSelector((state) => state.tripState.trips);
 
   const user = useSelector((state) => state.auth.user);
-  if (trips.length > 0) {
+  if (trips?.length > 0) {
     trips = trips.filter((el) => el.author._id === user._id);
   }
 

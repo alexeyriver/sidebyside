@@ -49,10 +49,10 @@ router.route('/new')
       });
 
       await newCard.save()
-      res.json({ body: req.body })
+      res.json({ status: true })
 
     } catch (err) {
-      res.json({ message: "поездка с указанными параметрами уже существует, найдите карточку поездки через личный кабинет и отредактируйте ее" })
+      res.json({status: false })
     }
 
     // }

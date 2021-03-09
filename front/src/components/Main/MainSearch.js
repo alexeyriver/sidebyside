@@ -68,7 +68,7 @@ function MainSearch(props) {
 
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
+              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}  key={el._id}
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
@@ -107,7 +107,7 @@ function MainSearch(props) {
             </Map>
           </YMaps>
 
-          {clickMapSearch && <OneRegionCard el={clickMapSearch} />}
+          {clickMapSearch && <OneRegionCard el={clickMapSearch}  />}
 
         </>
 
@@ -127,7 +127,7 @@ function MainSearch(props) {
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
 
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
+              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}  key={el._id}
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
@@ -135,7 +135,7 @@ function MainSearch(props) {
                 }}
                 onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
                 onContextMenu={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }} />
-                <GeoObject
+                <GeoObject 
                   geometry={{
                     type: 'LineString',
                     coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
@@ -162,7 +162,7 @@ function MainSearch(props) {
             </Map>
           </YMaps>
 
-          {stateofQuery && stateofQuery.map(el => <div key={el}><OneRegionCard el={el} /></div>)}
+          {stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
         </>
 
       )}
