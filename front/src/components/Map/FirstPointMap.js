@@ -48,11 +48,11 @@ function FirstPointMap({ props }) {
     })
 
     dispatch(fetchSubmitJourneyAC({
-<<<<<<< HEAD
-      // country: country.value,
-=======
+
      
->>>>>>> f163dd71e6aef9e7ed0187d492c7c749aa9f6831
+
+
+     
       budget: budget.value,
       startDate: startDate.value,
       endDate: endDate.value,
