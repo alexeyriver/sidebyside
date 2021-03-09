@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY,FETCH_FIND_QUERY_JOURNEY } from './types';
+import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY,FETCH_FIND_QUERY_JOURNEY ,FETCH_SUBMIT_CREATED_JOURNEY} from './types';
 
 
 export function fetchFromCityToCoordsAC() {
@@ -33,5 +33,21 @@ export function fetchFindQueryJourneyAC(value){
     });
     console.log(response);
     dispatch({ type: FETCH_FIND_QUERY_JOURNEY, payload: response.data.response });
+  };
+}
+
+export function fetchSubmitJourneyAC(value){
+  console.log(value);
+  return async (dispatch) => {
+    const response = await axios.post(process.env.REACT_APP_URL_ADDTRIP,{
+      country: value.country, budget: value.budget, startDate: value.startDate,
+      endDate: value.endDate,
+      tripInfo: value.tripInfo,
+      email: value.email, startCoords: value.firstPoint,
+      finalCoords: value.lastPoint,
+      betweenCoords: value.between
+    });
+    console.log(response);
+    dispatch({ type: FETCH_SUBMIT_CREATED_JOURNEY, payload: response.data });
   };
 }

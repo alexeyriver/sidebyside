@@ -5,8 +5,8 @@ import { deleteTripsFetchAC } from '../../redux/Thunk/tripsFetchesAC'
 import HistoryMap from '../Map/HistoryMap';
 
 function MyTrips(props) {
-  const dispatch = useDispatch()
 
+  const dispatch = useDispatch()
 
   let trips = useSelector(state => state.tripState.trips)
   console.log(trips)
@@ -19,12 +19,12 @@ function MyTrips(props) {
 
   const deleteHandler = (event) => {
     event.preventDefault()
+    const itemId = event.target.getAttribute('data-id');
+    dispatch(deleteTripsFetchAC(itemId))
+  }
 
 
-    const itemId = event.target.getAttribute("data-id");
-
-    dispatch(deleteTripsFetchAC(itemId));
-  };
+  
 
   return (
     <div>
