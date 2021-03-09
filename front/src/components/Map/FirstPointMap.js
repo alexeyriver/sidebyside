@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addTripFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import { fetchSubmitJourneyAC } from '../../redux/actions';
 
-import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
 
 
 function FirstPointMap({ props }) {
@@ -17,13 +17,13 @@ function FirstPointMap({ props }) {
   const dispatch = useDispatch();
   const req = useSelector(store => store.fetch.fetchSubmitJourney)
   useEffect(() => {
-    
+
 
     if (countUseEffect > 0 && req?.status) {
       console.log(req);
-      history.push('/mytrips') 
+      history.push('/mytrips')
     }
-setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
+    setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
   }, [req])
 
   const [routePoint, setRoutePoint] = useState([props.data])
@@ -56,7 +56,7 @@ setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
       finalCoords: lastPoint,
       betweenCoords: between
     }))
-
+  }
 
 
   return (
