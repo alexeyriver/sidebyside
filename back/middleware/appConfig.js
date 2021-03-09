@@ -8,7 +8,7 @@ const appConfig = (app) => {
     dotenv.config()
     app.use(cors())
     app.use(morgan('dev'));
-    
+    app.use('/public', express.static('public'));
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
 }

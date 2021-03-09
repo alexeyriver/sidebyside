@@ -27,20 +27,16 @@ const upload = multer({
 
 
 router.route('/:id')
-    .post(upload.single('file'), async (req, res) => {
-        const {id} = req.params
-        const user = await User.findByIdAndUpdate(id,{avatar:`http://localhost:4000/public/${req.file.filename}`})
-        res.json(user);
-    })
 
-.put(async (req, res) => {
-  
+
+.post(upload.single('file'),async (req, res) => {
+
         const { id } = req.params;
         const { name, email } = req.body;
         try {
-            const user = await User.findByIdAndUpdate({ _id: id }, { name, email });
+            const user = await User.findByIdAndUpdate({ _id: id }, { name, email,file:`http://localhost:4000/public/${req.file.filename}` });
             if (user) {
-                res.status(200).end();
+                res.status(200).json(user)
             } else {
                 throw Error('Такая почта уже зарегистрирована!');
             }

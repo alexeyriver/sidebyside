@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'feedbacks'
   }],
-  avatar:String
+  file:String
 });
 
 export default mongoose.model('users', userSchema);

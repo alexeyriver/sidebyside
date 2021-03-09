@@ -22,14 +22,13 @@ export const authReducer = (state = preloadState, action) => {
     case LOGOUT:
       console.log('logout ')
       window.localStorage.setItem('state', '{}');
-
       return {
-        // ...state, isAuth: false, user: {}, authError: null, changeError: null, customer: {},
+        ...state, isAuth: false, user: {}, authError: null, changeError: null,
         state: {}
       };
     case CHANGE_DATA:
          return {
-        ...state, user: { ...state.user, name: action.payload.name, email: action.payload.email }
+        ...state, user: { ...state.user, name: action.payload.data.name, email: action.payload.data.email,file:action.payload.data.file }
          };
 
     case CHANGE_ERROR:
