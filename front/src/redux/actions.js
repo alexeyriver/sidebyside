@@ -5,7 +5,6 @@ import { FROM_CITY_TO_COORDS,FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY,FETCH_
 export function fetchFromCityToCoordsAC() {
   return async (dispatch) => {
     const response = await axios.get('https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=Лондон');
-    // const json = await resp.json()
     dispatch({ type: FROM_CITY_TO_COORDS, payload: response.data.response });
   };
 }

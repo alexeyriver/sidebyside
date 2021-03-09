@@ -10,7 +10,7 @@ router.route('/')
     console.log(Date.now());
     const cardsToRender = await AdCard.find({
       postedStatus: true,
-    }).populate('participants');
+    }).populate('participants').populate('author');
     res.json(cardsToRender);
   })
   .post(async (req, res) => {

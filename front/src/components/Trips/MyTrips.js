@@ -5,10 +5,11 @@ import { deleteTripsFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 function MyTrips(props) {
   const dispatch = useDispatch();
 
-  let trips = useSelector((state) => state.trips);
-  const user = useSelector((state) => state.auth.user);
-  if (trips.length > 0) {
-    trips = trips.filter((el) => el.author === user._id);
+  let trips = useSelector(state => state.tripState.trips)
+    console.log(trips)
+  const user = useSelector(state => state.auth.user)
+  if(trips.length>0){
+    trips = trips.filter(el => el.author._id === user._id)
   }
 
   const deleteHandler = (event) => {
@@ -21,25 +22,25 @@ function MyTrips(props) {
 
   return (
     <div>
-      <h2>Поездки которые предложил сам</h2>
-      {trips && trips.length > 0
-        ? trips.map((el) => (
-            <div style={{ border: "1px black solid" }} key={performance.now()}>
-              <p>{el.author}</p>
-              <p>Информация о поездке: {el.tripInfo}</p>
-              <p>Бюджет: {el.budget}</p>
-              <p>Начальная дата: {el.startDate}</p>
-              <p>Конечная дата: {el.endDate}</p>
+          <h2>Поездки которые предложил сам</h2>
+          {trips && trips.length &&
+            trips.map((el) => (
+              <div
+                style={{ border: "1px black solid" }}
+                key={performance.now()}
+              >
+                <p>{el.author.name}</p>
+                <p>Информация о поездке: {el.tripInfo}</p>
+                <p>Бюджет: {el.budget}</p>
+                <p>Начальная дата: {el.startDate}</p>
+                <p>Конечная дата: {el.endDate}</p>
 
-              {/* <p>{el.participants}</p> */}
-              <button>Редактировать</button>
-              <button data-id={el._id} onClick={deleteHandler}>
-                Удалить
-              </button>
-            </div>
-          ))
-        : "Отсутствуют"}
-    </div>
+                {/* <p>{el.participants}</p> */}
+                <button>Редактировать</button>
+                <button data-id={el._id} onClick={deleteHandler}>Удалить</button>
+              </div>
+            ))}
+        </div>
   );
 }
 

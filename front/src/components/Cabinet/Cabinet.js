@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Trips from '../Trips/Trips';
 
 function Cabinet(props) {
+    const trips = useSelector(state => state.tripState.trips)
 
-   const trips = useSelector(store=>store.trips)
   const dispatch = useDispatch()
 
   useEffect(()=>{
@@ -18,7 +18,7 @@ function Cabinet(props) {
     <div>
      
      <div><Profile/></div>
-     <Trips/>
+     <Trips trips={trips}/>
 
     </div>
   );

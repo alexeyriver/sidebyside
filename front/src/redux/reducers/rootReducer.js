@@ -6,7 +6,7 @@ import{tripReducer} from './tripReducer';
 const rootReducer = combineReducers({
   fetch: fetchReducer,
   auth: authReducer,
-  trips:tripReducer
+  tripState:tripReducer
 
 });
 

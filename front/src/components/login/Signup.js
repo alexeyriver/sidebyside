@@ -1,20 +1,22 @@
+
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {AUTH_SUCCESSFULLY} from "../../redux/types";
+import { AUTH_SUCCESSFULLY } from "../../redux/types";
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function Signup(props) {
   const [error, setError] = useState('');
-
   const dispatch = useDispatch();
   const handlerSign = (event) => {
+    console.log(event.target);
     const {
       name: { value: name },
       email: { value: email },
       password: { value: password },
     } = event.target;
     event.preventDefault();
-    console.log(name,email,password)
+    console.log(name, email, password)
     fetch(process.env.REACT_APP_URL_SIGNUP, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -34,24 +36,46 @@ function Signup(props) {
       });
   };
   return (
-    <div className="formWrapper">
-      <form className="formWrapper__wrapper" onSubmit={handlerSign}>
-        <label htmlFor="name">
-          Name
-        </label>
-          <input type="text" name="name" required></input>
-        <label htmlFor="email">
-          Email
-        </label>
-          <input type="email" name="email" required></input>
-        <label htmlFor="password">
-          Password
-        </label>
-          <input type="password" name="password" required></input>
-        <div className="error">{error}</div>
-        <button>Sign up</button>
-      </form>
-    </div>
+    <Container style={{ textAlign: "center" }}>
+
+      <Form onSubmit={handlerSign}>
+        <Row>
+          <Col>
+            <Form.Group controlId="formName">
+              <Form.Label>Имя:</Form.Label>
+              <Form.Control type="text" name="name" placeholder="Введите имя" />
+              {/* <Form.Text className="text-muted"> */}
+              {/* Your email is secret
+    </Form.Text> */}
+            </Form.Group>
+          </Col>
+
+          <Col>
+
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" name="email" placeholder="Введите email" />
+              {/* <Form.Text className="text-muted"> */}
+              {/* Your email is secret
+    </Form.Text> */}
+            </Form.Group>
+          </Col>
+          <Col>
+
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" name="password" placeholder="Введите пароль" />
+              {/* <Form.Text className="text-muted">
+            Your password is secret
+    </Form.Text> */}
+            </Form.Group>
+          </Col>
+
+        </Row>
+        <Button variant='secondary' type="submit" >Зарегистрироваться</Button>
+
+      </Form>
+    </Container >
   );
 }
 
