@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTripsFetchAC, initTripsFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import HistoryMap from "../Map/HistoryMap";
 import moment from "moment";
+import {Link} from 'react-router-dom'
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function MyTrips(props) {
   const dispatch = useDispatch();
@@ -22,13 +24,17 @@ function MyTrips(props) {
     dispatch(deleteTripsFetchAC(itemId));
   };
 
+  
+
   return (
-    <div>
+    <Container>
       <h2>Поездки которые предложил сам</h2>
       {trips &&
         trips.length &&
         trips.map((el) => (
+
           <div style={{ border: "1px black solid" }} key={performance.now()}>
+            
             <p>{el.author.name}</p>
             <p>Информация о поездке: {el.tripInfo}</p>
             <p>Бюджет: {el.budget}</p>
@@ -37,13 +43,19 @@ function MyTrips(props) {
 
             <HistoryMap el={el} />
 
-            <button>Редактировать</button>
+            
+            {/* <Link to={el._id}>Edit</Link> */}
+
+
+            <button data-id={el._id}><Link style={{textDecoration:'none'}} to={`/mytrips/${el._id}`}>Редактировать</Link></button>
             <button data-id={el._id} onClick={deleteHandler}>
               Удалить
             </button>
           </div>
-        ))}
-    </div>
+
+
+))}
+    </Container>
   );
 }
 

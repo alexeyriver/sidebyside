@@ -40,7 +40,7 @@ function FirstPointMap({ props }) {
 
   const tripHandler = async (event) => {
     event.preventDefault()
-    const { budget, startDate, endDate, tripInfo, country } = event.target
+    const { budget, startDate, endDate, tripInfo } = event.target
     let firstPoint = routePoint[0]
     let lastPoint = routePoint[routePoint.length - 1]
     let between = routePoint.filter((el, i) => {
@@ -48,7 +48,11 @@ function FirstPointMap({ props }) {
     })
 
     dispatch(fetchSubmitJourneyAC({
-      country: country.value,
+
+     
+
+
+     
       budget: budget.value,
       startDate: startDate.value,
       endDate: endDate.value,
@@ -110,7 +114,7 @@ function FirstPointMap({ props }) {
         }}
         >
           {/* <input placeholder="Страна" name="country" /> */}
-          <DatePicker
+          <DatePicker required
             name="startDate"
             placeholderText="Начальная дата"
             selected={selectedDate}
@@ -124,7 +128,7 @@ function FirstPointMap({ props }) {
             locale={ru}
           />
 
-          <DatePicker
+          <DatePicker required
             name="endDate"
             placeholderText="Конечная дата"
             selected={selectedDateSecond}
@@ -136,11 +140,11 @@ function FirstPointMap({ props }) {
             scrollableMonthYearDropdown
             locale={ru}
           />
-          <input placeholder="бюджет" name="budget" />
+          <input required placeholder="бюджет" name="budget" />
 
         </div>
         <div>
-          <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
+          <textarea required name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
           <button>Создать путешествие</button>
         </div>
       </form>

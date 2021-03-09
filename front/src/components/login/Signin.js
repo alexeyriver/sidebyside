@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {AUTH_SUCCESSFULLY} from "../../redux/types";
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function Signin(props) {
   const [error, setError] = useState('');
@@ -29,7 +30,7 @@ function Signin(props) {
   };
   console.log(error);
   return (
-    <div className="formWrapper">
+    <Container className="formWrapper">
       <form className="formWrapper__wrapper" onSubmit={handlerSign}>
         <label htmlFor="email">
           Email
@@ -42,7 +43,7 @@ function Signin(props) {
         <div className="error">{error}</div>
         <button>Sign in</button>
       </form>
-    </div>
+    </Container>
   );
 }
 

@@ -34,12 +34,14 @@ function Change() {
         <div>
 
             <form onSubmit={changeHandler}>
+
                 <input name="name" onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
                 <input name="email" onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
+
                 <input type="file" name="file" onChange={onFileChange}/>
                 <button type='submit'>Записать</button>
             </form>
-            {/*<div>{error}</div>*/}
+           <div>{error}</div>
         </div>
 
     );
