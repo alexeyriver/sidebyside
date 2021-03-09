@@ -13,24 +13,12 @@ function Trips() {
   return (
     <Container>
       <h1>Поездки</h1>
-      <Router>
         <ul>
           <li><Link to='/mytrips'>Мною созданные поездки</Link></li>
           <li><Link to='/current'>Текущие поездки</Link></li>
           <li><Link to='/past'>Прошедшие поездки</Link></li>
         </ul>
-        <Switch>
-          <Route path='/mytrips'>
-            <MyTrips />
-          </Route>
-          <Route path='/current'>
-            <CurrentTrips />
-          </Route>
-          <Route path='/past'>
-            <PastTrips />
-          </Route>
-        </Switch>
-      </Router>
+     
     </Container>
   );
 }
