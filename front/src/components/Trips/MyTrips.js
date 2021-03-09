@@ -1,12 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {deleteTripsFetchAC} from '../../redux/Thunk/tripsFetchesAC'
 
 function MyTrips(props) {
-
+ const dispatch =useDispatch()
 
   let trips = useSelector(state => state.trips)
   const user = useSelector(state => state.auth.user)
   trips = trips.filter(el => el.author === user._id)
+
+  const deleteHandler =(event)=>{
+    event.preventDefault()
+    
+    const itemId = event.target.getAttribute('data-id');
+    dispatch(deleteTripsFetchAC(itemId))
+
+  }
 
   return (
     <div>
@@ -24,6 +33,8 @@ function MyTrips(props) {
                 <p>Конечная дата: {el.endDate}</p>
 
                 {/* <p>{el.participants}</p> */}
+                <button>Редактировать</button>
+                <button data-id={el._id} onClick={deleteHandler}>Удалить</button>
               </div>
             ))}
         </div>
