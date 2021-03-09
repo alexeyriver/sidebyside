@@ -5,14 +5,19 @@ import {deleteTripsFetchAC} from '../../redux/Thunk/tripsFetchesAC'
 function MyTrips(props) {
  const dispatch =useDispatch()
 
-  let trips = useSelector(state => state.trips)
+  let trips = useSelector(state => state.tripState.trips)
+    console.log(trips)
   const user = useSelector(state => state.auth.user)
-  trips = trips.filter(el => el.author === user._id)
+  if(trips.length>0){
+    trips = trips.filter(el => el.author === user._id)
+  }
+  
 
   const deleteHandler =(event)=>{
     event.preventDefault()
     
     const itemId = event.target.getAttribute('data-id');
+
     dispatch(deleteTripsFetchAC(itemId))
 
   }
@@ -20,7 +25,7 @@ function MyTrips(props) {
   return (
     <div>
           <h2>Поездки которые предложил сам</h2>
-          {trips &&
+          {trips && trips.length &&
             trips.map((el) => (
               <div
                 style={{ border: "1px black solid" }}

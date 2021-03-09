@@ -5,7 +5,7 @@ import moment from "moment";
 
 function PastTrips(props) {
 
-    let trips = useSelector(state => state.trips)
+    let trips = useSelector(state => state.tripState.trips)
     const date = moment()
     const user = useSelector(state => state.auth.user)
     trips = trips.filter(el => el.participants.includes(user._id)

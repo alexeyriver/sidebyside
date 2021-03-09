@@ -3,9 +3,11 @@ import MyTrips from '../Trips/MyTrips';
 import CurrentTrips from '../Trips/CurrentTrips'
 import PastTrips from '../Trips/PastTrips'
 import {BrowserRouter as Router, Link, Route,Switch} from 'react-router-dom'
+import {useSelector} from "react-redux";
 
 function Trips() {
 
+  const trips = useSelector(state => state.tripState.trips)
 
   return (
     <>
