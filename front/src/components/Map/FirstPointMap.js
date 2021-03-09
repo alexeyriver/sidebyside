@@ -48,6 +48,7 @@ function FirstPointMap({ props }) {
     })
 
     dispatch(fetchSubmitJourneyAC({
+
      
       budget: budget.value,
       startDate: startDate.value,
