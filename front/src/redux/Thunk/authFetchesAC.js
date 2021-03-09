@@ -1,17 +1,12 @@
 import {changeDataAC, changeErrorAC} from "../actionCreators";
+import axios from "axios";
 
-export const changeInfoFetchAC = (name, email, user) => (dispatch) => {
-    fetch(`${process.env.REACT_APP_URL}/profile/${user._id}`, {
-        method: 'put',
+export const changeInfoFetchAC = (formData) => (dispatch) => {
+    const id = formData.get('id')
+    axios.post(`${process.env.REACT_APP_URL}/profile/${id}`, formData, {
         headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({ name, email })
-    }).then((response) => {
-        if (response.status === 200) {
-            dispatch(changeDataAC({ name, email }));
-        } else {
-            dispatch(changeErrorAC('Такая почта уже зарегистрирована!'));
+            'Content-Type': 'multipart/form-data',
         }
-    });
-};
+    }).then(data => dispatch(changeDataAC(data)))
+
+}

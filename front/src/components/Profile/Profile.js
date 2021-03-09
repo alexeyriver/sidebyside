@@ -15,7 +15,7 @@ function Profile() {
     <Container>
       <h1>Тут будет Profile</h1>
       <div>
-          <img src={user.avatar} alt={'AVATAR'}/>
+          <img src={user.file} alt={'AVATAR'} style={{maxHeight:'300px',maxWidth:'300px'}}/>
         <p>{user.name}</p>
         <p>{user.email}</p>
           <div>
