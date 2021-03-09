@@ -18,31 +18,7 @@ function CreateTrip(props) {
   const dispatch = useDispatch();
   
 
-  const tripHandler = (event) => {
-    event.preventDefault()
-    const { budget, startDate, endDate, tripInfo, country } = event.target
-
-    console.log('------>', budget.value);
-    fetch(process.env.REACT_APP_URL_ADDTRIP, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'Application/json'
-      },
-      body: JSON.stringify({
-        country: country.value,
-        budget: budget.value,
-        startDate: startDate.value,
-        endDate: endDate.value,
-        tripInfo: tripInfo.value,
-        email: email
-      })
-    })
-      .then(res => res.json())
-      .then(data => console.log(data))
-  }
-
-
-  // старая логика сверху
+ 
 
   // новая логика:
   const [clickfirstPoint, setClickfirstPoint] = useState(false);
@@ -68,8 +44,6 @@ function CreateTrip(props) {
       <h1>Создайте свой маршрут путешествия</h1>
     
 
-      {/* {/* first version /\/\/\/\} */}
-      {/* new version \/\/\/\/ */}
       <div>hello</div>
 
 
@@ -85,7 +59,6 @@ function CreateTrip(props) {
       <>
         <FirstPointMap props={{ data: propsfirstPoint }} />
       
-
 
       </>
       }

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios'
 
 
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+import OneRegionCard from './OneRegionCard'
 
 function MainSearch(props) {
   const [value, setValue] = useState('');
@@ -35,26 +37,14 @@ function MainSearch(props) {
       dispatch(fetchFindQueryJourneyAC(axi.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')))
     } else setFlagMapSearch(true)
 
-    // setDataFetch('');
 
-    // console.log(axi.data.response?.GeoObjectCollection.featureMember[0]?.GeoObject.Point.pos,'axiiii');
-
-    //     fetch(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${town}`)
-    //       .then((resp) => resp.json())
-    //       .then((data) => {
-    //         if (data.response?.GeoObjectCollection.featureMember[0]?.GeoObject.Point.pos) {
-    //           setDataFetch(data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '));
-    //           dispatch(fetchFindQueryJourneyAC(data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')))
-    //         } else setFlagMapSearch(true)
-    //       });
-    //     setDataFetch('');
   };
   
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
   console.log(stateofQuery);
 
   return (
-    <div>
+    <Container>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
@@ -97,15 +87,16 @@ function MainSearch(props) {
                   }}
                 />
                 <Placemark geometry={el.finalCoords}
+
                   onClick={(e) => {
-                    ClickonRoute(el);
-                  }} />
+                    ClickonRoute(el); }  } />
+
               </>
               )}
             </Map>
           </YMaps>
 
-          {clickMapSearch && <div>{clickMapSearch.tripInfo} </div>}
+          {clickMapSearch && <OneRegionCard el={clickMapSearch}/> }
 
         </>
 
@@ -139,6 +130,7 @@ function MainSearch(props) {
                     strokeColor: '#F008',
                     openBalloonOnClick: true,
                   }}
+
                   onClick={(e) => { console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
                 />
                 <Placemark geometry={el.finalCoords}
@@ -148,11 +140,12 @@ function MainSearch(props) {
               )}
             </Map>
           </YMaps>
-          {stateofQuery && stateofQuery.map(el => <div key={el}>{el.tripInfo}</div>)}
+
+          {stateofQuery && stateofQuery.map(el => <div key={el}><OneRegionCard el={el}/></div>)}
         </>
 
       )}
-    </div>
+    </Container>
   );
 }
 

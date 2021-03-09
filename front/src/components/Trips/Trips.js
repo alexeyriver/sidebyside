@@ -4,13 +4,14 @@ import CurrentTrips from '../Trips/CurrentTrips'
 import PastTrips from '../Trips/PastTrips'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
 import { useSelector } from "react-redux";
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function Trips() {
 
   const trips = useSelector(state => state.tripState.trips)
 
   return (
-    <>
+    <Container>
       <h1>Поездки</h1>
       <Router>
         <ul>
@@ -30,7 +31,7 @@ function Trips() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </Container>
   );
 }
 

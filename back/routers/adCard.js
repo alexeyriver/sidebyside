@@ -61,11 +61,36 @@ router.route('/new')
 router.route('/:id')
   .delete(async (req, res) => {
     const { id } = req.params;
-    
+
     try {
       const cardToDelete = await AdCard.findOneAndDelete({ _id: id })
-      // const querysToRender = await AdCard.filter(el => el._id !== req.params.id);
       res.status(200).json({ message: 'Поездка удалена' });
+    } catch {
+      res.json({ message: "Не найдена поездка с указанным id" })
+    }
+  })
+
+  .put(async (req, res) => {
+    try {
+      const { id, startDate, endDate, budget, cancelStatus, tripInfo } = req.params;
+
+      const cardToEdit = await AdCard.findOne({ _id: id })
+      await cardToEdit.update({
+        id,
+        startDate,
+        endDate,
+        budget,
+        cancelStatus,  //отменить поездку и далее поменять статус размещения
+        tripInfo
+      })
+
+      if (cancelStatus) {
+        await cardToEdit.update({
+          postedStatus: false
+        })
+      }
+
+      res.status(200).json({ message: 'Поездка отредактирована' });
     } catch {
       res.json({ message: "Не найдена поездка с указанным id" })
     }
