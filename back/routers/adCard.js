@@ -25,6 +25,40 @@ router.route('/')
     res.json({ message: 'Поездка создана', response: querysToRender });
   })
 
+
+router.route('/new')
+  .post(async (req, res) => {
+    console.log(req.body, 'req-body');
+    const { budget, country, startDate, endDate, tripInfo, email, startCoords, finalCoords, betweenCoords } = req.body;
+    const user = await User.findOne({ email });
+    const testDate = moment(startDate, "DD-MM-YYYY")
+    console.log(testDate, 'test')
+
+    try {
+      const newCard = new AdCard({
+        author: user,
+        country,
+        budget,
+        startDate: moment(startDate, "DD-MM-YYYY"),
+        endDate: moment(endDate, "DD-MM-YYYY"),
+        tripInfo,
+        participants: user,
+        betweenCoords,
+        startCoords,
+        finalCoords
+      });
+
+      await newCard.save()
+      res.json({ status: true })
+
+    } catch (err) {
+      res.json({status: false })
+    }
+
+    // }
+  });
+
+
 router.route('/:id')
   .delete(async (req, res) => {
     const { id } = req.params;
