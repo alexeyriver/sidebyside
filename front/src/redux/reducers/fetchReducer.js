@@ -20,10 +20,10 @@ export const fetchReducer = (state = initialState, action) => {
         ...state, fetchFindQueryJourney: action.payload,
       }
 
-      case FETCH_SUBMIT_CREATED_JOURNEY:
-        return {
-          ...state, fetchSubmitJourney: action.payload,
-        }
+    case FETCH_SUBMIT_CREATED_JOURNEY:
+      return {
+        ...state, fetchSubmitJourney: action.payload,
+      }
 
 
     default: return state;

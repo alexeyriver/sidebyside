@@ -15,11 +15,15 @@ function Change() {
         dispatch(changeInfoFetchAC(name, email, user));
     };
 
+    const onFileChange = () => {
+
+    }
     return (
         <div>
             <form onSubmit={changeHandler}>
                 <input onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
-                <input onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту" value ={email}/>
+                <input onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
+                <input type="file" name="file" onChange={onFileChange}/>
                 <button>Записать</button>
             </form>
             <div>{error}</div>

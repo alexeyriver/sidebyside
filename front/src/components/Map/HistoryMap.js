@@ -1,7 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 
 function HistoryMap({el}) {
+//  const [bet,setBet]= useState(el.betweenCoords)
+  // if(el.betweenCoords.length>1){
+  //   el.betweenCoords=[...el.betweenCoords]
+  // }
+  // console.log(bet);
 
   return (
     <YMaps>
@@ -13,7 +18,8 @@ function HistoryMap({el}) {
           <GeoObject
             geometry={{
               type: 'LineString',
-              coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords]
+              coordinates: [el.startCoords, el.betweenCoords, el.finalCoords]
+              // coordinates: [el.startCoords, bet, el.finalCoords]
             }}
             options={{
               geodesic: true,
@@ -21,8 +27,16 @@ function HistoryMap({el}) {
               strokeColor: '#F008',
             }}
           />
-          <Placemark geometry={el.startCoords} />
-          <Placemark geometry={el.finalCoords} />
+          <Placemark geometry={el.startCoords}  options={{
+                  iconLayout: 'default#image',
+                  iconImageOffset: [-16, -38],
+                  iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
+                }} />
+          <Placemark geometry={el.finalCoords}  options={{
+                    iconLayout: 'default#image',
+                    iconImageOffset: [-4, -36],
+                    iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
+                  }} />
 
 
         </Map>

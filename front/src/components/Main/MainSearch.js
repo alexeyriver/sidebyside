@@ -39,7 +39,7 @@ function MainSearch(props) {
 
 
   };
-  
+
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
   console.log(stateofQuery);
 
@@ -68,7 +68,13 @@ function MainSearch(props) {
 
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
+              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}  key={el._id}
+                options={{
+                  iconLayout: 'default#image',
+                  iconImageOffset: [-16, -38],
+                  iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
+                }}
+
                 onClick={(e) => ClickonRoute(el)} />
                 <GeoObject
                   geometry={{
@@ -87,16 +93,21 @@ function MainSearch(props) {
                   }}
                 />
                 <Placemark geometry={el.finalCoords}
-
+                  options={{
+                    iconLayout: 'default#image',
+                    iconImageOffset: [-4, -36],
+                    iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
+                  }}
                   onClick={(e) => {
-                    ClickonRoute(el); }  } />
+                    ClickonRoute(el);
+                  }} />
 
               </>
               )}
             </Map>
           </YMaps>
 
-          {clickMapSearch && <OneRegionCard el={clickMapSearch}/> }
+          {clickMapSearch && <OneRegionCard el={clickMapSearch}  />}
 
         </>
 
@@ -116,10 +127,15 @@ function MainSearch(props) {
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
 
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
+              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}  key={el._id}
+                options={{
+                  iconLayout: 'default#image',
+                  iconImageOffset: [-16, -38],
+                  iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
+                }}
                 onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
                 onContextMenu={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }} />
-                <GeoObject
+                <GeoObject 
                   geometry={{
                     type: 'LineString',
                     coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
@@ -134,6 +150,11 @@ function MainSearch(props) {
                   onClick={(e) => { console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
                 />
                 <Placemark geometry={el.finalCoords}
+                  options={{
+                    iconLayout: 'default#image',
+                    iconImageOffset: [-4, -36],
+                    iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
+                  }}
                   onClick={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }}
                 />
               </>
@@ -141,7 +162,7 @@ function MainSearch(props) {
             </Map>
           </YMaps>
 
-          {stateofQuery && stateofQuery.map(el => <div key={el}><OneRegionCard el={el}/></div>)}
+          {stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
         </>
 
       )}
