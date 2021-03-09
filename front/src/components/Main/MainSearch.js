@@ -68,11 +68,7 @@ function MainSearch(props) {
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
               {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
-                onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
-                onContextMenu={(e) => {
-                  console.log(e.originalEvent.target.geometry._coordinates);
-
-                }} />
+                onClick={(e) => ClickonRoute(el)} />
                 <GeoObject
                   geometry={{
                     type: 'LineString',
@@ -90,25 +86,16 @@ function MainSearch(props) {
                   }}
                 />
                 <Placemark geometry={el.finalCoords}
-                  onClick={(e) => {
-                     ClickonRoute(el);
-                    console.log(e)}
-                    }
-                  onContextMenu={(e) => {
-                    console.log(e.originalEvent.target.geometry._coordinates);
 
-                  }} />
+                  onClick={(e) => {
+                    ClickonRoute(el); }  } />
 
               </>
               )}
-
-
             </Map>
-
           </YMaps>
 
-            {clickMapSearch&&  <div>{clickMapSearch.tripInfo} </div>}
-
+          {clickMapSearch && <div>{clickMapSearch.tripInfo} </div>}
 
         </>
 
@@ -145,24 +132,20 @@ function MainSearch(props) {
                     strokeColor: '#F008',
                     openBalloonOnClick: true,
                   }}
-                  onClick={(e) => {console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
+
+                  onClick={(e) => { console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
                 />
                 <Placemark geometry={el.finalCoords}
-                  onClick={(e) => {console.log(e.originalEvent.target.geometry._coordinates);  }}
-                  onContextMenu={(e) => {
-                    console.log(e.originalEvent.target.geometry._coordinates);
-
-                  }} />
+                  onClick={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }}
+                  />
 
               </>
               )}
-
             </Map>
           </YMaps>
 
           {stateofQuery && stateofQuery.map(el => <div key={el}><OneRegionCard el={el}/></div>)}
         </>
-
 
       )}
     </Container>
