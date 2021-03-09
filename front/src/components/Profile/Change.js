@@ -19,7 +19,7 @@ function Change() {
         <div>
             <form onSubmit={changeHandler}>
                 <input onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
-                <input onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
+                <input onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту" value ={email}/>
                 <button>Записать</button>
             </form>
             <div>{error}</div>

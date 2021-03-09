@@ -72,18 +72,32 @@ router.route('/:id')
 
   .put(async (req, res) => {
     try {
-      const { id, startDate, endDate, budget, cancelStatus, tripInfo } = req.params;
-
-      const cardToEdit = await AdCard.findOne({ _id: id })
+       const {  startDate, endDate, budget,  tripInfo ,participants } = req.body;
+      console.log(req.params,'======', req.body);
+      console.log(req.params.id);
+      const cardToEdit = await AdCard.findOne({_id: req.params.id })
+      console.log(cardToEdit);
       await cardToEdit.update({
-        id,
-        startDate,
-        endDate,
+        
+       
         budget,
-        cancelStatus,  //отменить поездку и далее поменять статус размещения
-        tripInfo
+       //отменить поездку и далее поменять статус размещения
+        tripInfo,
+        participants
       })
-
+      
+      // const cardToEdit = await AdCard.findByIdAndUpdate({ _id: req.params.id }, { budget, tripInfo, participants});
+      
+      // cardToEdit.startDate=startDate
+      // cardToEdit.endDate=endDate
+      
+      // cardToEdit.budget=budget
+      // cardToEdit.tripInfo=tripInfo
+      // cardToEdit.participants=participants
+      // console.log(cardToEdit,'<<<<<<<');
+      await cardToEdit.save()
+      
+      console.log('>>>>>>',cardToEdit);
       if (cancelStatus) {
         await cardToEdit.update({
           postedStatus: false

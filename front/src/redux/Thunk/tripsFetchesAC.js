@@ -1,4 +1,4 @@
-import { initTripsAC,deleteTripAC} from "../actionCreators";
+import { initTripsAC,deleteTripAC,editMyTripAC} from "../actionCreators";
 
 
 export const initTripsFetchAC = () => (dispatch) => {
@@ -21,4 +21,24 @@ export const deleteTripsFetchAC = (itemId) => (dispatch) => {
     })
 }
 
+export const editMyTripFetchAC = (value)=>(dispatch)=>{
+ console.log(value);
+  fetch(`${process.env.REACT_APP_URL_FIND_ALL_TRIP}/${value.itemId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      budget:value.budget,
+      startDate:value.startDate,
+      endDate:value.endDate,
+      tripInfo:value.tripInfo,
+      participants:value.participants
 
+      
+    })   
+          
+    }
+        ).then((res) => res.json())
+        .then((data) => console.log(data));
+}
