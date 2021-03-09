@@ -114,7 +114,7 @@ function FirstPointMap({ props }) {
         }}
         >
           {/* <input placeholder="Страна" name="country" /> */}
-          <DatePicker
+          <DatePicker required
             name="startDate"
             placeholderText="Начальная дата"
             selected={selectedDate}
@@ -128,7 +128,7 @@ function FirstPointMap({ props }) {
             locale={ru}
           />
 
-          <DatePicker
+          <DatePicker required
             name="endDate"
             placeholderText="Конечная дата"
             selected={selectedDateSecond}
@@ -140,11 +140,11 @@ function FirstPointMap({ props }) {
             scrollableMonthYearDropdown
             locale={ru}
           />
-          <input placeholder="бюджет" name="budget" />
+          <input required placeholder="бюджет" name="budget" />
 
         </div>
         <div>
-          <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
+          <textarea required name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
           <button>Создать путешествие</button>
         </div>
       </form>

@@ -4,6 +4,7 @@ import { deleteTripsFetchAC, initTripsFetchAC } from "../../redux/Thunk/tripsFet
 import HistoryMap from "../Map/HistoryMap";
 import moment from "moment";
 import {Link} from 'react-router-dom'
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function MyTrips(props) {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function MyTrips(props) {
   
 
   return (
-    <div>
+    <Container>
       <h2>Поездки которые предложил сам</h2>
       {trips &&
         trips.length &&
@@ -54,7 +55,7 @@ function MyTrips(props) {
 
 
 ))}
-    </div>
+    </Container>
   );
 }
 
