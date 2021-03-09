@@ -21,8 +21,8 @@ function Change() {
     return (
         <div>
             <form onSubmit={changeHandler}>
-                <input onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
-                <input onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
+                <input onChange={(e) => setName(e.target.value)} type="text" placeholder="Изменить имя"/>
+                <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Изменить почту"/>
                 <input type="file" name="file" onChange={onFileChange}/>
                 <button>Записать</button>
             </form>
