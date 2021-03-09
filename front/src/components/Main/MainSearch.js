@@ -3,9 +3,7 @@ import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 import Maps from './Maps';
 import { fetchFindAllJourneyAC, fetchFindQueryJourneyAC } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
-
-
-
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function MainSearch(props) {
   const [value, setValue] = useState('');
@@ -13,8 +11,6 @@ function MainSearch(props) {
   const [flagMapSearch, setFlagMapSearch] = useState(true);
 
   const [clickMapSearch, setClickFlagMapSearch] = useState(false);
-
-
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -46,7 +42,7 @@ function MainSearch(props) {
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
   console.log(stateofQuery);
   return (
-    <div>
+    <Container>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
@@ -89,8 +85,10 @@ function MainSearch(props) {
                   }}
                 />
                 <Placemark geometry={el.finalCoords}
+
                   onClick={(e) => {
                     ClickonRoute(el); }  } />
+
               </>
               )}
             </Map>
@@ -133,11 +131,13 @@ function MainSearch(props) {
                     strokeColor: '#F008',
                     openBalloonOnClick: true,
                   }}
+
                   onClick={(e) => { console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
                 />
                 <Placemark geometry={el.finalCoords}
                   onClick={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }}
                   />
+
               </>
               )}
             </Map>
@@ -146,7 +146,7 @@ function MainSearch(props) {
         </>
 
       )}
-    </div>
+    </Container>
   );
 }
 
