@@ -9,7 +9,7 @@ function MyTrips(props) {
     console.log(trips)
   const user = useSelector(state => state.auth.user)
   if(trips.length>0){
-    trips = trips.filter(el => el.author === user._id)
+    trips = trips.filter(el => el.author._id === user._id)
   }
   
 
@@ -31,7 +31,7 @@ function MyTrips(props) {
                 style={{ border: "1px black solid" }}
                 key={performance.now()}
               >
-                <p>{el.author}</p>
+                <p>{el.author.name}</p>
                 <p>Информация о поездке: {el.tripInfo}</p>
                 <p>Бюджет: {el.budget}</p>
                 <p>Начальная дата: {el.startDate}</p>

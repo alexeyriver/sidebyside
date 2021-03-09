@@ -89,7 +89,10 @@ function MainSearch(props) {
                   }}
                 />
                 <Placemark geometry={el.finalCoords}
-                  onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
+                  onClick={(e) => {
+                     ClickonRoute(el);
+                    console.log(e)}
+                    }
                   onContextMenu={(e) => {
                     console.log(e.originalEvent.target.geometry._coordinates);
 
@@ -141,10 +144,10 @@ function MainSearch(props) {
                     strokeColor: '#F008',
                     openBalloonOnClick: true,
                   }}
-                  onClick={(e) => console.log(e.originalEvent.target.geometry._coordPath._coordinates)}
+                  onClick={(e) => {console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
                 />
                 <Placemark geometry={el.finalCoords}
-                  onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
+                  onClick={(e) => {console.log(e.originalEvent.target.geometry._coordinates);  }}
                   onContextMenu={(e) => {
                     console.log(e.originalEvent.target.geometry._coordinates);
 
