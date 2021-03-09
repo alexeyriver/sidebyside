@@ -16,14 +16,10 @@ function CreateTrip(props) {
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
   const email = useSelector(store => store.auth.user.email)
   const dispatch = useDispatch();
-  
-
- 
 
   // новая логика:
   const [clickfirstPoint, setClickfirstPoint] = useState(false);
   const [propsfirstPoint, setPropsfirstPoint] = useState('');
- 
 
   const SubmitFormFirstPoint = async (e) => {
     e.preventDefault();
@@ -37,16 +33,9 @@ function CreateTrip(props) {
     setClickfirstPoint(clickfirstPoint => clickfirstPoint = true)
   }
 
-
-
   return (
     <Container>
       <h1>Создайте свой маршрут путешествия</h1>
-    
-
-      <div>hello</div>
-
-
 
       {!clickfirstPoint &&
         <form onSubmit={(e) => SubmitFormFirstPoint(e)} >
@@ -58,8 +47,6 @@ function CreateTrip(props) {
       {clickfirstPoint &&
       <>
         <FirstPointMap props={{ data: propsfirstPoint }} />
-      
-
       </>
       }
     </Container>

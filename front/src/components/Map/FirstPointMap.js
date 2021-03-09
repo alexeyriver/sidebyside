@@ -7,7 +7,9 @@ import ru from 'date-fns/locale/ru';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTripFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import { fetchSubmitJourneyAC } from '../../redux/actions';
+
 import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory} from "react-router-dom";
+
 
 function FirstPointMap({ props }) {
   const [countUseEffect, setCountUseEffect] = useState(0)
@@ -36,7 +38,6 @@ setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
   const email = useSelector(store => store.auth.user.email)
 
-
   const tripHandler = async (event) => {
     event.preventDefault()
     const { budget, startDate, endDate, tripInfo, country } = event.target
@@ -56,13 +57,6 @@ setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
       betweenCoords: between
     }))
 
-
-    // if (req.status) {
-    //   console.log(req);
-    //   window.location='/mytrips'
-    // }
-
-  }
 
 
   return (
@@ -114,7 +108,7 @@ setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
           display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
         }}
         >
-          <input placeholder="Страна" name="country" />
+          {/* <input placeholder="Страна" name="country" /> */}
           <DatePicker
             name="startDate"
             placeholderText="Начальная дата"
