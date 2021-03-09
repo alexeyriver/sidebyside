@@ -22,7 +22,7 @@ export const authReducer = (state = preloadState, action) => {
     case LOGOUT:
       window.localStorage.removeItem('state');
       return {
-        ...state, isAuth: false, user: { }, authError: null, changeError: null, customer: {},
+        ...state, isAuth: false, user: {}, authError: null, changeError: null, customer: {},
       };
     default:
       return state;
