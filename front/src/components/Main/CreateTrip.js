@@ -86,48 +86,7 @@ function CreateTrip(props) {
         <FirstPointMap props={{ data: propsfirstPoint }} />
       
 
-{/* ФОрму запихать в элемент FirstPointMap */}
 
-        {/* <form onSubmit={(e) => tripHandler(e)}>
-        <div style={{
-          display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
-        }}
-        >
-          <input placeholder="Страна" name="country" />
-          <DatePicker
-            name="startDate"
-            placeholderText="Начальная дата"
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            dateFormat="dd.MM.yyyy"
-            minDate={new Date()}
-            maxDate={selectedDateSecond}
-            isClearable
-            showYearDropdown
-            scrollableMonthYearDropdown
-            locale={ru}
-          />
-
-          <DatePicker
-            name="endDate"
-            placeholderText="Конечная дата"
-            selected={selectedDateSecond}
-            onChange={(date) => setSelectedDateSecond(date)}
-            dateFormat="dd.MM.yyyy"
-            minDate={new Date() && selectedDate}
-            isClearable
-            showYearDropdown
-            scrollableMonthYearDropdown
-            locale={ru}
-          />
-          <input placeholder="бюджет" name="budget" />
-
-        </div>
-        <div>
-          <textarea name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
-          <button >Создать путешествие </button>
-        </div>
-      </form> */}
       </>
       }
     </Container>
