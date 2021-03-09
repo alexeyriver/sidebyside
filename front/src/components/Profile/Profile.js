@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
+
 import Change from "./Change";
+
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+
 
 function Profile() {
 
@@ -8,7 +12,7 @@ function Profile() {
     const [change, setChange] = useState(false);
 
   return (
-    <div>
+    <Container>
       <h1>Тут будет Profile</h1>
       <div>
         <p>{user.name}</p>
@@ -21,7 +25,7 @@ function Profile() {
 
           <button onClick={() => setChange(!change)}>Изменить данные</button>
       </div>
-    </div>
+    </Container>
   );
 }
 

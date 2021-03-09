@@ -3,9 +3,11 @@ import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 import Maps from './Maps';
 import { fetchFindAllJourneyAC, fetchFindQueryJourneyAC } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios'
 
 
-
+import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+import OneRegionCard from './OneRegionCard'
 
 function MainSearch(props) {
   const [value, setValue] = useState('');
@@ -13,8 +15,6 @@ function MainSearch(props) {
   const [flagMapSearch, setFlagMapSearch] = useState(true);
 
   const [clickMapSearch, setClickFlagMapSearch] = useState(false);
-
-
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -24,29 +24,27 @@ function MainSearch(props) {
 
   let stateofAll = useSelector(state => state.fetch.fetchFindAllJourney)
   console.log(stateofAll);
-  const ClickonRoute = (el) => {
-    console.log(el)
-    setClickFlagMapSearch(el)
-  }
+  const ClickonRoute = (el) => { setClickFlagMapSearch(el) }
 
-  const HandlerChanger = (e) => {
+  const HandlerChanger = async (e) => {
     setFlagMapSearch(false)
     e.preventDefault();
     const { town: { value: town } } = e.target;
-    fetch(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${town}`)
-      .then((resp) => resp.json())
-      .then((data) => {
-        if (data.response?.GeoObjectCollection.featureMember[0]?.GeoObject.Point.pos) {
-          setDataFetch(data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '));
-          dispatch(fetchFindQueryJourneyAC(data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')))
-        } else setFlagMapSearch(true)
-      });
-    setDataFetch('');
+
+    let axi = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${town}`)
+    if (axi.data.response?.GeoObjectCollection.featureMember[0]?.GeoObject.Point.pos) {
+      setDataFetch(axi.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '));
+      dispatch(fetchFindQueryJourneyAC(axi.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')))
+    } else setFlagMapSearch(true)
+
+
   };
+  
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
   console.log(stateofQuery);
+
   return (
-    <div>
+    <Container>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
@@ -71,11 +69,7 @@ function MainSearch(props) {
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
               {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
-                onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
-                onContextMenu={(e) => {
-                  console.log(e.originalEvent.target.geometry._coordinates);
-
-                }} />
+                onClick={(e) => ClickonRoute(el)} />
                 <GeoObject
                   geometry={{
                     type: 'LineString',
@@ -93,25 +87,16 @@ function MainSearch(props) {
                   }}
                 />
                 <Placemark geometry={el.finalCoords}
-                  onClick={(e) => {
-                     ClickonRoute(el);
-                    console.log(e)}
-                    }
-                  onContextMenu={(e) => {
-                    console.log(e.originalEvent.target.geometry._coordinates);
 
-                  }} />
+                  onClick={(e) => {
+                    ClickonRoute(el); }  } />
 
               </>
               )}
-
-
             </Map>
-
           </YMaps>
 
-            {clickMapSearch&&  <div>{clickMapSearch.tripInfo} </div>}
-
+          {clickMapSearch && <OneRegionCard el={clickMapSearch}/> }
 
         </>
 
@@ -133,10 +118,7 @@ function MainSearch(props) {
 
               {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}
                 onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
-                onContextMenu={(e) => {
-                  console.log(e.originalEvent.target.geometry._coordinates);
-
-                }} />
+                onContextMenu={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }} />
                 <GeoObject
                   geometry={{
                     type: 'LineString',
@@ -148,27 +130,22 @@ function MainSearch(props) {
                     strokeColor: '#F008',
                     openBalloonOnClick: true,
                   }}
-                  onClick={(e) => {console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
+
+                  onClick={(e) => { console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
                 />
                 <Placemark geometry={el.finalCoords}
-                  onClick={(e) => {console.log(e.originalEvent.target.geometry._coordinates);  }}
-                  onContextMenu={(e) => {
-                    console.log(e.originalEvent.target.geometry._coordinates);
-
-                  }} />
-
+                  onClick={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }}
+                />
               </>
               )}
-
             </Map>
           </YMaps>
 
-          {stateofQuery && stateofQuery.map(el => <div key={el}>{el.tripInfo}</div>)}
+          {stateofQuery && stateofQuery.map(el => <div key={el}><OneRegionCard el={el}/></div>)}
         </>
 
-
       )}
-    </div>
+    </Container>
   );
 }
 

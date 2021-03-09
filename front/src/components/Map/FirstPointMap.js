@@ -5,18 +5,16 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import { useDispatch, useSelector } from 'react-redux';
-import {addTripFetchAC} from "../../redux/Thunk/tripsFetchesAC";
+import { addTripFetchAC } from "../../redux/Thunk/tripsFetchesAC";
+import { fetchSubmitJourneyAC } from '../../redux/actions';
 
 
 function FirstPointMap({ props }) {
   const [routePoint, setRoutePoint] = useState([props.data])
-  console.log(props);
   const HandlerCreateRoute = (e) => {
-    console.log(e._sourceEvent.originalEvent.coords)
     setRoutePoint(routePoint => routePoint = [...routePoint, e._sourceEvent.originalEvent.coords])
   }
   const HandlerEditRoute = (e) => {
-    console.log(e.originalEvent.target.geometry._coordinates)
     setRoutePoint(routePoint => routePoint = routePoint.filter((el) => el != e.originalEvent.target.geometry._coordinates))
   }
 
@@ -24,39 +22,49 @@ function FirstPointMap({ props }) {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateSecond, setSelectedDateSecond] = useState(null);
   const email = useSelector(store => store.auth.user.email)
-  console.log(email);
   const dispatch = useDispatch();
 
 
-  const tripHandler = (event) => {
+  const tripHandler = async (event) => {
     event.preventDefault()
     const { budget, startDate, endDate, tripInfo, country } = event.target
     let firstPoint = routePoint[0]
     let lastPoint = routePoint[routePoint.length - 1]
     let between = routePoint.filter((el, i) => { if (i != 0 && i != (routePoint.length - 1)) return el })
     console.log('------>', budget.value);
-    fetch(process.env.REACT_APP_URL_ADDTRIP, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'Application/json'
-      },
-      body: JSON.stringify({
-        country: country.value,
-        budget: budget.value,
-        startDate: startDate.value,
-        endDate: endDate.value,
-        tripInfo: tripInfo.value,
-        email: email
-        // new logic\/\/\/\/
-        , startCoords: firstPoint,
-        finalCoords: lastPoint,
-        betweenCoords: between
+
+    dispatch(fetchSubmitJourneyAC({
+      country: country.value, budget: budget.value, startDate: startDate.value,
+      endDate: endDate.value,
+      tripInfo: tripInfo.value,
+      email: email, startCoords: firstPoint,
+      finalCoords: lastPoint,
+      betweenCoords: between
+    }))
+
+    // fetch(process.env.REACT_APP_URL_ADDTRIP, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-type': 'Application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     country: country.value,
+    //     budget: budget.value,
+    //     startDate: startDate.value,
+    //     endDate: endDate.value,
+    //     tripInfo: tripInfo.value,
+    //     email: email
+    //     // new logic\/\/\/\/
+    //     , startCoords: firstPoint,
+    //     finalCoords: lastPoint,
+    //     betweenCoords: between
 
 
-      })
-    })
-      .then(res => res.json())
-      .then(data => console.log(data))
+    //   })
+    // })
+    //   .then(res => res.json())
+    //   .then(data => console.log(data))
+    
   }
 
 
@@ -140,14 +148,6 @@ function FirstPointMap({ props }) {
           <button >Создать путешествие </button>
         </div>
       </form>
-
-
-
-
-
-
-
-
 
 
     </div>

@@ -3,8 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxThunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer';
 
-
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(ReduxThunk)));
+const preloadedState = window.localStorage.getItem('state') || '{}'
+const store = createStore(rootReducer,JSON.parse(preloadedState), composeWithDevTools(applyMiddleware(ReduxThunk)));
 
 store.subscribe(() => {
   const state = store.getState();
