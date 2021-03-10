@@ -14,7 +14,7 @@ const user = useSelector(store => store.fetch.fetchModalUserInfo)
         <div className="modal_close" onClick={props.onModalClose}>X</div>
         <h2>HI</h2>
         <hr />
-     <p>User:  {user.name}</p> 
+     <p>User:  {user?.name}</p> 
 
        HI again
       </div>
