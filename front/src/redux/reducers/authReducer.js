@@ -1,4 +1,12 @@
-import {AUTH_ERROR, AUTH_SUCCESSFULLY, CHANGE_DATA, CHANGE_ERROR, LOGOUT} from '../types';
+import {
+  ADD_PROFILE_PICTURE,
+  AUTH_ERROR,
+  AUTH_SUCCESSFULLY,
+  CHANGE_DATA,
+  CHANGE_ERROR,
+  INIT_PROFILE,
+  LOGOUT
+} from '../types';
 
 const windowState = JSON.parse(window.localStorage.getItem('state'));
 let preloadState = {};
@@ -28,8 +36,16 @@ export const authReducer = (state = preloadState, action) => {
       };
     case CHANGE_DATA:
          return {
-        ...state, user: { ...state.user, name: action.payload.data.name, email: action.payload.data.email,file:action.payload.data.file }
-         };
+        ...state, user: { ...state.user, name: action.payload.name, email: action.payload.email,about:action.payload.about}
+         }
+
+    case ADD_PROFILE_PICTURE:
+      return {
+        ...state,user: {...state.user,file:action.payload.data.file }
+      }
+
+    case INIT_PROFILE:
+      return { ...state, user: { ...state.user, } };
 
     case CHANGE_ERROR:
       return { ...state, changeError: action.payload };

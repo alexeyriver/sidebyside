@@ -5,6 +5,10 @@ const feedSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'adCards'
   },
+  tripAuthor: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
+  },
   feedAuthor: {
     type: Schema.Types.ObjectId,
     ref: 'users'
