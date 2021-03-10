@@ -4,6 +4,7 @@ import logoutRouter from '../routers/logout.js';
 import adCardRouter from '../routers/adCard.js';
 import messageRouter from '../routers/messages.js'
 import profileRouter from '../routers/profile.js'
+import authorTripProfile from '../routers/authorTripProfile.js'
 import pastTripsRouter from '../routers/profile.js'
 
 
@@ -16,6 +17,7 @@ const routersConfig = (app) => {
   app.use('/trips', adCardRouter) ;
   app.use('/messages',messageRouter)
   app.use('/profile',profileRouter)
+  app.use('/users',authorTripProfile)
 
 }
 export default routersConfig

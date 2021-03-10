@@ -24,7 +24,7 @@ function MainSearch(props) {
 
   let stateofAll = useSelector(state => state.fetch.fetchFindAllJourney)
   console.log(stateofAll);
-  const ClickonRoute = (el) => { setClickFlagMapSearch(el) }
+  const ClickonRoute = (el) => { setClickFlagMapSearch(el) ; if(!flagMapSearch){setFlagMapSearch(true)} }
 
   const HandlerChanger = async (e) => {
     setFlagMapSearch(false)
@@ -68,7 +68,7 @@ function MainSearch(props) {
 
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}  key={el._id}
+              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
@@ -107,7 +107,7 @@ function MainSearch(props) {
             </Map>
           </YMaps>
 
-          {clickMapSearch && <OneRegionCard el={clickMapSearch}  />}
+          {clickMapSearch && <OneRegionCard el={clickMapSearch} />}
 
         </>
 
@@ -127,15 +127,15 @@ function MainSearch(props) {
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
 
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords}  key={el._id}
+              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
                   iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
                 }}
-                onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
+                onClick={(e) => { ClickonRoute(el) }}
                 onContextMenu={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }} />
-                <GeoObject 
+                <GeoObject
                   geometry={{
                     type: 'LineString',
                     coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
@@ -146,8 +146,7 @@ function MainSearch(props) {
                     strokeColor: '#F008',
                     openBalloonOnClick: true,
                   }}
-
-                  onClick={(e) => { console.log(e.originalEvent.target.geometry._coordPath._coordinates); }}
+                  onClick={(e) => { ClickonRoute(el); }}
                 />
                 <Placemark geometry={el.finalCoords}
                   options={{
@@ -155,14 +154,15 @@ function MainSearch(props) {
                     iconImageOffset: [-4, -36],
                     iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
                   }}
-                  onClick={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }}
+                  onClick={(e) => {  ClickonRoute(el);  }}
                 />
               </>
               )}
             </Map>
           </YMaps>
 
-          {stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
+          {!flagMapSearch && stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
+          {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
         </>
 
       )}
