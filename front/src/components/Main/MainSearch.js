@@ -160,7 +160,10 @@ function MainSearch(props) {
             </Map>
           </YMaps>
 
-          {!flagMapSearch && stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
+          {/* {!flagMapSearch && stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
+          {flagMapSearch && <OneRegionCard el={clickMapSearch} />} */}
+
+         <div className="katrin" style={{display:'flex',alignItems:'baseline'}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
         </>
 

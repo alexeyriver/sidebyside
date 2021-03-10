@@ -26,7 +26,7 @@ dispatch(signInFetchAC({email, password}))
 
   // console.log(error);
   return (
-    <Container className="formWrapper">
+    <div className="formWrapper">
       <form className="formWrapper__wrapper" onSubmit={handlerSign}>
         <label htmlFor="email">
           Email
@@ -39,7 +39,7 @@ dispatch(signInFetchAC({email, password}))
         <div className="error">{error}</div>
         <button>Sign in</button>
       </form>
-    </Container>
+    </div>
   );
 }
 
