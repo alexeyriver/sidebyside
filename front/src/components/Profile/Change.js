@@ -43,6 +43,7 @@ function Change() {
                 <button>Добавить фото</button>
             </form>
            {/*<div>{error}</div>*/}
+
         </div>
 
     );
