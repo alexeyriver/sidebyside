@@ -4,13 +4,15 @@ import axios from "axios";
 
 function Messages() {
 const messages = useSelector(state => state.auth.user.messages)
+
+
     const [response,setResponse] = useState('')
 
 
-    const confirmHandler = () => {
-    axios.put(`${process.env.REACT_APP_URL}/`,{
-
-    }).then()
+    const confirmHandler = (el) => {
+    axios.put(`${process.env.REACT_APP_URL}/messages`,{
+       id: el._id
+    })
 
     }
 
@@ -24,7 +26,7 @@ const messages = useSelector(state => state.auth.user.messages)
             {  messages && messages.map(el => <div>
                     <p style={{fontStyle:'bold'}}>{el.author.name} : {el.text}</p>
                 {/*<input onChange={(e) => setResponse(e.target.value)} placeholder='Ответить на сообщение'/>*/}
-                <button onClick={confirmHandler}>Согласиться на поездку</button>
+                <button  onClick={() => confirmHandler(el)}>Согласиться на поездку</button>
                     <button onClick={declineHandler}>Отказаться</button>
             </div>
 
