@@ -10,13 +10,16 @@ const router = express.Router()
 router.route('/')
     .put(async (req,res) => {
         const {id} = req.body
-        const trip = await AdCard.findOne({_id:id})
-        trip.participants.push()
+        const message = await Message.findOne({_id:id})
+        const author = await User.findOne({_id: message.author._id})
+        const trip =  await  AdCard.findOne({_id:message.trip._id})
+        trip.participants.push(author)
+        await trip.save()
+        await Message.findByIdAndDelete({_id:id})
     })
 
 .post(async (req,res) => {
     const {text,author,recipient, trip} = req.body
-    console.log(req.body,'<<<<');
     const message = await Message.create({
         author:author,
         recipient:recipient,
