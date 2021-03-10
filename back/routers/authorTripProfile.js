@@ -7,8 +7,10 @@ router.route("/:id")
     const { id } = req.params
     console.log(id,'reqparams');
     try {
+
       const userToFind = await User.findOne( {_id: id} )    //.populate("feedback")
         console.log(userToFind,'try');
+
       res.json(userToFind);
     } catch (err) {
       res.json({ message: err })
