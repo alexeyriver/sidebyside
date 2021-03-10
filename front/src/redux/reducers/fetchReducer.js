@@ -1,4 +1,4 @@
-import { FROM_CITY_TO_COORDS, FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY, FETCH_FIND_QUERY_JOURNEY, FETCH_SUBMIT_CREATED_JOURNEY } from '../types';
+import { FROM_CITY_TO_COORDS, FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY, FETCH_FIND_QUERY_JOURNEY, FETCH_SUBMIT_CREATED_JOURNEY, FETCH_MODAL_USER_INFO, FETCH_MODAL_USER_REQUEST_TRIP } from '../types';
 
 const initialState = {};
 export const fetchReducer = (state = initialState, action) => {
@@ -19,10 +19,17 @@ export const fetchReducer = (state = initialState, action) => {
       return {
         ...state, fetchFindQueryJourney: action.payload,
       }
-
     case FETCH_SUBMIT_CREATED_JOURNEY:
       return {
         ...state, fetchSubmitJourney: action.payload,
+      }
+    case FETCH_MODAL_USER_INFO:
+      return {
+        ...state, fetchModalUserInfo: action.payload,
+      }
+    case FETCH_MODAL_USER_REQUEST_TRIP:
+      return {
+        ...state, fetchModalRequestTrip: action.payload,
       }
 
 

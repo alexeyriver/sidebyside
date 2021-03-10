@@ -17,8 +17,6 @@ function FirstPointMap({ props }) {
   const dispatch = useDispatch();
   const req = useSelector(store => store.fetch.fetchSubmitJourney)
   useEffect(() => {
-
-
     if (countUseEffect > 0 && req?.status) {
       console.log(req);
       history.push('/mytrips')

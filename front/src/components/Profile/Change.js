@@ -8,6 +8,7 @@ function Change() {
     const error = useSelector((state) => state.auth.changeError);
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
+    const [about,setAbout] = useState(user.about)
     const [pic,setPic] = useState({file:''})
 
 
@@ -15,7 +16,14 @@ function Change() {
         setPic({ file: e.target.files[0] });
     };
 
-    const changeHandler = (event) => {
+    const changeInfoHandler = (e) => {
+        e.preventDefault()
+        dispatch(changeInfoFetchAC(name,email,about,user))
+    }
+
+
+
+    const profilePhotoHandler = (event) => {
         event.preventDefault();
         const {
             name:{value:name},
@@ -30,14 +38,15 @@ function Change() {
     };
 
 
-    return (
-        <div>
+    return (<div>
+            <form onSubmit={changeInfoHandler}>
+                <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
+                <textarea value={about} onChange={(e) => setAbout(e.target.value)} placeholder="Изменить информацию о себе"/>
+                <button  type='submit'>Записать</button>
+            </form>
 
-            <form onSubmit={changeHandler}>
-
-                <input name="name" onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
-                <input name="email" onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
-
+            <form onSubmit={profilePhotoHandler}>
                 <input type="file" name="file" onChange={onFileChange}/>
                 <button type='submit'>Записать</button>
             </form>
