@@ -25,19 +25,15 @@ function MainSearch(props) {
   let stateofAll = useSelector(state => state.fetch.fetchFindAllJourney)
   console.log(stateofAll);
   const ClickonRoute = (el) => { setClickFlagMapSearch(el) ; if(!flagMapSearch){setFlagMapSearch(true)} }
-
   const HandlerChanger = async (e) => {
     setFlagMapSearch(false)
     e.preventDefault();
     const { town: { value: town } } = e.target;
-
     let axi = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${town}`)
     if (axi.data.response?.GeoObjectCollection.featureMember[0]?.GeoObject.Point.pos) {
       setDataFetch(axi.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '));
       dispatch(fetchFindQueryJourneyAC(axi.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')))
     } else setFlagMapSearch(true)
-
-
   };
 
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
