@@ -37,7 +37,7 @@ function App() {
             <MainSearch />
           </Route>
           <Route path="/signup">
-            <Signup />
+          {isAuth ? <Redirect to="/" /> :  <Signup />}
           </Route>
 
           <Route path="/signin">
