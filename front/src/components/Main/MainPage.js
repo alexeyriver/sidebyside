@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 // import MainMap from '../Map/MainMap'
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
+
 function MainPage(props) {
   const history = useHistory();
 
@@ -19,6 +20,7 @@ function MainPage(props) {
 
 
   return (
+
 
     // <Container>
     //   {/* <MainMap /> */}
@@ -60,6 +62,7 @@ function MainPage(props) {
     //     </Row>
     //   </Container>
 
+
     // </Container>
 
     <ul class="actions fit">
@@ -67,6 +70,7 @@ function MainPage(props) {
 										<li><a href="#" className="button fit" onClick={createButtonHandler}>Создать маршрут</a></li>
 
 									</ul>
+
   );
 }
 

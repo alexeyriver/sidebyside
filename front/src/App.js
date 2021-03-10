@@ -27,6 +27,7 @@ function App() {
 
   return (
     <Router>
+
       <Navbars />
       <div id='main'>
       <div className='inner'>
@@ -55,7 +56,7 @@ function App() {
             <Cabinet />
           </Route>
           <Route path="/trips">
-            <Trips/>
+            <Trips />
           </Route>
 
           <Route exact path="/mytrips">
@@ -69,11 +70,11 @@ function App() {
           </Route>
 
           <Route exact path="/mytrips/:id">
-          {/* <Route  path="/:id"> */}
+            {/* <Route  path="/:id"> */}
 
-            <EditTrips/>
+            <EditTrips />
           </Route>
-          
+
         </Switch>
       </div>
       </div>
@@ -82,3 +83,4 @@ function App() {
 }
 
 export default App;
+
