@@ -14,6 +14,7 @@ router.route('/')
 
 .post(async (req,res) => {
     const {text,author,recipient} = req.body
+    console.log(text,author,recipient, 'req body');
     const message = await Message.create({
         author:author,
         recipient:recipient,

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import {AUTH_SUCCESSFULLY} from "../../redux/types";
+import React, { useState, useEffect } from 'react';
+import { useDispatch , useSelector } from 'react-redux';
+import {signInFetchAC} from "../../redux/Thunk/authFetchesAC"
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function Signin(props) {
   const [error, setError] = useState('');
+  const [countUseEffect, setCountUseEffect] = useState(0)
   const dispatch = useDispatch();
   const handlerSign = (event) => {
     const {
@@ -12,25 +13,20 @@ function Signin(props) {
       password: { value: password },
     } = event.target;
     event.preventDefault();
-    fetch(process.env.REACT_APP_URL_SIGNIN, {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then((responce) => responce.json())
-      .then((data) => {
-        if (data.success === true) {
-          dispatch({ type: AUTH_SUCCESSFULLY, payload: data.user });
-          setError('');
-        } else setError(data.message);
-      });
+dispatch(signInFetchAC({email, password}))
   };
-  console.log(error);
+  let erro = useSelector(state => state.auth)
+  useEffect(() => {
+    if (countUseEffect > 0 && erro?.authError) {
+      setError(erro.authError)
+    }
+    setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
+  
+  },[erro])
+
+  // console.log(error);
   return (
-    <Container className="formWrapper">
+    <div className="formWrapper">
       <form className="formWrapper__wrapper" onSubmit={handlerSign}>
         <label htmlFor="email">
           Email
@@ -43,7 +39,7 @@ function Signin(props) {
         <div className="error">{error}</div>
         <button>Sign in</button>
       </form>
-    </Container>
+    </div>
   );
 }
 

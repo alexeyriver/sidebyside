@@ -17,21 +17,21 @@ router.route('/')
     res.send('signin')
   })
   .post(async (req, res) => {
+    console.log(req.body);
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
     if (user) {
-      // Проверка пароля
       const passwordResult = bcrypt.compareSync(password, user.password);
       if (passwordResult) {
         res.status(200).json({ user: user, success: true });
       } else {
-        res.status(401).json({
+        res.json({
           message: 'Пароли не совпали',
         });
       }
     } else {
-      res.status(404).json({
+      res.json({
         message: 'Пользователь не найден',
       });
     }
