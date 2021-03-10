@@ -19,6 +19,7 @@ import PastTrips from "./components/Trips/PastTrips";
 import MyTrips from "./components/Trips/MyTrips";
 import Trips from './components/Trips/Trips'
 import EditTrips from './components/Trips/EditTrips'
+import './App.css'
 
 function App() {
   const dispatch = useDispatch();
@@ -27,57 +28,65 @@ function App() {
 
   return (
     <Router>
+      
+        <div className="main-wrapper">
+          <div className="navbar" >
+            <div className='inner'>
+              <Navbars />
+            </div>
+          </div>
 
-      <Navbars />
-      <div id='main'>
-      <div className='inner'>
-        <Switch>
-          <Route exact path="/">
-            <MainPage />
-          </Route>
-          <Route path="/findroute">
-            <MainSearch />
-          </Route>
-          <Route path="/signup">
-            <Signup />
-          </Route>
 
-          <Route path="/signin">
-            {isAuth ? <Redirect to="/" /> : <Signin />}
-          </Route>
+          <div id='main'>
+            <div className='inner'>
+              <Switch>
+                <Route exact path="/">
+                  <MainPage />
+                </Route>
+                <Route path="/findroute">
+                  <MainSearch />
+                </Route>
+                <Route path="/signup">
+                  {isAuth ? <Redirect to="/" /> : <Signup />}
+                </Route>
 
-          <Route path="/logout">
-            <Logout />
-          </Route>
-          <Route path="/createtrip">
-            <CreateTrip />
-          </Route>
-          <Route path="/cabinet">
-            <Cabinet />
-          </Route>
-          <Route path="/trips">
-            <Trips />
-          </Route>
+                <Route path="/signin">
+                  {isAuth ? <Redirect to="/" /> : <Signin />}
+                </Route>
 
-          <Route exact path="/mytrips">
-            <MyTrips />
-          </Route>
-          <Route path="/current">
-            <CurrentTrips />
-          </Route>
-          <Route path="/past">
-            <PastTrips />
-          </Route>
+                <Route path="/logout">
+                  <Logout />
+                </Route>
+                <Route path="/createtrip">
+                  <CreateTrip />
+                </Route>
+                <Route path="/cabinet">
+                  <Cabinet />
+                </Route>
+                <Route path="/trips">
+                  <Trips />
+                </Route>
 
-          <Route exact path="/mytrips/:id">
-            {/* <Route  path="/:id"> */}
+                <Route exact path="/mytrips">
+                  <MyTrips />
+                </Route>
+                <Route path="/current">
+                  <CurrentTrips />
+                </Route>
+                <Route path="/past">
+                  <PastTrips />
+                </Route>
 
-            <EditTrips />
-          </Route>
+                <Route exact path="/mytrips/:id">
+                  {/* <Route  path="/:id"> */}
 
-        </Switch>
-      </div>
-      </div>
+                  <EditTrips />
+                </Route>
+
+              </Switch>
+            </div>
+          </div>
+        </div>
     </Router>
   );
 }
