@@ -41,7 +41,7 @@ function Change() {
                 <input type="file" name="file" onChange={onFileChange}/>
                 <button type='submit'>Записать</button>
             </form>
-           <div>{error}</div>
+           {/* <div>{error}</div> */}
         </div>
 
     );
