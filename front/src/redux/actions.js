@@ -60,12 +60,13 @@ export function fetchModalUserInfoAC(id) {
 
 
 
-export function fetchModalUserRequestTripAC({ text, author, recipient }) {
+export function fetchModalUserRequestTripAC({ text, author, recipient,trip }) {
   return async (dispatch) => {
     const response = await axios.post(process.env.REACT_APP_USER_REQUEST_TRIP, {
       text,
       author,
-      recipient
+      recipient,
+      trip
     });
 
     dispatch(modalUserRequestTripAC(response.data))

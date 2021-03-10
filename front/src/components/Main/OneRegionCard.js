@@ -39,7 +39,7 @@ function OneRegionCard({ el }) {
         <div>Бюджет рассчитаннный автором : {el.budget}</div>
         <div>Информация о мршруте: {el.tripInfo}</div>
         <div>Количество участников: {el.participants.length > 1 ? el.participants.length : 'Пока не откликнулись,успейте присоединиться первым!'}</div>
-        <button onClick={() => ButtonHandler(el.author._id)}>Связаться с автором</button>
+        <button onClick={() => ButtonHandler(el)}>Связаться с автором</button>
       </div>
       { modalclickRequest && <ModalRequest props={modalprops} isOpened={true}
         onModalClose={() => setModalclickRequest(modalclick = false)}

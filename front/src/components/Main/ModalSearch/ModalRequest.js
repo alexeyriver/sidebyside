@@ -7,12 +7,12 @@ function ModalRequest(props) {
   const dispatch = useDispatch()
   const author = useSelector(store => store.auth.user)
     console.log(author)
-  // console.log(props.props);
+   console.log(props);
 
   const HandlerSubmit = (e) => {
     e.preventDefault()
     const { text: { value: text } } = e.target
-    dispatch(fetchModalUserRequestTripAC({ text, author, recipient: props.props }))
+    dispatch(fetchModalUserRequestTripAC({ text, author, recipient: props.props.author, trip: props.props }))
     props.onModalClose()
   }
   
