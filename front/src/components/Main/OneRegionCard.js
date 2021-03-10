@@ -49,13 +49,14 @@ function OneRegionCard({ el }) {
           <span className="image">
             <img src={el.author.file} alt="" />
           </span>
-          <a href="generic.html">
+          <a href='#'>
             <h2 onClick={() => Handleclicker(el.author._id)}>{el.author.name}</h2>
             <div className="content">
               <p>Путешествие с: {moment(el.startDate).format("DD.MM.YYYY")}</p>
               <p>До: {moment(el.endDate).format("DD.MM.YYYY")}</p>
               <p>Бюджет: {el.budget}</p>
               <div>Информация о мршруте: {el.tripInfo}</div>
+              <button onClick={() => ButtonHandler(el.author._id)}>Связаться с автором</button>
             </div>
           </a>
         </article>
