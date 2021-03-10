@@ -27,6 +27,7 @@ function App() {
 
   return (
     <Router>
+
       <Navbars />
       <div>
         <Switch>
@@ -54,7 +55,7 @@ function App() {
             <Cabinet />
           </Route>
           <Route path="/trips">
-            <Trips/>
+            <Trips />
           </Route>
 
           <Route exact path="/mytrips">
@@ -68,11 +69,11 @@ function App() {
           </Route>
 
           <Route exact path="/mytrips/:id">
-          {/* <Route  path="/:id"> */}
+            {/* <Route  path="/:id"> */}
 
-            <EditTrips/>
+            <EditTrips />
           </Route>
-          
+
         </Switch>
       </div>
     </Router>
@@ -80,3 +81,4 @@ function App() {
 }
 
 export default App;
+
