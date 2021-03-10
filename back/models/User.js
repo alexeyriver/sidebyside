@@ -15,7 +15,8 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'feedbacks'
   }],
-  file:String
+  file:Stringб
+  
 });
 
 export default mongoose.model('users', userSchema);

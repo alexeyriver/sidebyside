@@ -6,7 +6,7 @@ router.route("/:id")
   .get(async (req, res) => {
     const { id } = req.params
     try {
-      const userToFind = await User.findById({ _id: id })
+      const userToFind = await User.findOne({ _id: id })
         .populate("feedback")
       res.json(userToFind);
     } catch (err) {
