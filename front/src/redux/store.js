@@ -7,7 +7,6 @@ const preloadedState = window.localStorage.getItem('state') || '{}'
 const store = createStore(rootReducer,JSON.parse(preloadedState), composeWithDevTools(applyMiddleware(ReduxThunk)));
 
 store.subscribe(() => {
-  console.log('change');
   const state = store.getState();
   window.localStorage.setItem('state', JSON.stringify(state));
 });

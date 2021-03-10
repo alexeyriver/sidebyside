@@ -1,10 +1,21 @@
 
-import {SEND_MESSAGE, INIT_TRIPS, DELETE_TRIPS, ADD_TRIPS,EDIT_MY_TRIP, CHANGE_DATA, CHANGE_ERROR} from "./types";
+import {
+    SEND_MESSAGE,
+    INIT_TRIPS,
+    DELETE_TRIPS,
+    ADD_TRIPS,
+    EDIT_MY_TRIP,
+    CHANGE_DATA,
+    CHANGE_ERROR,
+    ADD_PROFILE_PICTURE,
+    INIT_PROFILE
+} from "./types";
 
 //AUTH
-
+export const addProfilePhotoAC = (data) => ({type:ADD_PROFILE_PICTURE,payload:data})
 export const changeDataAC = (payload) => ({type:CHANGE_DATA,payload})
 export const changeErrorAC = (payload) => ({type:CHANGE_ERROR,payload})
+export const initProfileAC = (payload) => ({type:INIT_PROFILE,payload})
 
 //CHAT
 

@@ -1,6 +1,7 @@
 import express from 'express'
 import User from "../models/User.js";
 import multer from "multer";
+
 const router = express.Router()
 
 const DIR = './public/';
@@ -27,22 +28,30 @@ const upload = multer({
 
 
 router.route('/:id')
+    .get(async (req, res) => {
+        const {id} = req.params;
+        const user = await User.findOne({_id: id})
+        res.json(user)
+    })
 
 
-.post(upload.single('file'),async (req, res) => {
+    .put(async (req, res) => {
+        const {id} = req.params;
+        const {name, email} = req.body;
+        const user = await User.findById({_id: id})
+        user.name = name
+        user.email = email
+        await user.save()
+        res.json(user)
+    })
 
-        const { id } = req.params;
-        const { name, email } = req.body;
-        try {
-            const user = await User.findByIdAndUpdate({ _id: id }, { name, email,file:`http://localhost:4000/public/${req.file.filename}` });
-            if (user) {
-                res.status(200).json(user)
-            } else {
-                throw Error('Такая почта уже зарегистрирована!');
-            }
-        } catch (err) {
-            res.status(501).end();
-        }
+
+    .post(upload.single('file'), async (req, res) => {
+        const {id} = req.params
+        const user = await User.findById({_id: id})
+        user.file = `http://localhost:4000/public/${req.file.filename}`
+        await user.save()
+        res.json(user)
     });
 
 

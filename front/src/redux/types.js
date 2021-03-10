@@ -14,6 +14,8 @@ export const LOGOUT = 'LOGOUT';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const CHANGE_DATA = 'CHANGE_DATA'
 export const CHANGE_ERROR = 'CHANGE_ERROR';
+export const ADD_PROFILE_PICTURE = 'ADD_PROFILE_PICTURE'
+export const INIT_PROFILE = 'INIT_PROFILE'
 
 
 //MESSAGE
