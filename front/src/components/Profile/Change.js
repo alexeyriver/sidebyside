@@ -9,6 +9,7 @@ function Change() {
     // const error = useSelector((state) => state.auth.changeError);
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
+    const [about,setAbout] = useState(user.about)
     const [pic,setPic] = useState({file:''})
 
     const onFileChange = (e) => {
@@ -17,7 +18,7 @@ function Change() {
 
     const changeInfoHandler = (e) => {
         e.preventDefault()
-        dispatch(changeInfoFetchAC(name,email,user))
+        dispatch(changeInfoFetchAC(name,email,about,user))
     }
 
 
@@ -35,6 +36,7 @@ function Change() {
             <form onSubmit={changeInfoHandler}>
                 <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
                 <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
+                <textarea value={about} onChange={(e) => setAbout(e.target.value)} placeholder="Изменить информацию о себе"/>
                 <button  type='submit'>Записать</button>
             </form>
 
