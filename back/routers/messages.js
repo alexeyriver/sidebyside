@@ -1,13 +1,18 @@
 import express from 'express'
 import Message from "../models/Message.js";
 import User from "../models/User.js";
+import AdCard from "../models/AdCard.js";
 
 
 const router = express.Router()
 
 
 router.route('/')
-
+    .put(async (req,res) => {
+        const {id} = req.body
+        const trip = await AdCard.findOne({_id:id})
+        trip.participants.push()
+    })
 
 .post(async (req,res) => {
     const {text,author,recipient} = req.body

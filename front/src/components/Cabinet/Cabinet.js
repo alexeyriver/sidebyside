@@ -8,7 +8,7 @@ import {initMessagesFetchAC} from "../../redux/Thunk/messageFetchesAC";
 
 function Cabinet(props) {
   const trips = useSelector(state => state.tripState.trips)
-const id = useSelector(state => state.auth.user._id)
+  const id = useSelector(state => state.auth.user._id)
   const dispatch = useDispatch()
 
 
