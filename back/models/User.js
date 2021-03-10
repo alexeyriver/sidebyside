@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
   },
+  about: String,
   rating: Number,
   feedback: [{
       type: mongoose.Schema.Types.ObjectId,
