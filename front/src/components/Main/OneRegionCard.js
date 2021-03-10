@@ -13,7 +13,7 @@ function OneRegionCard({el}) {
     <div>Начальная дата: {moment(el.startDate).format("DD.MM.YYYY")}</div>
      <div>Конечная дата: {moment(el.endDate).format("DD.MM.YYYY")}</div>
     <div>Бюджет рассчитаннный автором : {el.budget}</div>
-    <div>Информация о мршруте: {el.tripInfo}</div>
+    <div>Информация о маршруте: {el.tripInfo}</div>
     <div>Количество участников: {el.participants.length > 1 ? el.participants.length : 'Пока не откликнулись,успейте присоединиться первым!'}</div>
    <button>Связаться с автором</button>
     </div>
