@@ -3,8 +3,8 @@ import {
   AUTH_ERROR,
   AUTH_SUCCESSFULLY,
   CHANGE_DATA,
-  CHANGE_ERROR,
-  INIT_PROFILE,
+  CHANGE_ERROR, INIT_MESSAGES,
+  INIT_PROFILE, INIT_SENDER,
   LOGOUT
 } from '../types';
 
@@ -45,7 +45,11 @@ export const authReducer = (state = preloadState, action) => {
       }
 
     case INIT_PROFILE:
-      return { ...state, user: { ...state.user, } };
+      return { ...state, user: { ...state.user } };
+
+    case INIT_MESSAGES:{
+      return {...state,user:{...state.user,messages:action.payload}}
+    }
 
     case CHANGE_ERROR:
       return { ...state, changeError: action.payload };

@@ -24,6 +24,8 @@ export const INIT_PROFILE = 'INIT_PROFILE'
 //MESSAGE
 
 export const SEND_MESSAGE = 'SEND_MESSAGE'
+export const INIT_MESSAGES = 'INIT_MESSAGES'
+
 
 //TRIPS
 export const INIT_TRIPS = 'INIT_TRIPS'

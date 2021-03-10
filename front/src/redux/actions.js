@@ -73,7 +73,6 @@ export function fetchModalUserRequestTripAC({ text, author, recipient }) {
       author,
       recipient
     });
-    console.log(response);
     dispatch({ type: FETCH_MODAL_USER_REQUEST_TRIP, payload: response.data });
   };
 }

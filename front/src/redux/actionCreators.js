@@ -8,7 +8,7 @@ import {
     CHANGE_DATA,
     CHANGE_ERROR,
     ADD_PROFILE_PICTURE,
-    INIT_PROFILE
+    INIT_PROFILE, INIT_MESSAGES, INIT_SENDER
 } from "./types";
 
 //AUTH
@@ -19,8 +19,9 @@ export const initProfileAC = (payload) => ({type:INIT_PROFILE,payload})
 
 //CHAT
 
-
 export const sendMessageAC = (payload) => ({type: SEND_MESSAGE, payload});
+export const initMessagesAC = (payload) => ({type:INIT_MESSAGES,payload})
+
 
 //TRIPS
 export const initTripsAC = (data)=>({type:INIT_TRIPS,payload:data})

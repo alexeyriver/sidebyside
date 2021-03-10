@@ -16,7 +16,8 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'feedbacks'
   }],
-  file:String
+  file:String,
+  messages:[{type:mongoose.SchemaTypes.ObjectId,ref:'Message'}]
   
 });
 
