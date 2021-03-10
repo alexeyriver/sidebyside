@@ -36,7 +36,7 @@ export const authReducer = (state = preloadState, action) => {
       };
     case CHANGE_DATA:
          return {
-        ...state, user: { ...state.user, name: action.payload.name, email: action.payload.email}
+        ...state, user: { ...state.user, name: action.payload.name, email: action.payload.email,about:action.payload.about}
          }
 
     case ADD_PROFILE_PICTURE:

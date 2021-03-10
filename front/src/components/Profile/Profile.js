@@ -15,7 +15,7 @@ const dispatch = useDispatch()
     const [change, setChange] = useState(false);
     useEffect(() => {
         dispatch(initProfileFetchAC(user));
-    }, [user.name, user.email]);
+    }, [user.name, user.email,user.about]);
 
   return (
     <Container>
@@ -24,6 +24,7 @@ const dispatch = useDispatch()
           <img src={user.file} alt={'AVATAR'} style={{maxHeight:'300px',maxWidth:'300px'}}/>
         <p>{user.name}</p>
         <p>{user.email}</p>
+          <p>{user.about}</p>
           <div>
               { change ?    <Change/> : '' }
           </div>

@@ -37,10 +37,11 @@ router.route('/:id')
 
     .put(async (req, res) => {
         const {id} = req.params;
-        const {name, email} = req.body;
+        const {name, email,about} = req.body;
         const user = await User.findById({_id: id})
         user.name = name
         user.email = email
+        user.about = about
         await user.save()
         res.json(user)
     })
