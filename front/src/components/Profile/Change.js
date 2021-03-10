@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {addProfilePhotoFetchAC, changeInfoFetchAC} from '../../redux/Thunk/authFetchesAC'
-
+import {changeInfoFetchAC} from '../../redux/Thunk/authFetchesAC'
 
 function Change() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
-    // const error = useSelector((state) => state.auth.changeError);
+    const error = useSelector((state) => state.auth.changeError);
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [about,setAbout] = useState(user.about)
     const [pic,setPic] = useState({file:''})
+
 
     const onFileChange = (e) => {
         setPic({ file: e.target.files[0] });
@@ -25,10 +25,16 @@ function Change() {
 
     const profilePhotoHandler = (event) => {
         event.preventDefault();
+        const {
+            name:{value:name},
+            email:{value:email},
+            } = event.target
         const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
         formData.append('file', pic.file);
-        formData.append('id', user._id)
-        dispatch(addProfilePhotoFetchAC(formData));
+        formData.append('id', user._id);
+        dispatch(changeInfoFetchAC(formData));
     };
 
 
@@ -42,10 +48,9 @@ function Change() {
 
             <form onSubmit={profilePhotoHandler}>
                 <input type="file" name="file" onChange={onFileChange}/>
-                <button>Добавить фото</button>
+                <button type='submit'>Записать</button>
             </form>
-           {/*<div>{error}</div>*/}
-
+           {/* <div>{error}</div> */}
         </div>
 
     );
