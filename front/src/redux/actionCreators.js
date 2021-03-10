@@ -1,5 +1,6 @@
 
 import {
+  INIT_MESSAGES,
   SEND_MESSAGE,
   INIT_TRIPS,
   DELETE_TRIPS,
@@ -18,7 +19,8 @@ import {
   FETCH_FIND_QUERY_JOURNEY,
   FETCH_SUBMIT_CREATED_JOURNEY,
   FETCH_MODAL_USER_INFO,
-  FETCH_MODAL_USER_REQUEST_TRIP
+  FETCH_MODAL_USER_REQUEST_TRIP,
+
 } from "./types";
 
 //AUTH
@@ -45,8 +47,12 @@ export const modalUserRequestTripAC = (payload) => ({ type: FETCH_MODAL_USER_REQ
 
 //CHAT
 
+export const sendMessageAC = (payload) => ({type: SEND_MESSAGE, payload});
+export const initMessagesAC = (payload) => ({type:INIT_MESSAGES,payload})
 
-export const sendMessageAC = (payload) => ({ type: SEND_MESSAGE, payload });
+
+
+
 
 //TRIPS
 export const initTripsAC = (data) => ({ type: INIT_TRIPS, payload: data })
