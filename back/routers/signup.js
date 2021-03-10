@@ -25,7 +25,7 @@ router.route('/')
 
     const candidat = await User.findOne({ email });
     if (candidat) {
-      res.status(409).json({
+      res.json({
         message: 'Такой пользователь уже есть',
       });
     } else {

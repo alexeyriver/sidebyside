@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 function ModalUserProfile(props) {
 const dispatch = useDispatch()
- 
 const user = useSelector(store => store.fetch.fetchModalUserInfo)
-// console.log(user);
 
   return (
     <div className={`modal_wrapper ${props.isOpened ? 'open' : 'closed'}`} style={{ ...props.style }}>
