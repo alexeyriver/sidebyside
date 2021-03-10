@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 // import MainMap from '../Map/MainMap'
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 
 function MainPage(props) {
@@ -62,12 +61,13 @@ function MainPage(props) {
     //   </Container>
 
     // </Container>
+    <div>
+      <ul class="actions">
+        <li><a href="#" className="button primary" onClick={findButtonHandler}>Найти маршрут</a></li>
+        <li><a href="#" className="button" onClick={createButtonHandler}>Создать маршрут</a></li>
 
-    <ul class="actions fit">
-										<li><a href="#" className="button primary fit" onClick={findButtonHandler}>Найти маршрут</a></li>
-										<li><a href="#" className="button fit" onClick={createButtonHandler}>Создать маршрут</a></li>
-
-									</ul>
+      </ul>
+    </div>
   );
 }
 
