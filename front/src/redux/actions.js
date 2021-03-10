@@ -67,6 +67,7 @@ export function fetchModalUserRequestTripAC({ text, author, recipient }) {
       author,
       recipient
     });
+
     dispatch(modalUserRequestTripAC(response.data))
   };
 }
