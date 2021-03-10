@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FROM_CITY_TO_COORDS, FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY, FETCH_FIND_QUERY_JOURNEY, FETCH_SUBMIT_CREATED_JOURNEY, FETCH_MODAL_USER_INFO } from './types';
+import { FROM_CITY_TO_COORDS, FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY, FETCH_FIND_QUERY_JOURNEY, FETCH_SUBMIT_CREATED_JOURNEY, FETCH_MODAL_USER_INFO, FETCH_MODAL_USER_REQUEST_TRIP } from './types';
 
 
 export function fetchFromCityToCoordsAC() {
@@ -59,7 +59,21 @@ export function fetchSubmitJourneyAC(value) {
 export function fetchModalUserInfoAC(id) {
   return async (dispatch) => {
     const response = await axios.get(`${process.env.REACT_APP_USER_TRIP_PROFILE}/${id}`);
+    dispatch({ type: FETCH_MODAL_USER_INFO, payload: response.data });
+  };
+}
+
+
+
+
+export function fetchModalUserRequestTripAC({ text, author, recipient }) {
+  return async (dispatch) => {
+    const response = await axios.post(process.env.REACT_APP_USER_REQUEST_TRIP, {
+      text,
+      author,
+      recipient
+    });
     console.log(response);
-    dispatch({ type: FETCH_MODAL_USER_INFO, payload: response.data.response });
+    dispatch({ type: FETCH_MODAL_USER_REQUEST_TRIP, payload: response.data });
   };
 }
