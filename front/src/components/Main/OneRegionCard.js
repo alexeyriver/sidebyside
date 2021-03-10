@@ -42,12 +42,12 @@ function OneRegionCard({ el }) {
         <div>Количество участников: {el.participants.length > 1 ? el.participants.length : 'Пока не откликнулись,успейте присоединиться первым!'}</div>
         <button onClick={() => ButtonHandler(el.author._id)}>Связаться с автором</button>
       </div> */}
-
-      <section className="tiles">
+    
+      <div  className="tiles">
 
         <article className="style1">
           <span className="image">
-            <img src="https://html5up.net/uploads/demos/phantom/images/pic01.jpg" alt="" />
+            <img src={el.author.file} alt="" />
           </span>
           <a href="generic.html">
             <h2 onClick={() => Handleclicker(el.author._id)}>{el.author.name}</h2>
@@ -55,11 +55,12 @@ function OneRegionCard({ el }) {
               <p>Путешествие с: {moment(el.startDate).format("DD.MM.YYYY")}</p>
               <p>До: {moment(el.endDate).format("DD.MM.YYYY")}</p>
               <p>Бюджет: {el.budget}</p>
+              <div>Информация о мршруте: {el.tripInfo}</div>
             </div>
           </a>
         </article>
 
-        </section>
+        </div>
 
       { modalclickRequest && <ModalRequest props={modalprops} isOpened={true}
         onModalClose={() => setModalclickRequest(modalclick = false)}
