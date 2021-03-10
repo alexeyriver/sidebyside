@@ -14,8 +14,8 @@ function OneRegionCard({ el }) {
   let Handleclicker = id => {
     dispatch(fetchModalUserInfoAC(id))
     setModalclick(modalclick = true)
-    if (1) { setModalprops((modalprops) => modalprops = id) }
-    else setModalprops(modalprops = 3)
+    setModalprops((modalprops) => modalprops = id)
+    
   }
 
   let ButtonHandler = id => {

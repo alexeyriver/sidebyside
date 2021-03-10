@@ -11,7 +11,6 @@ function ModalRequest(props) {
   const HandlerSubmit = (e) => {
     e.preventDefault()
     const { text: { value: text } } = e.target
-    console.log(text);
     dispatch(fetchModalUserRequestTripAC({ text, author, recipient: props.props }))
     props.onModalClose()
   }

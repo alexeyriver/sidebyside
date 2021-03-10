@@ -68,7 +68,9 @@ function MainSearch(props) {
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
-                  iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
+                  // iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png' 
+                  iconImageHref: el.author.file  ||  'https://img.icons8.com/ios/452/marker-s.png'
+
                 }}
 
                 onClick={(e) => ClickonRoute(el)} />
@@ -127,7 +129,8 @@ function MainSearch(props) {
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
-                  iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
+                 // iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
+                 iconImageHref: el.author.file  ||  'https://img.icons8.com/ios/452/marker-s.png'
                 }}
                 onClick={(e) => { ClickonRoute(el) }}
                 onContextMenu={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }} />
