@@ -25,8 +25,7 @@ const dispatch = useDispatch()
         <p>{user.name}</p>
         <p>{user.email}</p>
           <div>
-              {/*{ change ?    <Change/> : '' }*/}
-              <Change/>
+              { change ?    <Change/> : '' }
           </div>
 
           <button onClick={() => setChange(!change)}>Изменить данные</button>
