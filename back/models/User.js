@@ -16,9 +16,10 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: 'feedbacks'
   }],
-  file:String,
+  file:{type:String,default:'http://cdn.onlinewebfonts.com/svg/img_258083.png'}   ,
   messages:[{type:mongoose.SchemaTypes.ObjectId,ref:'Message'}]
   
 });
 
 export default mongoose.model('users', userSchema);
+

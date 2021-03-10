@@ -10,11 +10,13 @@ router.route('/')
 
 
 .post(async (req,res) => {
-    const {text,author,recipient} = req.body
+    const {text,author,recipient, trip} = req.body
+    console.log(req.body,'<<<<');
     const message = await Message.create({
         author:author,
         recipient:recipient,
         text:text,
+        trip:trip
     })
     const user = await User.findOne({_id:author._id})
     user.messages.push(message)
