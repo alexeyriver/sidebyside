@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
       ref: 'feedbacks'
   }],
   file:{type:String,default:'http://cdn.onlinewebfonts.com/svg/img_258083.png'}   ,
-  messages:[{type:mongoose.SchemaTypes.ObjectId,ref:'Message'}]
+  messages:[{type:mongoose.SchemaTypes.Object,ref:'Message'}]
   
 });
 

@@ -19,14 +19,15 @@ function MainPage(props) {
 
 
   return (
-
-    
-    <div className="mainButtons">
-      <ul class="actions">
-        <li><a href="#" className="button primary" onClick={findButtonHandler}>Найти маршрут</a></li>
-        <li><a href="#" className="button" onClick={createButtonHandler}>Создать маршрут</a></li>
-      </ul>
+    <div className="container">
+      <div className="mainButtons">
+        <ul class="actions">
+          <li><a href="#" className="button primary" onClick={findButtonHandler}>Найти маршрут</a></li>
+          <li><a href="#" className="button" onClick={createButtonHandler}>Создать маршрут</a></li>
+        </ul>
+      </div>
     </div>
+
   );
 }
 

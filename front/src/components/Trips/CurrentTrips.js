@@ -5,35 +5,39 @@ import { useSelector } from 'react-redux';
 function CurrentTrips(props) {
 
 
-    let trips = useSelector(state => state.tripState.trips)
+  let trips = useSelector(state => state.tripState.trips)
   const user = useSelector(state => state.auth.user)
-  trips = trips.filter(el => el.participants.includes(user._id))
 
-
-
-
-
-
+  let checktrips = []
+  trips.forEach(el => el.participants.forEach(part => { if (part._id == user._id) checktrips.push(el) }))
+  let filteredTrip = (checktrips.filter(el => el.participants?.length > 1));
 
   return (
-    <div>
-          <h2>Текущие поездки</h2>
-          {trips &&
-            trips.map((el) => (
-              <div
-                style={{ border: "1px black solid" }}
-                key={performance.now()}
-              >
-                <p>{el.author}</p>
-                <p>Информация о поездке: {el.tripInfo}</p>
-                <p>Бюджет: {el.budget}</p>
-                <p>Начальная дата: {el.startDate}</p>
-                <p>Конечная дата: {el.endDate}</p>
+    <div className="container">
 
-                {/* <p>{el.participants}</p> */}
-              </div>
-            ))}
-        </div>
+      <h2>Текущие поездки</h2>
+      {!filteredTrip.length && (<h3>Упс! Кажется, вы не участвуете ни в одной поездке!</h3>)}
+      {filteredTrip &&
+        filteredTrip.map((el) => (
+          <div className="description"
+               style={{ border: "1px black solid" }}
+               key={performance.now()}>
+            <div>Автор: {el.author.name}</div>
+            <div>Информация о поездке: {el.tripInfo}</div>
+            <div>Бюджет: {el.budget}</div>
+            <div>Начальная дата: {el.startDate}</div>
+            <div>Конечная дата: {el.endDate}</div>
+            <div >Компаньоны: </div>
+<div className="persons">
+            {el.participants && el.participants.map((el, i) =>
+              <div>{i + 1}: {el.name}, {el.email};</div>
+            )}
+            </div>
+            </div>
+          
+        ))}
+    </div>
+
   );
 }
 
