@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { YMaps, Map, GeoObject, Placemark, } from 'react-yandex-maps';
-// import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import { useDispatch, useSelector } from 'react-redux';
-// import { addTripFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import { fetchSubmitJourneyAC } from '../../redux/actions';
-
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 
 

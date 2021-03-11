@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInFetchAC } from "../../redux/Thunk/authFetchesAC"
-// import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function Signin(props) {
   const [error, setError] = useState('');

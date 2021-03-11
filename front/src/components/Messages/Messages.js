@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-// import axios from "axios";
 import { declineResponseAC, acceptResponseAC } from '../../redux/Thunk/messageFetchesAC';
 
 function Messages() {

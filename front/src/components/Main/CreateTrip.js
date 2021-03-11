@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchFromCityToCoordsAC, fetchCreateJourneyAC } from '../../redux/actions';
+
 import FirstPointMap from '../Map/FirstPointMap';
 import { Container } from 'react-bootstrap'
 
 
 
 function CreateTrip(props) {
-  // const [selectedDate, setSelectedDate] = useState(null);
-  // const [selectedDateSecond, setSelectedDateSecond] = useState(null);
-  // const email = useSelector(store => store.auth.user.email)
-  // const dispatch = useDispatch();
-
   const [clickfirstPoint, setClickfirstPoint] = useState(false);
   const [propsfirstPoint, setPropsfirstPoint] = useState('');
 
@@ -40,9 +34,9 @@ function CreateTrip(props) {
       }
 
       {clickfirstPoint &&
-      <>
-        <FirstPointMap props={{ data: propsfirstPoint }} />
-      </>
+        <>
+          <FirstPointMap props={{ data: propsfirstPoint }} />
+        </>
       }
     </Container>
   );

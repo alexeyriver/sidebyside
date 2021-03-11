@@ -2,11 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-
 function MainPage(props) {
   const history = useHistory();
-
-
   const findButtonHandler = (event) => {
     event.preventDefault()
     history.push('/findroute')

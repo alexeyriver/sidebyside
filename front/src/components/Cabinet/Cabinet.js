@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { initTripsFetchAC } from '../../redux/Thunk/tripsFetchesAC'
 import Profile from '../Profile/Profile'
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { useHistory  } from 'react-router-dom'
-import { useDispatch, useSelector } from "react-redux"
+import React from 'react';
+import { useSelector } from "react-redux"
 
 function ModalUserProfile(props) {
-const dispatch = useDispatch()
+
 const user = useSelector(store => store.fetch.fetchModalUserInfo)
 
   return (

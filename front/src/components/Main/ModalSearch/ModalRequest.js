@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom'
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux"
 import { fetchModalUserRequestTripAC } from '../../../redux/actions';
 
@@ -9,7 +8,7 @@ function ModalRequest(props) {
   const HandlerSubmit = (e) => {
     e.preventDefault()
     const { text: { value: text } } = e.target
-    dispatch(fetchModalUserRequestTripAC({ text, author, recipient: props.props.author, trip: props.props }))    /// recipient: props.props.author
+    dispatch(fetchModalUserRequestTripAC({ text, author, recipient: props.props.author, trip: props.props }))    
     props.onModalClose()
   }
   

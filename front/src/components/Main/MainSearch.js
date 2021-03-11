@@ -3,13 +3,9 @@ import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 import { fetchFindAllJourneyAC, fetchFindQueryJourneyAC } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios'
-
-
-// import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 import OneRegionCard from './OneRegionCard'
 
 function MainSearch(props) {
-  // const [value, setValue] = useState('');
   const [dataFetch, setDataFetch] = useState('');
   const [flagMapSearch, setFlagMapSearch] = useState(true);
   const [clickMapSearch, setClickFlagMapSearch] = useState(false);
@@ -53,18 +49,14 @@ function MainSearch(props) {
               }}
               height={500}
               width={700}
-
-              onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
               {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
-                  // iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png' 
                   iconImageHref: el.author.file  ||  'https://img.icons8.com/ios/452/marker-s.png'
 
                 }}
-
                 onClick={(e) => ClickonRoute(el)} />
                 <GeoObject
                   geometry={{
@@ -86,16 +78,13 @@ function MainSearch(props) {
                     iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
                   }}
                   onClick={(e) => {   ClickonRoute(el);  }} />
-
               </>
               )}
             </Map>
           </YMaps>
 
           {clickMapSearch && <OneRegionCard el={clickMapSearch} />}
-
         </div>
-
       }
       </div>
 
@@ -112,7 +101,6 @@ function MainSearch(props) {
               width={700}
               onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
             >
-
               {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
                 options={{
                   iconLayout: 'default#image',
@@ -145,9 +133,6 @@ function MainSearch(props) {
               )}
             </Map>
           </YMaps>
-
-          {/* {!flagMapSearch && stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
-          {flagMapSearch && <OneRegionCard el={clickMapSearch} />} */}
 
          <div className="katrin" style={{display:'flex',alignItems:'baseline', width: "100vh"}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
