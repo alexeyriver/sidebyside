@@ -19,13 +19,17 @@ function Messages() {
 
   return (
 
-    <div>
-      {  response && response.map(el => <div key={el._id}>
-        <p style={{ fontStyle: 'bold' }}>{el.author?.name} : {el?.text}</p>
-        <button onClick={() => confirmHandler(el)}>Согласиться на поездку</button>
-        <button onClick={() => declineHandler(el)}>Отказаться</button>
+    <div className="container">
+      <div className="containerCabinet">
+        {response && response.map(el => <div className="description">
+          <p style={{ fontStyle: 'bold' }}>{el.author?.name} : {el?.text}</p>
+          <button onClick={() => confirmHandler(el)}>Согласиться на поездку</button>
+          <button onClick={() => declineHandler(el)}>Отказаться</button>
+        </div>
+
+        )}
+
       </div>
-      )}
     </div>
   );
 

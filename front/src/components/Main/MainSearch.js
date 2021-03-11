@@ -32,7 +32,7 @@ function MainSearch(props) {
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
 
   return (
-    <div>
+    <div className='container'>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
@@ -149,7 +149,7 @@ function MainSearch(props) {
           {/* {!flagMapSearch && stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />} */}
 
-         <div className="katrin" style={{display:'flex',alignItems:'baseline'}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
+         <div className="katrin" style={{display:'flex',alignItems:'baseline', width: "100vh"}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
         </div>
 
