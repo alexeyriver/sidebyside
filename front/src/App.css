@@ -22,6 +22,11 @@
   /* max-width: 800px; */
 }
 
+.description {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .actions {
   text-align: center;
   padding-top: 50px;
