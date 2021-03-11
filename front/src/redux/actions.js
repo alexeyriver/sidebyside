@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import { FROM_CITY_TO_COORDS, FETCH_CREATE_JOURNEY, FETCH_FIND_ALL_JOURNEY, FETCH_FIND_QUERY_JOURNEY, FETCH_SUBMIT_CREATED_JOURNEY, FETCH_MODAL_USER_INFO, FETCH_MODAL_USER_REQUEST_TRIP } from './types';
 import { cityToCoordAC, createJourneyAC, findAllJourneyAC, findQueryJourneyAC, submitJourneyAC, modalUserInfoAC, modalUserRequestTripAC } from './actionCreators'
 
 export function fetchFromCityToCoordsAC() {

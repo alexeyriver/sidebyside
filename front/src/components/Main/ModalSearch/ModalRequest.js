@@ -6,15 +6,10 @@ import { fetchModalUserRequestTripAC } from '../../../redux/actions';
 function ModalRequest(props) {
   const dispatch = useDispatch()
   const author = useSelector(store => store.auth.user)
-    console.log(author)
-   console.log(props);
-
   const HandlerSubmit = (e) => {
     e.preventDefault()
     const { text: { value: text } } = e.target
-
     dispatch(fetchModalUserRequestTripAC({ text, author, recipient: props.props.author, trip: props.props }))    /// recipient: props.props.author
-
     props.onModalClose()
   }
   
