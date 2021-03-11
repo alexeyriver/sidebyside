@@ -33,13 +33,13 @@ function MyTrips(props) {
         trips.length &&
         trips.map((el) => (
 
-          <div style={{ border: "1px black solid" }} key={performance.now()}>
+          <div key={performance.now()}>
             
-            <p>{el.author.name}</p>
-            <p>Информация о поездке: {el.tripInfo}</p>
-            <p>Бюджет: {el.budget}</p>
-            <p>Начальная дата: {moment(el.startDate).format("DD.MM.YYYY")}</p>
-            <p>Конечная дата: {moment(el.endDate).format("DD.MM.YYYY")}</p>
+            
+            <div>Информация о поездке: {el.tridivInfo}</div>
+            <div>Бюджет: {el.budget}</div>
+            <div>Начальная дата: {moment(el.startDate).format("DD.MM.YYYY")}</div>
+            <div>Конечная дата: {moment(el.endDate).format("DD.MM.YYYY")}</div>
 
             <HistoryMap el={el} />
 

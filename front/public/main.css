@@ -29,6 +29,58 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
+
+  .modal_wrapper{
+    position:fixed !important; 
+    bottom:0 !important;;
+    width:100% !important;;
+    background: rgba(0,0,0, .2) !important;;
+    backdrop-filter: blur(10px) !important;;
+  
+  }
+  
+  .modal_wrapper.open{
+    height: 100% !important;
+    max-width: 900px;
+    display:block !important;
+  }
+  
+  .modal_wrapper.close{
+    height: 0 !important;
+    display:none !important;
+  }
+  
+  .modal_body{
+    max-width: 500px !important;
+    margin:  auto;
+    background:white !important;
+    margin-top: 5% !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    max-height: 500px !important;
+    
+  }
+  
+  .modal_close{
+    text-align: center !important;
+    margin-top: -15px !important;
+    font-size: 40px !important;
+    color: grey !important;
+    cursor: pointer !important;
+  }
+  
+  .modal_body h2{
+    text-align: left !important;
+    width: 100% !important;
+    margin: 0 !important;
+    
+  }
+  
+
+  .katrin{
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
 body {
 	line-height: 1;
 }
@@ -2573,6 +2625,9 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
     margin: 25px;
+    max-width: 400px;
+    width: 100%;
+    height: 300px;
     /* flex-grow: 1; */
 		/* postiion: relative; */
 		/* margin: -2.5em 0 0 -2.5em; */
@@ -2584,6 +2639,7 @@ input, select, textarea {
 			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			position: relative;
+      height: 400px;
       width: fit-content;
 			/* width: calc(33.33333% - 2.5em); */
 			/* margin: 2.5em 0 0 2.5em; */

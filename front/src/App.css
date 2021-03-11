@@ -32,3 +32,8 @@
   padding-top: 50px;
 }
 
+
+.mapContainer{
+  display: flex;
+   margin: 0, auto
+}

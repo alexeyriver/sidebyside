@@ -6,6 +6,9 @@ function Messages() {
 const messages = useSelector(state => state.auth.user.messages)
 
 
+console.log('hiii',messages);
+
+
     const [response,setResponse] = useState('')
 
 
@@ -22,7 +25,10 @@ const messages = useSelector(state => state.auth.user.messages)
 
 
     return (
+
         <div>
+
+
             {  messages && messages.map(el => <div>
                     <p style={{fontStyle:'bold'}}>{el.author.name} : {el.text}</p>
                 {/*<input onChange={(e) => setResponse(e.target.value)} placeholder='Ответить на сообщение'/>*/}
@@ -35,4 +41,6 @@ const messages = useSelector(state => state.auth.user.messages)
     );
 }
 
+
 export default Messages;
+
