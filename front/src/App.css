@@ -1,15 +1,14 @@
 #root {
+  padding-top: 30px;
+  display: flex;
   min-height: 100vh;
   background-color: lightblue;
   margin: 0 auto;
   max-width: 1200px;
 }
 
-.mainContainer {
-  position: relative;
-  top: 0px; 
-  left: 250px;
-  /* text-align: center; */
+.container {
+  padding-left: 50px;
 }
 
 .navbar {
