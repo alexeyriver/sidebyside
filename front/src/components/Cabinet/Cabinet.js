@@ -4,7 +4,7 @@ import Profile from '../Profile/Profile'
 import { useDispatch, useSelector } from 'react-redux';
 import Trips from '../Trips/Trips';
 import Messages from "../Messages/Messages";
-import {initMessagesFetchAC} from "../../redux/Thunk/messageFetchesAC";
+import { initMessagesFetchAC } from "../../redux/Thunk/messageFetchesAC";
 
 function Cabinet(props) {
   const trips = useSelector(state => state.tripState.trips)
@@ -15,15 +15,14 @@ function Cabinet(props) {
 
   useEffect(() => {
     dispatch(initTripsFetchAC())
-      dispatch(initMessagesFetchAC(id))
+    dispatch(initMessagesFetchAC(id))
   }, [dispatch])
 
   return (
-    <div className="container">
+    <div>
       <div><Profile /></div>
       <Trips trips={trips} />
-      <div><Messages/></div>
-
+      <div><Messages /></div>
     </div>
   );
 }

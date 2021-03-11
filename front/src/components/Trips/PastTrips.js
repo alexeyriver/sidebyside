@@ -19,9 +19,9 @@ function PastTrips(props) {
 
 
     return (
-        <div>
+        <div className="container">
             <h2>Прошедшие поездки</h2>
-            {trips.length < 1 ? <h3>Упс!Кажется,у вас не было поездок!</h3> :
+            {trips.length < 1 ? <h3>Кажется,у вас не было поездок!</h3> :
             trips.map((el) => (
                 <div
                     style={{border: "1px black solid"}}

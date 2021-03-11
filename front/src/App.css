@@ -1,27 +1,34 @@
 #root {
+  padding-top: 30px;
+  display: flex;
   min-height: 100vh;
   background-color: lightblue;
   margin: 0 auto;
   max-width: 1200px;
 }
 
-.mainContainer {
-  position: relative;
-  top: 0px; 
-  left: 250px;
-  /* text-align: center; */
+.container {
+  padding-left: 75px;
 }
 
 .navbar {
   max-width: 200px;
 }
 
-.mainButtons {
-  margin: auto;
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .description, .cardString {
+  margin-top: 30px;
   margin-bottom: 30px;
+  padding: 0px 10px
+}
+
+.persons {
+  display: flex
 }
 
 .mapContainer{
