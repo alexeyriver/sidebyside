@@ -8,20 +8,15 @@ function CurrentTrips(props) {
   let trips = useSelector(state => state.tripState.trips)
   const user = useSelector(state => state.auth.user)
 
-  // trips = trips.filter(el => el.participants.includes(user._id)) 
-
-
-  trips = trips.filter(el => el.participants.filter(part => { if (part._id == user._id) return el }))
-
-  let filteredTrip = (trips.filter(el => el.participants.length > 1));
-
-
+  let checktrips = []
+  trips.forEach(el => el.participants.forEach(part => { if (part._id == user._id) checktrips.push(el) }))
+  let filteredTrip = (checktrips.filter(el => el.participants?.length > 1));
 
   return (
     <div>
 
       <h2>Текущие поездки</h2>
-    {filteredTrip && filteredTrip.length < 1 (<h3>Упс!Кажется,вы не создали ни одну поездку!</h3> )  }
+      {!filteredTrip.length && (<h3>Упс!Кажется,вы не участвуете ни в  одной поездке!</h3>)}
       {filteredTrip &&
         filteredTrip.map((el) => (
           <div
