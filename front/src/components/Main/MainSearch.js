@@ -40,7 +40,7 @@ function MainSearch(props) {
   console.log(stateofQuery);
 
   return (
-    <Container>
+    <div>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
@@ -49,9 +49,9 @@ function MainSearch(props) {
           <button>найти</button>
         </div>
       </form>
-
+<div className='mapContainer'>
       {flagMapSearch &&
-        <>
+        <div style={{alignItems:'center'}}>
           <YMaps>
 
             <Map
@@ -107,13 +107,14 @@ function MainSearch(props) {
 
           {clickMapSearch && <OneRegionCard el={clickMapSearch} />}
 
-        </>
+        </div>
 
       }
+      </div>
 
-
+<div className='mapContainer'>
       {!flagMapSearch && dataFetch.length === 2 && (
-        <>
+        <div>
           <YMaps>
             <Map
               defaultState={{
@@ -165,10 +166,11 @@ function MainSearch(props) {
 
          <div className="katrin" style={{display:'flex',alignItems:'baseline'}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
-        </>
+        </div>
 
       )}
-    </Container>
+      </div>
+    </div>
   );
 }
 

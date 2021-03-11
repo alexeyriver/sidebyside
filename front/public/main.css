@@ -31,47 +31,48 @@ footer, header, hgroup, menu, nav, section {
 
 
   .modal_wrapper{
-    position:fixed;
-    bottom:0;
-    width:100%;
-    background: rgba(0,0,0, .2);
-    backdrop-filter: blur(10px);
+    position:fixed !important; 
+    bottom:0 !important;;
+    width:100% !important;;
+    background: rgba(0,0,0, .2) !important;;
+    backdrop-filter: blur(10px) !important;;
   
   }
   
   .modal_wrapper.open{
-    height: 100%;
-    display:block
+    height: 100% !important;
+    max-width: 900px;
+    display:block !important;
   }
   
   .modal_wrapper.close{
-    height: 0;
-    display:none
+    height: 0 !important;
+    display:none !important;
   }
   
   .modal_body{
-    max-width: 500px;
+    max-width: 500px !important;
     margin:  auto;
-    background:white;
-    margin-top: 5%;
-    padding: 20px;
-    border-radius: 10px;
-    max-height: 500px;
+    background:white !important;
+    margin-top: 5% !important;
+    padding: 20px !important;
+    border-radius: 10px !important;
+    max-height: 500px !important;
     
   }
   
   .modal_close{
-    text-align: center;
-    margin-top: -15px;
-    font-size: 40px;
-    color: grey;
-    cursor: pointer;
+    text-align: center !important;
+    margin-top: -15px !important;
+    font-size: 40px !important;
+    color: grey !important;
+    cursor: pointer !important;
   }
   
   .modal_body h2{
-    text-align: left;
-    width: 100%;
-    margin: 0;
+    text-align: left !important;
+    width: 100% !important;
+    margin: 0 !important;
     
   }
   
