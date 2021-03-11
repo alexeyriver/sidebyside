@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Button} from 'react-bootstrap'
 import { signUpFetchAC } from '../../redux/Thunk/authFetchesAC'
 
 function Signup(props) {

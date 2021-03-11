@@ -5,7 +5,6 @@ import {addProfilePhotoFetchAC, changeInfoFetchAC} from '../../redux/Thunk/authF
 function Change() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user);
-    // const error = useSelector((state) => state.auth.changeError);
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [about,setAbout] = useState(user.about)

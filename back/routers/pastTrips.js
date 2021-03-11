@@ -5,12 +5,9 @@ import moment from "moment";
 
 router.route('/:id')
   .post(async (req, res) => {
-    console.log(req.body, 'req-body');
-    
     const { budget, country, startDate, endDate, tripInfo, email, startCoords, finalCoords, betweenCoords } = req.body;
     const user = await User.findOne({ email });
     const testDate = moment(startDate, "DD-MM-YYYY")
-    console.log(testDate, 'test')
 
     try {
       const newCard = new AdCard({
