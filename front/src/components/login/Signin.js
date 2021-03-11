@@ -25,19 +25,21 @@ dispatch(signInFetchAC({email, password}))
   },[erro])
 
   return (
-    <div className="formWrapper">
+    <div className="container" style={{ textAlign: "center" }}>
+      <div className="containerCenter">
       <form className="formWrapper__wrapper" onSubmit={handlerSign}>
         <label htmlFor="email">
-          Email
+          Email:
         </label>
           <input type="email" name="email" required></input>
         <label htmlFor="password">
-          Password
+          Пароль:
         </label>
           <input type="password" name="password" required></input>
         <div className="error">{error}</div>
-        <button>Sign in</button>
+        <button>Войти на сайт</button>
       </form>
+      </div>
     </div>
   );
 }

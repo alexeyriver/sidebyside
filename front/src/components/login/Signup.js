@@ -30,32 +30,24 @@ function Signup(props) {
 
   return (
     <div className="container" style={{ textAlign: "center" }}>
-      <div className="description">
-        <form onSubmit={handlerSign}>
-          <Row>
-            <Col>
-              <label>Email:
+      <div className="containerCenter">
+        {/* <div className="description"> */}
+          <form onSubmit={handlerSign} className="formWrapper__wrapper">
+                <label>Email:
               <input type="email" name="email" placeholder="Введите email" required />
-              </label>
-            </Col>
-            <Col>
-              <label>Пароль:
+                </label>
+                <label>Пароль:
               <input type="password" name="password" placeholder="Введите пароль" required />
-              </label>
-            </Col>
-          </Row>
+                </label>
 
-          <Row>
-            <Col>
-              <label>Ваше имя:
+                <label>Ваше имя:
             <input type="text" name="name" placeholder="Введите имя" required />
-              </label>
-            </Col>
-          </Row>
-          <Button variant='secondary' type="submit" >Зарегистрироваться</Button>
+                </label>
+            <button variant='secondary' type="submit" >Зарегистрироваться</button>
 
-        </form >
+          </form >
 
+        {/* </div> */}
       </div>
 
       <div className="error">{error}</div>
