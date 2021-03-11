@@ -23,19 +23,17 @@ console.log('hiii',messages);
 
     }
 
-
     return (
 
         <div>
 
+            {  messages && messages.map(el => <div key={performance.now()}>
 
-            {  messages && messages.map(el => <div>
+
                     <p style={{fontStyle:'bold'}}>{el.author.name} : {el.text}</p>
-                {/*<input onChange={(e) => setResponse(e.target.value)} placeholder='Ответить на сообщение'/>*/}
                 <button  onClick={() => confirmHandler(el)}>Согласиться на поездку</button>
                     <button onClick={declineHandler}>Отказаться</button>
             </div>
-
             )}
         </div>
     );

@@ -8,17 +8,20 @@ function PastTrips(props) {
     let trips = useSelector(state => state.tripState.trips)
     const date = moment()
     const user = useSelector(state => state.auth.user)
-    trips = trips.filter(el => el.participants.includes(user._id)
-        && el.postedStatus === false
-        && el.agreedStatus === true
-        && el.cancelStatus === false
-        && el.startDate < date)
+    if(trips){
+        trips = trips.filter(el => el.participants.includes(user._id)
+            && el.postedStatus === false
+            && el.agreedStatus === true
+            && el.cancelStatus === false
+            && el.startDate < date)
+    } else trips = []
+
 
 
     return (
         <div>
             <h2>Прошедшие поездки</h2>
-            {trips &&
+            {trips.length < 1 ? <h3>Упс!Кажется,у вас не было поездок!</h3> :
             trips.map((el) => (
                 <div
                     style={{border: "1px black solid"}}
@@ -29,8 +32,6 @@ function PastTrips(props) {
                     <p>Бюджет: {el.budget}</p>
                     <p>Начальная дата: {el.startDate}</p>
                     <p>Конечная дата: {el.endDate}</p>
-
-                    {/* <p>{el.participants}</p> */}
                 </div>
             ))}
         </div>
