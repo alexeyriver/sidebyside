@@ -11,6 +11,17 @@
   padding-left: 75px;
 }
 
+.containerCenter, .mainButtons {
+  margin: 25% auto;
+
+  display: flex;
+  justify-content: center;
+}
+
+.mainContainer {
+  width: 100vh;
+}
+
 .navbar {
   max-width: 200px;
 }
@@ -19,6 +30,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 50%;
 }
 
 .description, .cardString {
@@ -34,4 +46,8 @@
 .mapContainer{
   display: flex;
   margin: 0, auto
+}
+
+.mainButtons {
+  margin-top: 25%;
 }
