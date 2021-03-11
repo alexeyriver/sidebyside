@@ -11,8 +11,10 @@ router.route('/')
     .put(async (req,res) => {
         const {id} = req.body
         const message = await Message.findOne({_id:id})
+        console.log(message);
         const author = await User.findOne({_id: message.author._id})
-        const trip =  await  AdCard.findOne({_id:message.trip._id})
+        const trip =  await  AdCard.findOne({_id:message.trip})     /// _id:message.trip._id
+        console.log(trip);
         trip.participants.push(author)
         await trip.save()
         await Message.findByIdAndDelete({_id:id})

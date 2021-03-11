@@ -6,6 +6,8 @@ function Messages() {
 const messages = useSelector(state => state.auth.user.messages)
 
 
+console.log('hiii',messages);
+
     const [response,setResponse] = useState('')
 
 
@@ -22,6 +24,7 @@ const messages = useSelector(state => state.auth.user.messages)
 
 
     return (
+
         <div>
             {  messages && messages.map(el => <div key={performance.now()}>
                     <p style={{fontStyle:'bold'}}>{el.author.name} : {el.text}</p>
@@ -34,4 +37,6 @@ const messages = useSelector(state => state.auth.user.messages)
     );
 }
 
+
 export default Messages;
+
