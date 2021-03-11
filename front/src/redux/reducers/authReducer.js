@@ -4,10 +4,12 @@ import {
   AUTH_SUCCESSFULLY,
   SIGNUP_SUCCESSFULLY,
   CHANGE_DATA,
-
-  CHANGE_ERROR, INIT_MESSAGES,
+  DECLINE_MESSAGES,
+  CHANGE_ERROR,
+  INIT_MESSAGES,
   INIT_PROFILE,
-  LOGOUT
+  LOGOUT,
+  ACCEPT_MESSAGES
 
 } from '../types';
 
@@ -45,21 +47,22 @@ export const authReducer = (state = preloadState, action) => {
       return {
         ...state, user: { ...state.user, name: action.payload.name, email: action.payload.email, about: action.payload.about }
       }
-
     case ADD_PROFILE_PICTURE:
       return {
         ...state, user: { ...state.user, file: action.payload.data.file }
       }
-
     case INIT_PROFILE:
-
       return { ...state, user: { ...state.user } };
-
-    case INIT_MESSAGES:{
-      return {...state,user:{...state.user,messages:action.payload}}
+    case INIT_MESSAGES: {
+      return { ...state, user: { ...state.user, messages: action.payload } }
+    }
+    case DECLINE_MESSAGES: {
+      return { ...state, user: { ...state.user, messages: action.payload } }
     }
 
-
+    case ACCEPT_MESSAGES: {
+      return { ...state, user: { ...state.user, messages: action.payload } }
+    }
     case CHANGE_ERROR:
       return { ...state, changeError: action.payload }
     default:

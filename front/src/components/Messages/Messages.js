@@ -1,42 +1,40 @@
-import React, {useState} from 'react';
-import {useSelector} from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { declineResponseAC, acceptResponseAC } from '../../redux/Thunk/messageFetchesAC';
 
 function Messages() {
-const messages = useSelector(state => state.auth.user.messages)
+  const messages = useSelector(state => state.auth.user.messages)
+  const dispatch = useDispatch()
+  const [response, setResponse] = useState('')
+
+  useEffect(() => {
+    setResponse(messages)
+  }, [messages])
+
+  const confirmHandler = (el) => {
+    dispatch(acceptResponseAC(el))
+  }
+
+  const declineHandler = (el) => {
+    dispatch(declineResponseAC(el._id))
+  }
 
 
-console.log('hiii',messages);
+  return (
 
-    const [response,setResponse] = useState('')
+    <div>
 
+      {  response && response.map(el => <div>
+        <p style={{ fontStyle: 'bold' }}>{el.author?.name} : {el?.text}</p>
+        <button onClick={() => confirmHandler(el)}>Согласиться на поездку</button>
+        <button onClick={() => declineHandler(el)}>Отказаться</button>
+      </div>
 
-    const confirmHandler = (el) => {
-    axios.put(`${process.env.REACT_APP_URL}/messages`,{
-       id: el._id
-    })
+      )}
 
-    }
-
-    const declineHandler = () => {
-
-    }
-
-
-    return (
-
-        <div>
-
-            {  messages && messages.map(el =>  <div>
-                    <p style={{fontStyle:'bold'}}>{el.author?.name} : {el?.text}</p>
-                {/*<input onChange={(e) => setResponse(e.target.value)} placeholder='Ответить на сообщение'/>*/}
-                <button  onClick={() => confirmHandler(el)}>Согласиться на поездку</button>
-                    <button onClick={declineHandler}>Отказаться</button>
-            </div>
-
-            )}
-        </div>
-    );
+    </div>
+  );
 }
 
 
