@@ -29,16 +29,16 @@ function App() {
   return (
     <Router>
       
-        <div className="main-wrapper">
+        <div className="c">
           <div className="navbar" >
-            <div className='inner'>
+            {/* <div className='inner'> */}
               <Navbars />
-            </div>
+            {/* </div> */}
           </div>
 
 
-          <div id='main'>
-            <div className='inner'>
+          <div id='main' className="main">
+            {/* <div className='inner'> */}
               <Switch>
                 <Route exact path="/">
                   <MainPage />
@@ -86,7 +86,7 @@ function App() {
               </Switch>
             </div>
           </div>
-        </div>
+        {/* </div> */}
     </Router>
   );
 }
