@@ -1,4 +1,4 @@
-import { addProfilePhotoAC, addProfilePictureAC, changeDataAC, changeErrorAC, initProfileAC, authErrorAC,authSuccessfullyAC, signupSuccessfullyAC } from "../actionCreators";
+import { addProfilePhotoAC,  changeDataAC,  initProfileAC, authErrorAC,authSuccessfullyAC, signupSuccessfullyAC } from "../actionCreators";
 import axios from "axios";
 
 export const changeInfoFetchAC = (name, email, about, user) => (dispatch) => {
