@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {changeInfoFetchAC} from '../../redux/Thunk/authFetchesAC'
+import {addProfilePhotoFetchAC, changeInfoFetchAC} from '../../redux/Thunk/authFetchesAC'
 
 function Change() {
     const dispatch = useDispatch();
@@ -25,16 +25,10 @@ function Change() {
 
     const profilePhotoHandler = (event) => {
         event.preventDefault();
-        const {
-            name:{value:name},
-            email:{value:email},
-            } = event.target
         const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
         formData.append('file', pic.file);
-        formData.append('id', user._id);
-        dispatch(changeInfoFetchAC(formData));
+        formData.append('id', user._id)
+        dispatch(addProfilePhotoFetchAC(formData));
     };
 
 

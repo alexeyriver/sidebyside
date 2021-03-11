@@ -18,8 +18,8 @@ const dispatch = useDispatch()
     }, [user.name, user.email,user.about]);
 
   return (
-    <Container>
-      <h1>Тут будет Profile</h1>
+    <div className="container">
+      {/* <h1>Тут будет Profile</h1> */}
       <div>
           <img src={user.file} alt={'AVATAR'} style={{maxHeight:'300px',maxWidth:'300px'}}/>
         <p>{user.name}</p>
@@ -31,7 +31,7 @@ const dispatch = useDispatch()
 
           <button onClick={() => setChange(!change)}>Изменить данные</button>
       </div>
-    </Container>
+    </div>
   );
 }
 
