@@ -11,8 +11,8 @@ function Trips() {
   const trips = useSelector(state => state.tripState.trips)
 
   return (
-    <Container>
-      <div className="description">
+    <div className="container">
+      <div className="containerCabinet">
         <ul>
           <li><Link to='/mytrips'>Мною созданные поездки</Link></li>
           <li><Link to='/current'>Текущие поездки</Link></li>
@@ -20,7 +20,7 @@ function Trips() {
         </ul>
       </div>
 
-    </Container>
+    </div>
   );
 }
 

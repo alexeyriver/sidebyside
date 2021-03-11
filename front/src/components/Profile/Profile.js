@@ -22,7 +22,7 @@ function Profile() {
       {/* <h1>Тут будет Profile</h1> */}
       <div >
         <img src={user.file} alt={'AVATAR'} style={{ maxHeight: '300px', maxWidth: '300px' }} />
-        <div className="description">
+        <div className="containerCabinet">
           <p>Имя пользователя: <b>{user.name}</b></p>
           <p>Адрес почты: <b>{user.email}</b></p>
           <p>О себе: <b>{user.about}</b></p>

@@ -33,7 +33,7 @@ function MainSearch(props) {
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
 
   return (
-    <div>
+    <div className='container'>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
