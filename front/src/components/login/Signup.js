@@ -29,47 +29,37 @@ function Signup(props) {
   }, [erro])
 
   return (
-    <Container style={{ textAlign: "center" }}>
+    <div className="container" style={{ textAlign: "center" }}>
+      <div className="description">
+        <form onSubmit={handlerSign}>
+          <Row>
+            <Col>
+              <label>Email:
+              <input type="email" name="email" placeholder="Введите email" required />
+              </label>
+            </Col>
+            <Col>
+              <label>Пароль:
+              <input type="password" name="password" placeholder="Введите пароль" required />
+              </label>
+            </Col>
+          </Row>
 
-      <Form onSubmit={handlerSign}>
-        <Row>
-          <Col>
-            <Form.Group controlId="formName">
-              <Form.Label>Имя:</Form.Label>
-              <Form.Control type="text" name="name" placeholder="Введите имя" />
-              {/* <Form.Text className="text-muted"> */}
-              {/* Your email is secret
-    </Form.Text> */}
-            </Form.Group>
-          </Col>
+          <Row>
+            <Col>
+              <label>Ваше имя:
+            <input type="text" name="name" placeholder="Введите имя" required />
+              </label>
+            </Col>
+          </Row>
+          <Button variant='secondary' type="submit" >Зарегистрироваться</Button>
 
-          <Col>
+        </form >
 
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email:</Form.Label>
-              <Form.Control type="email" name="email" placeholder="Введите email" />
-              {/* <Form.Text className="text-muted"> */}
-              {/* Your email is secret
-    </Form.Text> */}
-            </Form.Group>
-          </Col>
-          <Col>
+      </div>
 
-            <Form.Group controlId="formPassword">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control type="password" name="password" placeholder="Введите пароль" />
-              {/* <Form.Text className="text-muted">
-            Your password is secret
-    </Form.Text> */}
-            </Form.Group>
-          </Col>
-
-        </Row>
-        <Button variant='secondary' type="submit" >Зарегистрироваться</Button>
-
-      </Form>
       <div className="error">{error}</div>
-    </Container >
+    </div >
   );
 }
 
