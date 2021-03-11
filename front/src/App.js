@@ -43,7 +43,7 @@ function App() {
                   <MainPage />
                 </Route>
                 <Route path="/findroute">
-                  <MainSearch />
+                {isAuth ? <MainSearch /> : <Redirect to="/signin" /> }
                 </Route>
                 <Route path="/signup">
                   {isAuth ? <Redirect to="/" /> : <Signup />}
@@ -57,23 +57,23 @@ function App() {
                   <Logout />
                 </Route>
                 <Route path="/createtrip">
-                  <CreateTrip />
+                {isAuth ?  <CreateTrip /> : <Redirect to="/signin" /> }
                 </Route>
                 <Route path="/cabinet">
-                  <Cabinet />
+                {isAuth ?  <Cabinet /> : <Redirect to="/signin" /> }
                 </Route>
                 <Route path="/trips">
-                  <Trips />
+                {isAuth ?  <Trips />  : <Redirect to="/signin" /> }
                 </Route>
 
                 <Route exact path="/mytrips">
-                  <MyTrips />
+                {isAuth ?  <MyTrips />  : <Redirect to="/signin" /> }
                 </Route>
                 <Route path="/current">
-                  <CurrentTrips />
+                {isAuth ?  <CurrentTrips />  : <Redirect to="/signin" /> }
                 </Route>
                 <Route path="/past">
-                  <PastTrips />
+                {isAuth ?  <PastTrips />  : <Redirect to="/signin" /> }
                 </Route>
 
                 <Route exact path="/mytrips/:id">
