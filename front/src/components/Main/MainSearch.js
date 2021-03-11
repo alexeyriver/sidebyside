@@ -40,7 +40,7 @@ function MainSearch(props) {
   console.log(stateofQuery);
 
   return (
-    <div>
+    <div className='container'>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
