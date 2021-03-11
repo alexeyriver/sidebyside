@@ -9,9 +9,9 @@ function CurrentTrips(props) {
   const user = useSelector(state => state.auth.user)
   // trips = trips.filter(el => el.participants.includes(user._id)) 
 
-  trips = trips.filter(el => el.participants.filter(part => { if (part._id == user._id ) return el} ))
+  trips = trips.filter(el => el.participants.filter(part => { if (part._id == user._id) return el }))
 
- let filteredTrip = (trips.filter(el => el.participants.length>1));
+  let filteredTrip = (trips.filter(el => el.participants.length > 1));
 
 
 
@@ -29,8 +29,12 @@ function CurrentTrips(props) {
             <p>Бюджет: {el.budget}</p>
             <p>Начальная дата: {el.startDate}</p>
             <p>Конечная дата: {el.endDate}</p>
-
-            {/* <p>{el.participants}</p> */}
+            <p>Компаньоны: </p>
+            {el.participants && el.participants.map(el =>
+              <div>
+                <p>Имя: {el.name} </p>
+                <p> E-mail: {el.email}</p>
+              </div>)}
           </div>
         ))}
     </div>
