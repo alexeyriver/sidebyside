@@ -24,7 +24,6 @@ dispatch(signInFetchAC({email, password}))
   
   },[erro])
 
-  // console.log(error);
   return (
     <div className="formWrapper">
       <form className="formWrapper__wrapper" onSubmit={handlerSign}>
