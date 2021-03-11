@@ -48,17 +48,17 @@ function OneRegionCard({ el }) {
           <span className="image">
             <img src={el.author.file} alt="" />
           </span>
-          <a href='#'>
-            <h2 onClick={() => Handleclicker(el.author._id)}>{el.author.name}</h2>
+          <div>
+            <h4 onClick={() => Handleclicker(el.author._id)}>{el.author.name}</h4>
             <div className="content">
-              <p>Путешествие с: {moment(el.startDate).format("DD.MM.YYYY")}</p>
-              <p>До: {moment(el.endDate).format("DD.MM.YYYY")}</p>
-              <p>Бюджет: {el.budget}</p>
-              <div>Информация о мршруте: {el.tripInfo}</div>
-              <div>Количество участников: {el.participants.length > 1 ? el.participants.length : 'Пока не откликнулись,успейте присоединиться первым!'}</div>
+              <div className='cardText'>Путешествие с: {moment(el.startDate).format("DD.MM.YYYY")}</div>
+              <div className='cardText'>До: {moment(el.endDate).format("DD.MM.YYYY")}</div>
+              <div className='cardText'>Бюджет: {el.budget}</div>
+              {/* <div>Информация о мршруте: {el.tripInfo}</div> */}
+              <div className='cardText'><b>Участники:</b> {el.participants.length > 1 ? el.participants.length : 'Успейте присоединиться первым!'}</div>
               <button onClick={() => ButtonHandler(el)}>Связаться с автором</button>
             </div>
-          </a>
+          </div>
         </article>
 
         </div>

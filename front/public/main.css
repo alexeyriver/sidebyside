@@ -1,6 +1,6 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,700,900");
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 /*
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -29,7 +29,9 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
 
-
+.cardText{
+  font-family: 'Noto Sans JP', sans-serif;
+}
   .modal_wrapper{
     position:fixed !important; 
     bottom:0 !important;;
@@ -2688,15 +2690,15 @@ input, select, textarea {
 					-moz-transition: opacity 0.5s ease;
 					-webkit-transition: opacity 0.5s ease;
 					-ms-transition: opacity 0.5s ease;
-					transition: opacity 0.5s ease;
-					content: '';
+					/* transition: opacity 0.5s ease; */
+					content: 'hello';
 					display: block;
 					position: absolute;
 					top: 0;
 					left: 0;
 					width: 100%;
 					height: 100%;
-					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %23ffffff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E");
+					/* background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cstyle%3Eline %7B stroke-width: 0.25px%3B stroke: %23ffffff%3B %7D%3C/style%3E%3Cline x1='0' y1='0' x2='100' y2='100' /%3E%3Cline x1='100' y1='0' x2='0' y2='100' /%3E%3C/svg%3E"); */
 					background-position: center;
 					background-repeat: no-repeat;
 					background-size: 100% 100%;
@@ -2704,7 +2706,7 @@ input, select, textarea {
 					z-index: 2;
 				}
 
-			.tiles article > a {
+			.tiles article > div {
 				display: -moz-flex;
 				display: -webkit-flex;
 				display: -ms-flex;
@@ -2726,32 +2728,32 @@ input, select, textarea {
 				-ms-transition: background-color 0.5s ease, -ms-transform 0.5s ease;
 				transition: background-color 0.5s ease, transform 0.5s ease;
 				position: absolute;
-				top: 0;
+				top: -70px;
 				left: 0;
 				width: 100%;
 				height: 100%;
-				padding: 1em;
+				padding: 10px;
 				border-radius: 4px;
 				border-bottom: 0;
 				color: #ffffff;
 				text-align: center;
 				text-decoration: none;
-				z-index: 3;
+				z-index: 1;
 			}
 
-				.tiles article > a > :last-child {
+				.tiles article > div > :last-child {
 					margin: 0;
 				}
 
-				.tiles article > a:hover {
+				.tiles article > div:hover {
 					color: #ffffff !important;
 				}
 
-				.tiles article > a h2 {
+				.tiles article > div h2 {
 					margin: 0;
 				}
 
-				.tiles article > a .content {
+				.tiles article > div .content {
 					-moz-transition: max-height 0.5s ease, opacity 0.5s ease;
 					-webkit-transition: max-height 0.5s ease, opacity 0.5s ease;
 					-ms-transition: max-height 0.5s ease, opacity 0.5s ease;
@@ -2763,7 +2765,7 @@ input, select, textarea {
 					opacity: 0;
 				}
 
-					.tiles article > a .content > :last-child {
+					.tiles article > div .content > :last-child {
 						margin-bottom: 0;
 					}
 
@@ -2771,25 +2773,7 @@ input, select, textarea {
 				background-color: #7a7a7a;
 			}
 
-			.tiles article.style2 > .image:before {
-				background-color: #7ecaf6;
-			}
-
-			.tiles article.style3 > .image:before {
-				background-color: #7bd0c1;
-			}
-
-			.tiles article.style4 > .image:before {
-				background-color: #c75b9b;
-			}
-
-			.tiles article.style5 > .image:before {
-				background-color: #ae85ca;
-			}
-
-			.tiles article.style6 > .image:before {
-				background-color: #8499e7;
-			}
+			
 
 			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);
@@ -2799,8 +2783,8 @@ input, select, textarea {
 			}
 
 				body:not(.is-touch) .tiles article:hover > .image:before {
-					background-color: #333333;
-					opacity: 0.35;
+					/* background-color: #333333; */
+					/* opacity: 0.35; */
 				}
 
 				body:not(.is-touch) .tiles article:hover > .image:after {
@@ -2898,7 +2882,7 @@ input, select, textarea {
 			display: block;
 			border-bottom: 0;
 			color: inherit;
-			font-weight: 900;
+			font-weight: 1500;
 			letter-spacing: 0.35em;
 			margin: 0 0 2.5em 0;
 			text-decoration: none;
