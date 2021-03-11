@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "build": "cd front && npm install && npm build",
+   "start": "cd server && npm install && npm start"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,9 @@
     "url": "https://github.com/alexeyriver/sidebyside/issues"
   },
   "homepage": "https://github.com/alexeyriver/sidebyside#readme",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "axios": "^0.21.1",
     "react-redux": "^7.2.2",
