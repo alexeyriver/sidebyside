@@ -20,7 +20,8 @@ import {
   FETCH_SUBMIT_CREATED_JOURNEY,
   FETCH_MODAL_USER_INFO,
   FETCH_MODAL_USER_REQUEST_TRIP,
-
+  DECLINE_MESSAGES,
+  ACCEPT_MESSAGES,
 } from "./types";
 
 //AUTH
@@ -50,6 +51,8 @@ export const modalUserRequestTripAC = (payload) => ({ type: FETCH_MODAL_USER_REQ
 export const sendMessageAC = (payload) => ({type: SEND_MESSAGE, payload});
 export const initMessagesAC = (payload) => ({type:INIT_MESSAGES,payload})
 
+export const declineMessageAC = (payload) => ({type:DECLINE_MESSAGES,payload})
+export const acceptMessageAC = (payload) => ({type:ACCEPT_MESSAGES,payload})
 
 
 
