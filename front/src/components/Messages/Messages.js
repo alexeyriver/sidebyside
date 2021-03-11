@@ -5,7 +5,7 @@ import axios from "axios";
 function Messages() {
 const messages = useSelector(state => state.auth.user.messages)
 
-console.log('hiii',messages);
+console.log('hiii');
     const [response,setResponse] = useState('')
 
 
@@ -23,10 +23,6 @@ console.log('hiii',messages);
 
     return (
         <div> hi
-
-
-
-
             {  messages && messages.map(el => <div>
                     <p style={{fontStyle:'bold'}}>{el.author.name} : {el.text}</p>
                 {/*<input onChange={(e) => setResponse(e.target.value)} placeholder='Ответить на сообщение'/>*/}
