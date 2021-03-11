@@ -22,7 +22,6 @@ function Change() {
     }
 
 
-
     const profilePhotoHandler = (event) => {
         event.preventDefault();
         const formData = new FormData();

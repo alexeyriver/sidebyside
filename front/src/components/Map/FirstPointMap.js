@@ -63,7 +63,8 @@ function FirstPointMap({ props }) {
   }
 
   return (
-    <div>
+    <div >
+      <div className='mapContainer'>
       <YMaps>
         <Map defaultState={{
           center: props.data,
@@ -105,7 +106,8 @@ function FirstPointMap({ props }) {
           )}
         </Map>
       </YMaps>
-
+      </div>
+<div>
       <form onSubmit={(e) => tripHandler(e)}>
         <div style={{
           display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
@@ -146,6 +148,7 @@ function FirstPointMap({ props }) {
           <button>Создать путешествие</button>
         </div>
       </form>
+      </div>
 
 
     </div>

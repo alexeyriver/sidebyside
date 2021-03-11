@@ -7,7 +7,9 @@ function CurrentTrips(props) {
 
   let trips = useSelector(state => state.tripState.trips)
   const user = useSelector(state => state.auth.user)
+
   // trips = trips.filter(el => el.participants.includes(user._id)) 
+
 
   trips = trips.filter(el => el.participants.filter(part => { if (part._id == user._id) return el }))
 
@@ -17,7 +19,9 @@ function CurrentTrips(props) {
 
   return (
     <div>
+
       <h2>Текущие поездки</h2>
+    {filteredTrip && filteredTrip.length < 1 ?  <h3>Упс!Кажется,вы не создали ни одну поездку!</h3> }
       {filteredTrip &&
         filteredTrip.map((el) => (
           <div
@@ -38,6 +42,7 @@ function CurrentTrips(props) {
           </div>
         ))}
     </div>
+
   );
 }
 

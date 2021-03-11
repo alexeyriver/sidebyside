@@ -16,9 +16,11 @@ function Messages() {
     dispatch(acceptResponseAC(el))
   }
 
+
   const declineHandler = (el) => {
     dispatch(declineResponseAC(el._id))
   }
+
 
 
   return (
@@ -33,8 +35,11 @@ function Messages() {
 
       )}
 
+
     </div>
   );
+
+
 }
 
 
