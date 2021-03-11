@@ -8,21 +8,28 @@
 }
 
 .container {
-  padding-left: 50px;
+  padding-left: 75px;
 }
 
 .navbar {
   max-width: 200px;
 }
 
-.mainButtons {
-  margin: auto;
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .description, .cardString {
+  margin-top: 30px;
   margin-bottom: 30px;
+  padding: 0px 10px
 }
 
+.persons {
+  display: flex
+}
 
 .mapContainer{
   display: flex;
