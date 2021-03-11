@@ -21,7 +21,7 @@ function CurrentTrips(props) {
     <div>
 
       <h2>Текущие поездки</h2>
-    {filteredTrip && filteredTrip.length < 1 ?  <h3>Упс!Кажется,вы не создали ни одну поездку!</h3> }
+    {filteredTrip && filteredTrip.length < 1 (<h3>Упс!Кажется,вы не создали ни одну поездку!</h3> )  }
       {filteredTrip &&
         filteredTrip.map((el) => (
           <div
