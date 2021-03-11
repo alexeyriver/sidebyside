@@ -12,13 +12,14 @@ function Trips() {
 
   return (
     <Container>
-      <h1>Поездки</h1>
+      <div className="description">
         <ul>
           <li><Link to='/mytrips'>Мною созданные поездки</Link></li>
           <li><Link to='/current'>Текущие поездки</Link></li>
           <li><Link to='/past'>Прошедшие поездки</Link></li>
         </ul>
-     
+      </div>
+
     </Container>
   );
 }
