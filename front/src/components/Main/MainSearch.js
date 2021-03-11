@@ -13,31 +13,24 @@ function MainSearch(props) {
   const [value, setValue] = useState('');
   const [dataFetch, setDataFetch] = useState('');
   const [flagMapSearch, setFlagMapSearch] = useState(true);
-
   const [clickMapSearch, setClickFlagMapSearch] = useState(false);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchFindAllJourneyAC())
-
   }, [])
-
   let stateofAll = useSelector(state => state.fetch.fetchFindAllJourney)
-  console.log(stateofAll);
   const ClickonRoute = (el) => { setClickFlagMapSearch(el) ; if(!flagMapSearch){setFlagMapSearch(true)} }
   const HandlerChanger = async (e) => {
     setFlagMapSearch(false)
     e.preventDefault();
     const { town: { value: town } } = e.target;
-    let axi = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${town}`)
+    let axi = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${process.env.REACT_APP_URL_API_KEY}&format=json&geocode=${town}`)
     if (axi.data.response?.GeoObjectCollection.featureMember[0]?.GeoObject.Point.pos) {
       setDataFetch(axi.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' '));
       dispatch(fetchFindQueryJourneyAC(axi.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ')))
     } else setFlagMapSearch(true)
   };
-
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
-  console.log(stateofQuery);
 
   return (
     <div className='container'>
@@ -85,10 +78,7 @@ function MainSearch(props) {
                     strokeColor: '#F008',
                     openBalloonOnClick: true,
                   }}
-                  onClick={(e) => {
-                    console.log(e.originalEvent.target.geometry._coordPath._coordinates);
-                    ClickonRoute(el)
-                  }}
+                  onClick={(e) => {   ClickonRoute(el)  }}
                 />
                 <Placemark geometry={el.finalCoords}
                   options={{
@@ -96,9 +86,7 @@ function MainSearch(props) {
                     iconImageOffset: [-4, -36],
                     iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
                   }}
-                  onClick={(e) => {
-                    ClickonRoute(el);
-                  }} />
+                  onClick={(e) => {   ClickonRoute(el);  }} />
 
               </>
               )}
@@ -130,11 +118,9 @@ function MainSearch(props) {
                 options={{
                   iconLayout: 'default#image',
                   iconImageOffset: [-16, -38],
-                 // iconImageHref: 'https://img.icons8.com/ios/452/marker-s.png'
                  iconImageHref: el.author.file  ||  'https://img.icons8.com/ios/452/marker-s.png'
                 }}
-                onClick={(e) => { ClickonRoute(el) }}
-                onContextMenu={(e) => { console.log(e.originalEvent.target.geometry._coordinates); }} />
+                onClick={(e) => { ClickonRoute(el) }} />
                 <GeoObject
                   geometry={{
                     type: 'LineString',

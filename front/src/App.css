@@ -5,31 +5,49 @@
   margin-left: auto;
   margin-right: auto;
   min-height: 800px;
+  padding-top: 30px;
+  display: flex;
   min-height: 100vh;
   background-color: lightblue;
   margin: 0 auto;
   max-width: 1200px;
 }
 
+.container {
+  padding-left: 75px;
+}
+
+.containerCenter, .mainButtons {
+  margin: 25% auto;
+
+  display: flex;
+  justify-content: center;
+}
+
 .mainContainer {
-  position: relative;
-  top: 0px; 
-  left: 250px;
-  /* text-align: center; */
+  width: 100vh;
 }
 
 .navbar {
   max-width: 200px;
 }
 
-.mainButtons {
-  margin: auto;
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50%;
 }
 
 .description, .cardString {
+  margin-top: 30px;
   margin-bottom: 30px;
+  padding: 0px 10px
 }
 
+.persons {
+  display: flex
+}
 
 .mapContainer{
   display: flex;
@@ -39,3 +57,6 @@
 /* .button{
   margin : 20px
 } */
+.mainButtons {
+  margin-top: 25%;
+}
