@@ -3,14 +3,14 @@ import { cityToCoordAC, createJourneyAC, findAllJourneyAC, findQueryJourneyAC, s
 
 export function fetchFromCityToCoordsAC() {
   return async (dispatch) => {
-    const response = await axios.get('https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=Лондон');
+    const response = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${process.env.REACT_APP_URL_API_KEY}&format=json&geocode=Лондон`);
     dispatch(cityToCoordAC(response.data.response))
   };
 }
 
 export function fetchCreateJourneyAC(value) {
   return async (dispatch) => {
-    const response = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=de443bec-303e-4052-bc88-4e6872551ce0&format=json&geocode=${value}`);
+    const response = await axios.get(`https://geocode-maps.yandex.ru/1.x/?apikey=${process.env.REACT_APP_URL_API_KEY}&format=json&geocode=${value}`);
     dispatch(createJourneyAC(response.data.response))
   };
 }
