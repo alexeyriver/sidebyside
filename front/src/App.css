@@ -24,6 +24,11 @@
   justify-content: center;
 }
 
+.containerCabinet {
+  margin: 40px;
+  padding: 0px 10px;
+}
+
 .mainContainer {
   width: 100vh;
 }
@@ -40,9 +45,22 @@
 }
 
 .description, .cardString {
-  margin-top: 30px;
+  /* margin-top: 30px;
+  margin-bottom: 30px; */
+  margin: 40px;
+  padding: 0px 10px;
+  border: 1px dotted green; 
+}
+
+.descriptionRow {
+  display: flex;
+  /* margin-top: 30px;
   margin-bottom: 30px;
-  padding: 0px 10px
+  padding: 0px 10px */
+}
+
+.description.current {
+  width: 40%;
 }
 
 .persons {
