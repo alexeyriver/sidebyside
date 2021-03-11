@@ -56,6 +56,7 @@ function OneRegionCard({ el }) {
               <p>До: {moment(el.endDate).format("DD.MM.YYYY")}</p>
               <p>Бюджет: {el.budget}</p>
               <div>Информация о мршруте: {el.tripInfo}</div>
+              {/* <div>Количество участников: {el.participants.length > 1 ? el.participants.length : 'Пока не откликнулись,успейте присоединиться первым!'}</div> */}
               <button onClick={() => ButtonHandler(el.author._id)}>Связаться с автором</button>
             </div>
           </a>
