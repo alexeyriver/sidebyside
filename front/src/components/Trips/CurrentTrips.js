@@ -9,17 +9,17 @@ function CurrentTrips(props) {
   const user = useSelector(state => state.auth.user)
   // trips = trips.filter(el => el.participants.includes(user._id)) 
 
-  trips = trips.filter(el => el.participants.filter(part => { if (part._id == user._id) return el} ))
+  trips = trips.filter(el => el.participants.filter(part => { if (part._id == user._id ) return el} ))
 
-  console.log(trips);
+ let filteredTrip = (trips.filter(el => el.participants.length>1));
 
 
 
   return (
     <div>
       <h2>Текущие поездки</h2>
-      {trips &&
-        trips.map((el) => (
+      {filteredTrip &&
+        filteredTrip.map((el) => (
           <div
             style={{ border: "1px black solid" }}
             key={performance.now()}

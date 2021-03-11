@@ -39,7 +39,6 @@ router.route('/:id')
     .get(async(req,res) =>{
         const {id} = req.params
         const messages = await Message.find({recipient:id})
-        console.log(messages,'messages');
         res.json(messages)
     })
 
