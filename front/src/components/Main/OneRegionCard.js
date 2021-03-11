@@ -15,15 +15,11 @@ function OneRegionCard({ el }) {
     dispatch(fetchModalUserInfoAC(id))
     setModalclick(modalclick = true)
     setModalprops((modalprops) => modalprops = id)
-    
   }
 
   let ButtonHandler = id => {
-    console.log(id);
-
     setModalclickRequest(modalclickRequest = true)
     setModalprops((modalprops) => modalprops = id)
-
   }
 
   return (

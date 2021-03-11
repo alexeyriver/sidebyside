@@ -20,21 +20,21 @@ function CurrentTrips(props) {
       {filteredTrip &&
         filteredTrip.map((el) => (
           <div className="description"
-               style={{ border: "1px black solid" }}
-               key={performance.now()}>
+            style={{ border: "1px black solid" }}
+            key={performance.now()}>
             <div>Автор: {el.author.name}</div>
             <div>Информация о поездке: {el.tripInfo}</div>
             <div>Бюджет: {el.budget}</div>
             <div>Начальная дата: {el.startDate}</div>
             <div>Конечная дата: {el.endDate}</div>
             <div >Компаньоны: </div>
-<div className="persons">
-            {el.participants && el.participants.map((el, i) =>
-              <div>{i + 1}: {el.name}, {el.email};</div>
-            )}
+            <div className="persons">
+              {el.participants && el.participants.map((el, i) =>
+                <div key={performance.now()}> {i + 1}: {el.name}, {el.email}; </div>
+              )}
             </div>
-            </div>
-          
+          </div>
+
         ))}
     </div>
 

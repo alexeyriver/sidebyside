@@ -1,4 +1,4 @@
-import { initMessagesAC, initSenderAC, declineMessageAC, acceptMessageAC } from "../actionCreators";
+import { initMessagesAC,  declineMessageAC, acceptMessageAC } from "../actionCreators";
 import axios from 'axios';
 
 

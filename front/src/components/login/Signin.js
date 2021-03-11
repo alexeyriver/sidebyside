@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch , useSelector } from 'react-redux';
-import {signInFetchAC} from "../../redux/Thunk/authFetchesAC"
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux';
+import { signInFetchAC } from "../../redux/Thunk/authFetchesAC"
+// import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function Signin(props) {
   const [error, setError] = useState('');
@@ -13,7 +13,7 @@ function Signin(props) {
       password: { value: password },
     } = event.target;
     event.preventDefault();
-dispatch(signInFetchAC({email, password}))
+    dispatch(signInFetchAC({ email, password }))
   };
   let erro = useSelector(state => state.auth)
   useEffect(() => {
@@ -21,8 +21,7 @@ dispatch(signInFetchAC({email, password}))
       setError(erro.authError)
     }
     setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
-  
-  },[erro])
+  }, [erro])
 
   return (
     <div className="formWrapper">
@@ -30,11 +29,11 @@ dispatch(signInFetchAC({email, password}))
         <label htmlFor="email">
           Email
         </label>
-          <input type="email" name="email" required></input>
+        <input type="email" name="email" required></input>
         <label htmlFor="password">
           Password
         </label>
-          <input type="password" name="password" required></input>
+        <input type="password" name="password" required></input>
         <div className="error">{error}</div>
         <button>Sign in</button>
       </form>
