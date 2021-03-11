@@ -16,7 +16,7 @@ function MyTrips(props) {
   const user = useSelector((state) => state.auth.user);
   if (trips?.length > 0) {
     trips = trips.filter((el) => el.author._id === user._id);
-  }
+  } else trips = []
 
   const deleteHandler = (event) => {
     event.preventDefault();
@@ -29,8 +29,7 @@ function MyTrips(props) {
   return (
     <Container>
       <h2>Поездки которые предложил сам</h2>
-      {trips &&
-        trips.length &&
+      {trips.length < 1 ? <h3>Упс!Кажется,вы не создали ни одну поездку!</h3>  :
         trips.map((el) => (
 
           <div style={{ border: "1px black solid" }} key={performance.now()}>

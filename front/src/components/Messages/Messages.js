@@ -22,7 +22,6 @@ console.log('hiii',messages);
 
     }
 
-
     return (
 
         <div>
@@ -31,7 +30,6 @@ console.log('hiii',messages);
                 <button  onClick={() => confirmHandler(el)}>Согласиться на поездку</button>
                     <button onClick={declineHandler}>Отказаться</button>
             </div>
-
             )}
         </div>
     );
