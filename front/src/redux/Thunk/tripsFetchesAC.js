@@ -2,7 +2,7 @@ import { initTripsAC,deleteTripAC,editMyTripAC} from "../actionCreators";
 
 
 export const initTripsFetchAC = () => (dispatch) => {
-  fetch('http://localhost:4000/trips')
+  fetch(process.env.REACT_APP_URL_FIND_ALL_TRIP)
     .then((res) => res.json())
     .then((data) => dispatch(initTripsAC(data)));
 };
