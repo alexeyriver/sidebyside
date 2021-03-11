@@ -9,6 +9,7 @@ function HistoryMap({el}) {
   // console.log(bet);
 
   return (
+    <div className='mapContainer'>
     <YMaps>
       <div >
         <Map defaultState={{
@@ -42,6 +43,7 @@ function HistoryMap({el}) {
         </Map>
       </div>
     </YMaps>
+    </div>
   );
 }
 

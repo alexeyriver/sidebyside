@@ -8,6 +8,7 @@ const messages = useSelector(state => state.auth.user.messages)
 
 console.log('hiii',messages);
 
+
     const [response,setResponse] = useState('')
 
 
@@ -26,6 +27,7 @@ console.log('hiii',messages);
     return (
 
         <div>
+
 
             {  messages && messages.map(el => <div>
                     <p style={{fontStyle:'bold'}}>{el.author.name} : {el.text}</p>
