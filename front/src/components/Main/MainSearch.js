@@ -150,7 +150,7 @@ function MainSearch(props) {
           {/* {!flagMapSearch && stateofQuery && stateofQuery.map(el => <div key={el._id}><OneRegionCard el={el} /></div>)}
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />} */}
 
-         <div className="katrin" style={{display:'flex',alignItems:'baseline'}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
+         <div className="katrin" style={{display:'flex',alignItems:'baseline', width: "100vh"}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
         </div>
 
