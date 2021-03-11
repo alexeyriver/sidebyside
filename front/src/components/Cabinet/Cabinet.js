@@ -19,7 +19,7 @@ function Cabinet(props) {
   }, [dispatch])
 
   return (
-    <div>
+    <div className="container">
       <div><Profile /></div>
       <Trips trips={trips} />
       <div><Messages/></div>
