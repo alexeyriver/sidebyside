@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTripsFetchAC, initTripsFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import HistoryMap from "../Map/HistoryMap";
 import moment from "moment";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function MyTrips(props) {
@@ -24,18 +24,18 @@ function MyTrips(props) {
     dispatch(deleteTripsFetchAC(itemId));
   };
 
-  
+
 
   return (
-    <Container>
-      <h2>Поездки которые предложил сам</h2>
+    <div className="container">
+      <h2>Созданные поездки</h2>
       {trips &&
         trips.length &&
         trips.map((el) => (
 
-          <div key={performance.now()}>
-            
-            
+          <div className="cardString" key={performance.now()}>
+
+
             <div>Информация о поездке: {el.tridivInfo}</div>
             <div>Бюджет: {el.budget}</div>
             <div>Начальная дата: {moment(el.startDate).format("DD.MM.YYYY")}</div>
@@ -43,19 +43,18 @@ function MyTrips(props) {
 
             <HistoryMap el={el} />
 
-            
+
             {/* <Link to={el._id}>Edit</Link> */}
 
 
-            <button data-id={el._id}><Link style={{textDecoration:'none'}} to={`/mytrips/${el._id}`}>Редактировать</Link></button>
+            <button data-id={el._id}><Link style={{ textDecoration: 'none' }} to={`/mytrips/${el._id}`}>Редактировать</Link></button>
             <button data-id={el._id} onClick={deleteHandler}>
               Удалить
             </button>
           </div>
-
-
-))}
-    </Container>
+        ))
+      }
+    </div>
   );
 }
 

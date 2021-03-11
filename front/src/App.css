@@ -1,39 +1,31 @@
-.navbar {
-  float: left;
-  width: 25%;
-  /* height: 100%; */
-  min-height: 1000px;
-}
-
-
 #root {
-  /* margin-left: 100px */
-  padding-top: 30px;
+  min-height: 100vh;
   background-color: lightblue;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   max-width: 1200px;
 }
 
-.container {
-  text-align: left;
-  padding-bottom: 50px;
-  /* width: 6em */
-  /* max-width: 800px; */
+.mainContainer {
+  position: relative;
+  top: 0px; 
+  left: 250px;
+  /* text-align: center; */
 }
 
-.description {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.navbar {
+  max-width: 200px;
 }
 
-.actions {
-  text-align: center;
-  padding-top: 50px;
+.mainButtons {
+  margin: auto;
+}
+
+.description, .cardString {
+  margin-bottom: 30px;
 }
 
 
 .mapContainer{
   display: flex;
-   margin: 0, auto
+  margin: 0, auto
 }
