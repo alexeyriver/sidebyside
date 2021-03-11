@@ -2630,9 +2630,9 @@ input, select, textarea {
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
     margin: 25px;
-    max-width: 400px;
-    width: 100%;
-    height: 300px;
+    max-width: 350px;
+    /* width: 100%; */
+    height: 250px;
     /* flex-grow: 1; */
 		/* postiion: relative; */
 		/* margin: -2.5em 0 0 -2.5em; */
