@@ -1,4 +1,4 @@
-import { initTripsAC,deleteTripAC,editMyTripAC} from "../actionCreators";
+import { initTripsAC,deleteTripAC} from "../actionCreators";
 
 
 export const initTripsFetchAC = () => (dispatch) => {
@@ -40,5 +40,5 @@ export const editMyTripFetchAC = (value)=>(dispatch)=>{
           
     }
         ).then((res) => res.json())
-        .then((data) => console.log(data));
+        // .then((data) => console.log(data));
 }

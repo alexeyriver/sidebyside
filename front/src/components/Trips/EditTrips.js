@@ -10,21 +10,11 @@ import moment from 'moment'
 
 function EditTrips(props) {
   
-  // const[newStartDate,setNewStartDate]=useState(null)
-  // const[newEndDate,setNewEndDate]=useState(null)
-  
-  
-  
-  
-  
-  
   const { id } = useParams();console.log(id);
   const trips = useSelector((state) => state.tripState.trips);
   
   const oneTrip = trips.filter((el) => el._id === id);
   const dispatch = useDispatch();
-  
-  
   
   const[newStartDate,setNewStartDate]=useState(null)
   const[newEndDate,setNewEndDate]=useState(null)
@@ -34,16 +24,10 @@ function EditTrips(props) {
 
 const  HandlerBudget = (e) =>{
 
-console.log(e.target.value);
    }
   const editHandler = (event) => {
     event.preventDefault()
     const { budget, startDate, endDate, tripInfo } = event.target;
-    console.log(tripInfo);
-//     const testDateStart = moment(startDate, "DD.MM.YYYY")
-//     const testDateEnd = moment(endDate, "DD.MM.YYYY")
-// console.log(testDateStart,testDateEnd);
-
     const value={
         budget: budget.value,
         startDate: startDate.value,

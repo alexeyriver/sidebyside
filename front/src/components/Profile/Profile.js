@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Change from "./Change";
 
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+// import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 import { initProfileFetchAC } from "../../redux/Thunk/authFetchesAC";
 
 
 function Profile() {
 
   const dispatch = useDispatch()
-
   const user = useSelector(state => state.auth.user)
   const [change, setChange] = useState(false);
   useEffect(() => {
@@ -19,7 +18,6 @@ function Profile() {
 
   return (
     <div className="container">
-      {/* <h1>Тут будет Profile</h1> */}
       <div >
         <img src={user.file} alt={'AVATAR'} style={{ maxHeight: '300px', maxWidth: '300px' }} />
         <div className="containerCabinet">

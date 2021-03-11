@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
-import Maps from './Maps';
 import { fetchFindAllJourneyAC, fetchFindQueryJourneyAC } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios'
 
 
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+// import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 import OneRegionCard from './OneRegionCard'
 
 function MainSearch(props) {
-  const [value, setValue] = useState('');
+  // const [value, setValue] = useState('');
   const [dataFetch, setDataFetch] = useState('');
   const [flagMapSearch, setFlagMapSearch] = useState(true);
   const [clickMapSearch, setClickFlagMapSearch] = useState(false);
