@@ -1,5 +1,8 @@
 body {
   font-size: 24px;
+  background-image: url('https://i.postimg.cc/tCLHm581/pexels-craig-adderley-1563356.jpg');
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 a {
@@ -8,17 +11,24 @@ a {
 }
 
 input {
-  background-color: transparent;
+  background-color: white;
   border: none;
 }
 
 #root {
+
+  /* margin-left: 100px */
   padding-top: 30px;
+  background-color: rgb(197, 233, 241, .7);
   display: flex;
   min-height: 100vh;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.main, .mainContainer {
+  background-color: rgb(197, 233, 241, .9);
 }
 
 .container {
@@ -58,6 +68,8 @@ input {
 .navbar {
   max-width: 250px;
   margin-right: 25px;
+  opacity: 0.75;
+  /* position: fixed; */
 }
 
 .actions {
