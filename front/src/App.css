@@ -33,8 +33,14 @@ input {
 }
 
 .container {
-  padding-left: 50px;
+  padding-left: 40px;
   padding-top: 20px;
+}
+
+.gorizont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .containerCenter, .mainButtons, .katrin {
@@ -45,7 +51,7 @@ input {
 }
 
 .containerCabinet {
-  margin: 40px;
+  margin: 20px;
   padding: 0px 10px;
 }
 
