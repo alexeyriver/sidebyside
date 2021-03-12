@@ -28,7 +28,7 @@ function CreateTrip(props) {
 
       {!clickfirstPoint &&
         <form onSubmit={(e) => SubmitFormFirstPoint(e)} >
-          <input type="text" name="firstPoint" placeholder="Введите начальную точку"></input>
+          <input type="text" name="firstPoint" placeholder="Введите начальную точку отправления"></input>
           <button type="submit">Сохранить</button>
         </form>
       }
