@@ -1,3 +1,17 @@
+body {
+  font-size: 24px;
+}
+
+a {
+  text-decoration: none ;
+  border: none;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+}
+
 #root {
   /* margin-left: 100px */
   padding-top: 30px;
@@ -70,16 +84,18 @@
 
 .mapContainer{
   display: flex;
-  margin: 0, auto
+  margin: 15px, auto
 }
 
-/* .button{
-  margin : 20px
-} */
+button{
+  margin : 15px 8px;
+}
+
 .mainButtons {
   margin-top: 25%;
 }
 
-.tiles {
-  
+.persons {
+  display: flex;
+  flex-wrap: wrap;
 }

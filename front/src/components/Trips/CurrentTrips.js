@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
+import moment from 'moment'
 
 function CurrentTrips(props) {
 
@@ -23,12 +24,12 @@ function CurrentTrips(props) {
             <div className="description current"
               style={{ }}
               key={performance.now()}>
-              <div>Автор: {el.author.name}</div>
-              <div>Информация о поездке: {el.tripInfo}</div>
-              <div>Бюджет: {el.budget}</div>
-              <div>Начальная дата: {el.startDate}</div>
-              <div>Конечная дата: {el.endDate}</div>
-              <div >Компаньоны: </div>
+              <div><b>Автор:</b> {el.author.name}</div>
+              <div><b>Информация о поездке:</b> {el.tripInfo}</div>
+              <div><b>Бюджет:</b> {el.budget}</div>
+              <div><b>Начальная дата:</b> {moment(el.startDate).format('DD-MM-YYYY')}</div>
+              <div><b>Конечная дата:</b> {moment(el.endDate).format('DD-MM-YYYY')}</div>
+              <div ><b>Компаньоны:</b> </div>
               <div className="persons">
                 {el.participants && el.participants.map((el, i) =>
                   <div>{i + 1}: {el.name}, {el.email};</div>
