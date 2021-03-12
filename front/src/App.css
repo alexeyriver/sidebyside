@@ -11,7 +11,7 @@ a {
 }
 
 input {
-  background-color: white;
+  background-color: transparent;
   border: none;
   border-bottom: 1px solid #000;
 }
@@ -112,4 +112,8 @@ button{
 .persons {
   display: flex;
   flex-wrap: wrap;
+}
+
+.tiles {
+  min-height: 200px;
 }

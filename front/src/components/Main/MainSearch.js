@@ -14,7 +14,7 @@ function MainSearch(props) {
     dispatch(fetchFindAllJourneyAC())
   }, [])
   let stateofAll = useSelector(state => state.fetch.fetchFindAllJourney)
-  const ClickonRoute = (el) => { setClickFlagMapSearch(el) ; if(!flagMapSearch){setFlagMapSearch(true)} }
+  const ClickonRoute = (el) => { setClickFlagMapSearch(el); if (!flagMapSearch) { setFlagMapSearch(true) } }
   const HandlerChanger = async (e) => {
     setFlagMapSearch(false)
     e.preventDefault();
@@ -26,7 +26,7 @@ function MainSearch(props) {
     } else setFlagMapSearch(true)
   };
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
-console.log(stateofAll , stateofQuery );
+  console.log(stateofAll, stateofQuery);
   return (
     <div className='container'>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
@@ -37,108 +37,108 @@ console.log(stateofAll , stateofQuery );
           <button>найти</button>
         </div>
       </form>
-<div className='mapContainer'>
-      {flagMapSearch &&
-        <div style={{alignItems:'center'}}>
-          <YMaps>
+      <div className='mapContainer'>
+        {flagMapSearch &&
+          <div style={{ alignItems: 'center' }}>
+            <YMaps>
 
-            <Map
-              defaultState={{
-                center: [55.75, 37.57],
-                zoom: 6,
-              }}
-              height={500}
-              width={700}
-            >
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
-                options={{
-                  iconLayout: 'default#image',
-                  iconImageOffset: [-16, -38],
-                  iconImageHref: el.author.file  ||  'https://img.icons8.com/ios/452/marker-s.png'
-
+              <Map
+                defaultState={{
+                  center: [55.75, 37.57],
+                  zoom: 6,
                 }}
-                onClick={(e) => ClickonRoute(el)} />
-                <GeoObject
-                  geometry={{
-                    type: 'LineString',
-                    coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
-                  }}
-                  options={{
-                    geodesic: true,
-                    strokeWidth: 5,
-                    strokeColor: '#F008',
-                    openBalloonOnClick: true,
-                  }}
-                  onClick={(e) => {   ClickonRoute(el)  }}
-                />
-                <Placemark geometry={el.finalCoords}
+                height={500}
+                width={700}
+              >
+                {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
                   options={{
                     iconLayout: 'default#image',
-                    iconImageOffset: [-4, -36],
-                    iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
-                  }}
-                  onClick={(e) => {   ClickonRoute(el);  }} />
-              </>
-              )}
-            </Map>
-          </YMaps>
+                    iconImageOffset: [-16, -38],
+                    iconImageHref: el.author.file || 'https://img.icons8.com/ios/452/marker-s.png'
 
-          {clickMapSearch && <OneRegionCard el={clickMapSearch} />}
-        </div>
-      }
+                  }}
+                  onClick={(e) => ClickonRoute(el)} />
+                  <GeoObject
+                    geometry={{
+                      type: 'LineString',
+                      coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
+                    }}
+                    options={{
+                      geodesic: true,
+                      strokeWidth: 5,
+                      strokeColor: '#F008',
+                      openBalloonOnClick: true,
+                    }}
+                    onClick={(e) => { ClickonRoute(el) }}
+                  />
+                  <Placemark geometry={el.finalCoords}
+                    options={{
+                      iconLayout: 'default#image',
+                      iconImageOffset: [-4, -36],
+                      iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
+                    }}
+                    onClick={(e) => { ClickonRoute(el); }} />
+                </>
+                )}
+              </Map>
+            </YMaps>
+
+            {clickMapSearch && <OneRegionCard el={clickMapSearch} />}
+          </div>
+        }
       </div>
 
-<div className='mapContainer'>
-      {!flagMapSearch && dataFetch.length === 2 && (
-        <div>
-          <YMaps>
-            <Map
-              defaultState={{
-                center: [dataFetch[1], dataFetch[0]],
-                zoom: 6,
-              }}
-              height={500}
-              width={700}
-              onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
-            >
-              {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
-                options={{
-                  iconLayout: 'default#image',
-                  iconImageOffset: [-16, -38],
-                 iconImageHref: el.author.file  ||  'https://img.icons8.com/ios/452/marker-s.png'
+      <div className='mapContainer'>
+        {!flagMapSearch && dataFetch.length === 2 && (
+          <div>
+            <YMaps>
+              <Map
+                defaultState={{
+                  center: [dataFetch[1], dataFetch[0]],
+                  zoom: 6,
                 }}
-                onClick={(e) => { ClickonRoute(el) }} />
-                <GeoObject
-                  geometry={{
-                    type: 'LineString',
-                    coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
-                  }}
-                  options={{
-                    geodesic: true,
-                    strokeWidth: 5,
-                    strokeColor: '#F008',
-                    openBalloonOnClick: true,
-                  }}
-                  onClick={(e) => { ClickonRoute(el); }}
-                />
-                <Placemark geometry={el.finalCoords}
+                height={500}
+                width={700}
+                onClick={(e) => console.log(e._sourceEvent.originalEvent.coords)}
+              >
+                {stateofAll && stateofAll.map(el => <> <Placemark geometry={el.startCoords} key={el._id}
                   options={{
                     iconLayout: 'default#image',
-                    iconImageOffset: [-4, -36],
-                    iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
+                    iconImageOffset: [-16, -38],
+                    iconImageHref: el.author.file || 'https://img.icons8.com/ios/452/marker-s.png'
                   }}
-                  onClick={(e) => {  ClickonRoute(el);  }}
-                />
-              </>
-              )}
-            </Map>
-          </YMaps>
+                  onClick={(e) => { ClickonRoute(el) }} />
+                  <GeoObject
+                    geometry={{
+                      type: 'LineString',
+                      coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords],
+                    }}
+                    options={{
+                      geodesic: true,
+                      strokeWidth: 5,
+                      strokeColor: '#F008',
+                      openBalloonOnClick: true,
+                    }}
+                    onClick={(e) => { ClickonRoute(el); }}
+                  />
+                  <Placemark geometry={el.finalCoords}
+                    options={{
+                      iconLayout: 'default#image',
+                      iconImageOffset: [-4, -36],
+                      iconImageHref: 'https://storage.googleapis.com/multi-static-content/previews/artage-io-thumb-6f6c68f441ae243386bf21a10d3b5cea.png'
+                    }}
+                    onClick={(e) => { ClickonRoute(el); }}
+                  />
+                </>
+                )}
+              </Map>
+            </YMaps>
 
-         <div className="katrin" style={{alignItems:'baseline', width: "100vh"}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
-          {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
-        </div>
+            <div className="katrin" style={{ alignItems: 'baseline', width: "100vh" }}> {!flagMapSearch && stateofQuery && stateofQuery.map(el => <OneRegionCard el={el} />)}</div>
+            {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
+          </div>
 
-      )}
+        )}
       </div>
     </div>
   );
