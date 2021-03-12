@@ -172,6 +172,12 @@ input, select, textarea {
 /* Type */
 
 	body, input, select, textarea {
+<<<<<<< HEAD
+		/* color: black; */
+		color: #424141;
+
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+=======
 
     /* 		color: #585858; */
 		font-family: 'Noto Sans JP', sans-serif;
@@ -181,6 +187,7 @@ input, select, textarea {
 
     /* 		font-family: "Source Sans Pro", Helvetica, sans-serif; */
 
+>>>>>>> 6ba1ba8cf5307b477cfc658d8d0a6feaa14c0ef9
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.75;
@@ -2562,9 +2569,9 @@ input, select, textarea {
 		button:hover,
 		.button:hover {
 			color: white !important;
-			box-shadow: inset 0 0 0 2px #f2cb84;
+			box-shadow: inset 0 0 0 2px #f28484;
 		}
-    /* копка создать маршрут(тёмная контур и заполнение #8f84f2*/ 
+    /* копка  создать маршрут(тёмная контур и заполнение #8f84f2*/ 
 
 		input[type="submit"]:active,
 		input[type="reset"]:active,
@@ -2605,7 +2612,7 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #f2cb84;
+				background-color: #ff0000;
 			}
       /* кнопка найти маршрут */
 

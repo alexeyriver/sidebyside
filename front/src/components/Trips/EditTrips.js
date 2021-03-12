@@ -48,10 +48,10 @@ function EditTrips(props) {
       {!flagEdit && (<p>Поездка изменена</p>)}
       {flagEdit &&
 
-        (<form onSubmit={editHandler}>
-          <label>Бюджет<input name="budget" type='number' onChange={(e) => { HandlerBudget(e) }} defaultValue={budget}></input></label>
+        (<div className='containerCabinet'><form onSubmit={editHandler}>
+          <label>Бюджет<input required name="budget" type='number' onChange={(e) => { HandlerBudget(e) }} defaultValue={budget}></input></label>
 
-          <DatePicker
+          <DatePicker required 
             name="startDate"
             placeholderText="Начальная дата"
             selected={newStartDate}
@@ -59,27 +59,28 @@ function EditTrips(props) {
             dateFormat="dd.MM.yyyy"
             minDate={new Date()}
             maxDate={newEndDate}
-            isClearable
+            // isClearable
             showYearDropdown
             scrollableMonthYearDropdown
             locale={ru}
           />
-          <DatePicker
+          <DatePicker required 
             name="endDate"
             placeholderText="Конечная дата"
             selected={newEndDate}
             onChange={(date) => setNewEndDate(date)}
             dateFormat="dd.MM.yyyy"
             minDate={new Date() && newStartDate}
-            isClearable
+            // isClearable
             showYearDropdown
             scrollableMonthYearDropdown
             locale={ru}
           />
 
-          <label>Информация о поездке<textarea name="tripInfo" defaultValue={tripinfo} /></label>
+          <label>Информация о поездке<textarea required  name="tripInfo" defaultValue={tripinfo} /></label>
           <button>Изменить</button>
-        </form>)}
+        </form></div>)}
+        
     </div>
   );
 }

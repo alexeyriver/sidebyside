@@ -37,14 +37,8 @@ input {
 }
 
 .container {
-  padding-left: 40px;
+  padding-left: 50px;
   padding-top: 20px;
-}
-
-.gorizont {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
 }
 
 .containerCenter, .mainButtons, .katrin {
@@ -55,7 +49,7 @@ input {
 }
 
 .containerCabinet {
-  margin: 20px;
+  margin: 40px;
   padding: 0px 10px;
 }
 
@@ -122,8 +116,4 @@ button{
 .persons {
   display: flex;
   flex-wrap: wrap;
-}
-
-.tiles {
-  min-height: 200px;
 }

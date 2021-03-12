@@ -29,10 +29,16 @@ function Profile() {
           <div >
             {change ? <Change /> : ''}
           </div>
+<<<<<<< HEAD
+          <div className="">
+            <button className='buttonContainer' onClick={() => setChange(!change)}>Изменить данные</button>
+          </div>
+=======
 
           <div className='buttonContainer'> <button  onClick={() => setChange(!change)}>Изменить данные</button></div>
          
 
+>>>>>>> 6ba1ba8cf5307b477cfc658d8d0a6feaa14c0ef9
         </div>
       </div>
     </div>
