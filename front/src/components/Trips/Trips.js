@@ -10,11 +10,11 @@ function Trips() {
   return (
     <div className="container">
       <div className="containerCabinet">
-        <ul>
-          <li><Link to='/mytrips'>Мои созданные поездки</Link></li>
-          <li><Link to='/current'>Текущие поездки</Link></li>
-          <li><Link to='/past'>Прошедшие поездки</Link></li>
-        </ul>
+        <div className="gorizont">
+          <div><Link to='/mytrips'>Cозданные поездки</Link></div>
+          <div><Link to='/current'>Текущие поездки</Link></div>
+          <div><Link to='/past'>Прошедшие поездки</Link></div>
+        </div>
       </div>
 
     </div>
