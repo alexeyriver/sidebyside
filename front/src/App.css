@@ -31,7 +31,9 @@ input {
 }
 
 .main, .mainContainer {
+
   background-color: rgb(197, 233, 241, .7);
+
 }
 
 .container {

@@ -172,10 +172,22 @@ input, select, textarea {
 /* Type */
 
 	body, input, select, textarea {
+<<<<<<< HEAD
 		/* color: black; */
 		color: #424141;
 
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
+=======
+
+    /* 		color: #585858; */
+		font-family: 'Noto Sans JP', sans-serif;
+
+		/* color: black; */
+		color: #424141;
+
+    /* 		font-family: "Source Sans Pro", Helvetica, sans-serif; */
+
+>>>>>>> 6ba1ba8cf5307b477cfc658d8d0a6feaa14c0ef9
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.75;
