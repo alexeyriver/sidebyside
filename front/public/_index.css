@@ -4,12 +4,17 @@
   width:100%;
   background: rgba(0,0,0, .2);
   backdrop-filter: blur(10px);
-
+  z-index: 100;
 }
 
 .modal_wrapper.open{
   height: 100%;
   display:block
+
+}
+
+.image {
+  z-index: 0;
 }
 
 .modal_wrapper.close{
@@ -18,6 +23,8 @@
 }
 
 .modal_body{
+  z-index: 100;
+
   max-width: 500px;
   margin:  auto;
   background:white;
