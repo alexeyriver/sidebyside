@@ -50,7 +50,9 @@ router.route('/:id')
     .post(upload.single('file'), async (req, res) => {
         const {id} = req.params
         const user = await User.findById({_id: id})
-        user.file = `http://localhost:4000/public/${req.file.filename}`
+        // user.file = `http://localhost:4000/public/${req.file.filename}`
+        user.file = ` ${process.env.BACK_URL_PORT_PUBLIC}/${req.file.filename}`
+       
         await user.save()
         res.json(user)
     });
