@@ -16,12 +16,10 @@ function ModalRequest(props) {
     <div className={`modal_wrapper ${props.isOpened ? 'open' : 'closed'}`} style={{ ...props.style }}>
       <div className="modal_body">
         <div className="modal_close" onClick={props.onModalClose}>X</div>
-        <h2>HI</h2>
+        <h2>Здесь Вы можете отправить запрос автору</h2>
         <hr />
-
-       HI again modal request
        <form onSubmit={(e) => { HandlerSubmit(e); console.log(e) }}>
-          <input name="text" placeholder="Предложите автору свою кандидатуру, опишите вашу поезку"  ></input>
+          <input name="text" size="55" placeholder="Предложите автору свою кандидатуру"  ></input>
           <button>Отправить запрос</button>
         </form>
       </div>
