@@ -29,8 +29,9 @@ function Profile() {
           <div >
             {change ? <Change /> : ''}
           </div>
-          <div className='buttonContainer'> <button  onClick={() => setChange(!change)}>Изменить данные</button></div>
-         
+          <div className="">
+            <button className='buttonContainer' onClick={() => setChange(!change)}>Изменить данные</button>
+          </div>
         </div>
       </div>
     </div>

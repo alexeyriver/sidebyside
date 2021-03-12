@@ -11,7 +11,7 @@ function Trips() {
     <div className="container">
       <div className="containerCabinet">
         <ul>
-          <li><Link to='/mytrips'>Мною созданные поездки</Link></li>
+          <li><Link to='/mytrips'>Мои созданные поездки</Link></li>
           <li><Link to='/current'>Текущие поездки</Link></li>
           <li><Link to='/past'>Прошедшие поездки</Link></li>
         </ul>

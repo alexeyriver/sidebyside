@@ -107,7 +107,7 @@ function FirstPointMap({ props }) {
               dateFormat="dd.MM.yyyy"
               minDate={new Date()}
               maxDate={selectedDateSecond}
-              isClearable
+              // isClearable
               showYearDropdown
               scrollableMonthYearDropdown
               locale={ru}
@@ -120,7 +120,7 @@ function FirstPointMap({ props }) {
               onChange={(date) => setSelectedDateSecond(date)}
               dateFormat="dd.MM.yyyy"
               minDate={new Date() && selectedDate}
-              isClearable
+              // isClearable
               showYearDropdown
               scrollableMonthYearDropdown
               locale={ru}

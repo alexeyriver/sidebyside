@@ -26,14 +26,14 @@ function MainSearch(props) {
     } else setFlagMapSearch(true)
   };
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
-
+console.log(stateofAll , stateofQuery );
   return (
     <div className='container'>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
 
       <form onSubmit={(e) => HandlerChanger(e)}>
         <div className="searchDiv">
-          <input name="town" type="text" placeholder="Страна" />
+          <input name="town" type="text" placeholder="Введите страну, либо город для поиска" />
           <button>найти</button>
         </div>
       </form>
