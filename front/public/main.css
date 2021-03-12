@@ -124,6 +124,8 @@ input, select, textarea {
 	-webkit-appearance: none;
 	-ms-appearance: none;
 	appearance: none;
+  outline: none;
+  background-color: initial;
 }
 
 /* Basic */
@@ -2803,7 +2805,7 @@ input, select, textarea {
 			}
 
 		* + .tiles {
-			margin-top: 2em;
+			margin-top: 8em;
 		}
 
 		body.is-preload .tiles article {
