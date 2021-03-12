@@ -134,7 +134,7 @@ function MainSearch(props) {
             </Map>
           </YMaps>
 
-         <div className="katrin" style={{display:'flex',alignItems:'baseline', width: "100vh"}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
+         <div className="katrin" style={{alignItems:'baseline', width: "100vh"}}> {!flagMapSearch && stateofQuery && stateofQuery.map(el =>  <OneRegionCard el={el} />)}</div>
           {flagMapSearch && <OneRegionCard el={clickMapSearch} />}
         </div>
 
