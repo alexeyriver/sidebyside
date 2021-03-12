@@ -19,13 +19,9 @@ function ModalRequest(props) {
         <h2>Здесь Вы можете отправить запрос автору</h2>
         <hr />
        <form onSubmit={(e) => { HandlerSubmit(e); console.log(e) }}>
-<<<<<<< HEAD
-          <input name="text" size="55" placeholder="Предложите автору свою кандидатуру"  ></input>
-=======
 
           <input required name="text"  size="55" placeholder="Предложите автору свою кандидатуру"  ></input>
 
->>>>>>> 6ba1ba8cf5307b477cfc658d8d0a6feaa14c0ef9
           <button>Отправить запрос</button>
         </form>
       </div>
