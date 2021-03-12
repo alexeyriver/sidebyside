@@ -11,8 +11,9 @@ a {
 }
 
 input {
-  background-color: white;
+  background-color: transparent;
   border: none;
+  border-bottom: 1px solid #000;
 }
 #main{
   min-width: 800px;
@@ -30,12 +31,20 @@ input {
 }
 
 .main, .mainContainer {
-  background-color: rgb(197, 233, 241, .9);
- 
+
+  background-color: rgb(197, 233, 241, .7);
+
 }
 
 .container {
-  padding-left: 50px;
+  padding-left: 40px;
+  padding-top: 20px;
+}
+
+.gorizont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .containerCenter, .mainButtons, .katrin {
@@ -46,7 +55,7 @@ input {
 }
 
 .containerCabinet {
-  margin: 40px;
+  margin: 20px;
   padding: 0px 10px;
 }
 
@@ -113,4 +122,8 @@ button{
 .persons {
   display: flex;
   flex-wrap: wrap;
+}
+
+.tiles {
+  min-height: 200px;
 }
