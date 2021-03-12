@@ -30,12 +30,16 @@ function Change() {
     };
 
 
-    return (<div>
-            <form onSubmit={changeInfoHandler}>
-                <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/>
-                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/>
-                <textarea value={about} onChange={(e) => setAbout(e.target.value)} placeholder="Изменить информацию о себе"/>
-                <button  type='submit'>Записать</button>
+    return (
+    <div className='profileEl'>
+      <h2  style={{color:'tomato',marginTop:'50px'}}>Поменяйте что необходимо</h2>
+            <form  onSubmit={changeInfoHandler}>
+              <div className='profileEl' style ={{flexDirection:'column'}}>
+                <div><label>Изменить имя : <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Изменить имя"/></label></div>
+                <div><label>Изменить почту : <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Изменить почту"/></label></div>
+                <div><label>Изменить описание о себе :  <textarea value={about} onChange={(e) => setAbout(e.target.value)} placeholder="Изменить информацию о себе"/></label></div>
+                <div><button  type='submit'>Записать</button>
+                </div></div>
             </form>
 
             <form onSubmit={profilePhotoHandler}>

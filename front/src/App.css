@@ -1,3 +1,17 @@
+body {
+  font-size: 24px;
+}
+
+a {
+  text-decoration: none ;
+  border: none;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+}
+
 #root {
   padding-top: 30px;
   display: flex;
@@ -8,14 +22,33 @@
 }
 
 .container {
-  padding-left: 75px;
+  padding-left: 50px;
 }
 
-.containerCenter, .mainButtons {
+.containerCenter, .mainButtons, .katrin {
   margin: 25% auto;
 
   display: flex;
   justify-content: center;
+}
+
+.containerCabinet {
+  margin: 40px;
+  padding: 0px 10px;
+}
+
+.buttonContainer  {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.profileEl{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-width: 600px;
+  flex-wrap: wrap;
 }
 
 .mainContainer {
@@ -23,7 +56,8 @@
 }
 
 .navbar {
-  max-width: 200px;
+  max-width: 250px;
+  margin-right: 25px;
 }
 
 .actions {
@@ -45,9 +79,23 @@
 
 .mapContainer{
   display: flex;
-  margin: 0, auto
+  margin: 15px, auto;
+  justify-content: center;
 }
 
+button{
+  margin : 15px 8px;
+}
+
+.katrin {
+  margin: 0px;
+  
+}
 .mainButtons {
   margin-top: 25%;
+}
+
+.persons {
+  display: flex;
+  flex-wrap: wrap;
 }
