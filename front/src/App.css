@@ -14,7 +14,9 @@ input {
   background-color: white;
   border: none;
 }
-
+#main{
+  min-width: 800px;
+}
 #root {
 
   /* margin-left: 100px */
@@ -29,6 +31,7 @@ input {
 
 .main, .mainContainer {
   background-color: rgb(197, 233, 241, .9);
+ 
 }
 
 .container {

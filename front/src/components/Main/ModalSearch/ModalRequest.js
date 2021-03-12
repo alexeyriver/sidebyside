@@ -21,7 +21,7 @@ function ModalRequest(props) {
 
        HI again modal request
        <form onSubmit={(e) => { HandlerSubmit(e); console.log(e) }}>
-          <input name="text" placeholder="Предложите автору свою кандидатуру, опишите вашу поезку"  ></input>
+          <input required name="text" placeholder="Предложите автору свою кандидатуру, опишите вашу поезку"  ></input>
           <button>Отправить запрос</button>
         </form>
       </div>
