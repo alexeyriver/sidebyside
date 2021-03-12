@@ -36,7 +36,7 @@ function MyTrips(props) {
           <div className="cardString" key={performance.now()}>
 
 
-            <div><b>Информация о поездке:</b> {el.tridivInfo}</div>
+            <div><b>Информация о поездке:</b> {el.tripInfo}</div>
             <div><b>Бюджет:</b> {el.budget}</div>
             <div><b>Начальная дата:</b> {moment(el.startDate).format("DD.MM.YYYY")}</div>
             <div><b>Конечная дата:</b> {moment(el.endDate).format("DD.MM.YYYY")}</div>

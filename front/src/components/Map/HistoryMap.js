@@ -14,7 +14,7 @@ function HistoryMap({el}) {
           <GeoObject
             geometry={{
               type: 'LineString',
-              coordinates: [el.startCoords, el.betweenCoords, el.finalCoords]
+              coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords]
             }}
             options={{
               geodesic: true,
