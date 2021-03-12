@@ -16,13 +16,10 @@ input {
 }
 
 #root {
+
   /* margin-left: 100px */
   padding-top: 30px;
   background-color: rgb(197, 233, 241, .7);
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 800px;
-  padding-top: 30px;
   display: flex;
   min-height: 100vh;
   /* background-color: lightblue; */
@@ -50,10 +47,18 @@ input {
   padding: 0px 10px;
 }
 
-.buttonContainer {
+.buttonContainer  {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+}
+
+.profileEl{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-width: 600px;
+  flex-wrap: wrap;
 }
 
 .mainContainer {
@@ -75,23 +80,9 @@ input {
 }
 
 .description, .cardString {
-  /* margin-top: 30px;
-  margin-bottom: 30px; */
-  margin: 40px;
-  padding: 0px 10px;
-  border: 1px dotted green; 
-}
-
-.descriptionRow {
-  display: flex;
-  /* margin-top: 30px;
+  margin-top: 30px;
   margin-bottom: 30px;
-  padding: 0px 10px */
-  flex-wrap : wrap;
-}
-
-.description.current {
-  width: 40%;
+  padding: 0px 10px
 }
 
 .persons {

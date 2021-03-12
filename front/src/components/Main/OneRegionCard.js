@@ -34,8 +34,9 @@ function OneRegionCard({ el }) {
           <span className="image">
             <img src={el.author.file} alt="" />
           </span>
+          <div style={{display:'flex'}}>
           <div>
-            <h4 onClick={() => Handleclicker(el.author._id)}>{el.author.name}</h4>
+            <div onClick={() => Handleclicker(el.author._id)}><b>{el.author.name}</b></div>
             <div className="content">
               <div className='cardText'>Старт: {moment(el.startDate).format("DD.MM.YYYY")}</div>
               <div className='cardText'>До: {moment(el.endDate).format("DD.MM.YYYY")}</div>
@@ -44,6 +45,8 @@ function OneRegionCard({ el }) {
               <div className='cardText'><b>Участники:</b> {el.participants.length > 1 ? el.participants.length : 'Вы будете первым!'}</div>
               <button onClick={() => ButtonHandler(el)}>Откликнуться</button>
             </div>
+          </div>
+          
           </div>
         </article>
 

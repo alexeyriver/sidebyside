@@ -2200,7 +2200,7 @@ input, select, textarea {
 		background-color: transparent;
 		border: none;
 		border-radius: 0;
-		border-bottom: solid 1px #c9c9c9;
+		/* border-bottom: solid 1px black; */
 		color: inherit;
 		display: block;
 		outline: 0;
@@ -2324,7 +2324,7 @@ input, select, textarea {
 		input[type="radio"]:checked + label:before {
 			background: #585858;
 			border-color: #585858;
-			color: #ffffff;
+			/* color: #ffffff; */
 			content: '\f00c';
 		}
 
@@ -2644,7 +2644,7 @@ input, select, textarea {
 			-ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
 			transition: transform 0.5s ease, opacity 0.5s ease;
 			position: relative;
-      height: 400px;
+      height: 370px;
       width: fit-content;
 			/* width: calc(33.33333% - 2.5em); */
 			/* margin: 2.5em 0 0 2.5em; */
@@ -2690,8 +2690,8 @@ input, select, textarea {
 					-moz-transition: opacity 0.5s ease;
 					-webkit-transition: opacity 0.5s ease;
 					-ms-transition: opacity 0.5s ease;
-					/* transition: opacity 0.5s ease; */
-					content: 'hello';
+					transition: opacity 0.5s ease;
+					content: '';
 					display: block;
 					position: absolute;
 					top: 0;
