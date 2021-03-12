@@ -28,10 +28,10 @@ input {
 }
 
 .container {
-  padding-left: 75px;
+  padding-left: 50px;
 }
 
-.containerCenter, .mainButtons {
+.containerCenter, .mainButtons, .katrin {
   margin: 25% auto;
 
   display: flex;
@@ -43,12 +43,18 @@ input {
   padding: 0px 10px;
 }
 
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .mainContainer {
   width: 100vh;
 }
 
 .navbar {
-  max-width: 200px;
+  max-width: 250px;
+  margin-right: 25px;
 }
 
 .actions {
@@ -84,13 +90,18 @@ input {
 
 .mapContainer{
   display: flex;
-  margin: 15px, auto
+  margin: 15px, auto;
+  justify-content: center;
 }
 
 button{
   margin : 15px 8px;
 }
 
+.katrin {
+  margin: 0px;
+  
+}
 .mainButtons {
   margin-top: 25%;
 }
