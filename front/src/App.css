@@ -13,6 +13,7 @@ a {
 input {
   background-color: white;
   border: none;
+  border-bottom: 1px solid #000;
 }
 
 #root {
@@ -28,11 +29,12 @@ input {
 }
 
 .main, .mainContainer {
-  background-color: rgb(197, 233, 241, .9);
+  background-color: rgb(197, 233, 241, .7);
 }
 
 .container {
   padding-left: 50px;
+  padding-top: 20px;
 }
 
 .containerCenter, .mainButtons, .katrin {

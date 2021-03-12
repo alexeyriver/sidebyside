@@ -29,11 +29,11 @@ function Signin(props) {
         <label htmlFor="email">
           Email:
         </label>
-        <input type="email" name="email" required></input>
+        <input type="email" name="email" required placeholder="введите email"/>
         <label htmlFor="password">
           Пароль:
         </label>
-        <input type="password" name="password" required></input>
+        <input type="password" name="password" required placeholder="введите пароль"/>
         <div className="error">{error}</div>
         <button>Войти на сайт</button>
       </form>

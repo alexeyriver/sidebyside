@@ -33,7 +33,7 @@ function MainSearch(props) {
 
       <form onSubmit={(e) => HandlerChanger(e)}>
         <div className="searchDiv">
-          <input name="town" type="text" placeholder="Страна" />
+          <input name="town" type="text" placeholder="Введите страну, либо город для поиска" />
           <button>найти</button>
         </div>
       </form>
