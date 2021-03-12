@@ -26,7 +26,7 @@ function MainSearch(props) {
     } else setFlagMapSearch(true)
   };
   let stateofQuery = useSelector(state => state.fetch.fetchFindQueryJourney)
-
+console.log(stateofAll , stateofQuery );
   return (
     <div className='container'>
       <h1>ПОИСКОВАЯ ФОРМА</h1>
