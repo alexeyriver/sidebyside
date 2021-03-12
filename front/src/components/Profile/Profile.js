@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Change from "./Change";
 
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+// import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 import { initProfileFetchAC } from "../../redux/Thunk/authFetchesAC";
 
 
 function Profile() {
 
   const dispatch = useDispatch()
-
   const user = useSelector(state => state.auth.user)
   const [change, setChange] = useState(false);
   useEffect(() => {
@@ -18,19 +17,28 @@ function Profile() {
   }, [user.name, user.email, user.about]);
 
   return (
-    <div className="container">
-      {/* <h1>Тут будет Profile</h1> */}
-      <div >
-        <img src={user.file} alt={'AVATAR'} style={{ maxHeight: '300px', maxWidth: '300px' }} />
-        <div className="containerCabinet">
-          <p>Имя пользователя: <b>{user.name}</b></p>
-          <p>Адрес почты: <b>{user.email}</b></p>
-          <p>О себе: <b>{user.about}</b></p>
-          <div>
+    <div className="container ">
+      <div  >
+        <div className='profileEl'>
+        <img src={user.file} alt={'AVATAR'} style={{ height: '200px', minWidth: '300px' }} />
+        </div>
+        <div className="containerCabinet ">
+          <div className='profileEl'>Имя пользователя: <b>{user.name}</b></div>
+          <div className='profileEl'>Адрес почты: <b>{user.email}</b></div>
+          <div className='profileEl'>О себе: <b>{user.about}</b></div>
+          <div >
             {change ? <Change /> : ''}
           </div>
+<<<<<<< HEAD
+          <div className="">
+            <button className='buttonContainer' onClick={() => setChange(!change)}>Изменить данные</button>
+          </div>
+=======
 
-          <button onClick={() => setChange(!change)}>Изменить данные</button>
+          <div className='buttonContainer'> <button  onClick={() => setChange(!change)}>Изменить данные</button></div>
+         
+
+>>>>>>> 6ba1ba8cf5307b477cfc658d8d0a6feaa14c0ef9
         </div>
       </div>
     </div>

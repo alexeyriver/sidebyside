@@ -1,23 +1,20 @@
-import React, { useState } from "react";
-import MyTrips from '../Trips/MyTrips';
-import CurrentTrips from '../Trips/CurrentTrips'
-import PastTrips from '../Trips/PastTrips'
-import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
-import { useSelector } from "react-redux";
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+import React from "react";
+import { BrowserRouter as Router, Link,  } from 'react-router-dom'
+// import { useSelector } from "react-redux";
+import { Container } from 'react-bootstrap'
 
 function Trips() {
 
-  const trips = useSelector(state => state.tripState.trips)
+  // const trips = useSelector(state => state.tripState.trips)
 
   return (
     <div className="container">
       <div className="containerCabinet">
-        <ul>
-          <li><Link to='/mytrips'>Мною созданные поездки</Link></li>
-          <li><Link to='/current'>Текущие поездки</Link></li>
-          <li><Link to='/past'>Прошедшие поездки</Link></li>
-        </ul>
+        <div className="gorizont">
+          <div><Link to='/mytrips'>Cозданные поездки</Link></div>
+          <div><Link to='/current'>Текущие поездки</Link></div>
+          <div><Link to='/past'>Прошедшие поездки</Link></div>
+        </div>
       </div>
 
     </div>

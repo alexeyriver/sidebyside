@@ -1,23 +1,47 @@
+body {
+  font-size: 24px;
+  background-image: url('https://i.postimg.cc/tCLHm581/pexels-craig-adderley-1563356.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none ;
+  border: none;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+#main{
+  min-width: 800px;
+}
 #root {
+
   /* margin-left: 100px */
   padding-top: 30px;
-  background-color: rgb(177, 181, 182);
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 800px;
-  padding-top: 30px;
+  background-color: rgb(197, 233, 241, .7);
   display: flex;
   min-height: 100vh;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   margin: 0 auto;
   max-width: 1200px;
 }
 
-.container {
-  padding-left: 75px;
+.main, .mainContainer {
+
+  background-color: rgb(197, 233, 241, .7);
+
 }
 
-.containerCenter, .mainButtons {
+.container {
+  padding-left: 50px;
+  padding-top: 20px;
+}
+
+.containerCenter, .mainButtons, .katrin {
   margin: 25% auto;
 
   display: flex;
@@ -29,12 +53,29 @@
   padding: 0px 10px;
 }
 
+.buttonContainer  {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.profileEl{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-width: 600px;
+  flex-wrap: wrap;
+}
+
 .mainContainer {
   width: 100vh;
 }
 
 .navbar {
-  max-width: 200px;
+  max-width: 250px;
+  margin-right: 25px;
+  opacity: 0.75;
+  /* position: fixed; */
 }
 
 .actions {
@@ -45,22 +86,9 @@
 }
 
 .description, .cardString {
-  /* margin-top: 30px;
-  margin-bottom: 30px; */
-  margin: 40px;
-  padding: 0px 10px;
-  border: 1px dotted green; 
-}
-
-.descriptionRow {
-  display: flex;
-  /* margin-top: 30px;
+  margin-top: 30px;
   margin-bottom: 30px;
-  padding: 0px 10px */
-}
-
-.description.current {
-  width: 40%;
+  padding: 0px 10px
 }
 
 .persons {
@@ -69,12 +97,23 @@
 
 .mapContainer{
   display: flex;
-  margin: 0, auto
+  margin: 15px, auto;
+  justify-content: center;
 }
 
-/* .button{
-  margin : 20px
-} */
+button{
+  margin : 15px 8px;
+}
+
+.katrin {
+  margin: 0px;
+  
+}
 .mainButtons {
   margin-top: 25%;
+}
+
+.persons {
+  display: flex;
+  flex-wrap: wrap;
 }

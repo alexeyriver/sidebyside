@@ -22,7 +22,6 @@ router.route('/')
 
   .post(async (req, res) => {
     const {name, email, password } = req.body;
-
     const candidat = await User.findOne({ email });
     if (candidat) {
       res.json({
@@ -37,7 +36,6 @@ router.route('/')
       });
       await user.save();
       const token = createToken(user._id);
-      // res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
       res.status(201).json({ user: user, token, success: true });
     }
   });

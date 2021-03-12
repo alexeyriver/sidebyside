@@ -1,12 +1,9 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-// import MainMap from '../Map/MainMap'
 
 
 function MainPage(props) {
   const history = useHistory();
-
-
   const findButtonHandler = (event) => {
     event.preventDefault()
     history.push('/findroute')
@@ -21,7 +18,7 @@ function MainPage(props) {
   return (
     <div className="container">
       <div className="mainButtons">
-        <ul class="actions">
+        <ul className="actions">
           <li><a href="#" className="button primary" onClick={findButtonHandler}>Найти маршрут</a></li>
           <li><a href="#" className="button" onClick={createButtonHandler}>Создать маршрут</a></li>
         </ul>

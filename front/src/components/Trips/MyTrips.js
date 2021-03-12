@@ -4,7 +4,7 @@ import { deleteTripsFetchAC, initTripsFetchAC } from "../../redux/Thunk/tripsFet
 import HistoryMap from "../Map/HistoryMap";
 import moment from "moment";
 import { Link } from 'react-router-dom'
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
+// import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 
 function MyTrips(props) {
   const dispatch = useDispatch();
@@ -28,30 +28,30 @@ function MyTrips(props) {
 
   return (
 
-        <div className="container">
+    <div className="container">
       <h2>Созданные поездки</h2>
-      {trips.length < 1 ? <h3>Упс!Кажется,вы не создали ни одну поездку!</h3>  :
+      {trips.length < 1 ? <h3>Упс!Кажется,вы не создали ни одну поездку!</h3> :
         trips.map((el) => (
 
           <div className="cardString" key={performance.now()}>
 
 
-            <div>Информация о поездке: {el.tridivInfo}</div>
-            <div>Бюджет: {el.budget}</div>
-            <div>Начальная дата: {moment(el.startDate).format("DD.MM.YYYY")}</div>
-            <div>Конечная дата: {moment(el.endDate).format("DD.MM.YYYY")}</div>
+            <div><b>Информация о поездке:</b> {el.tripInfo}</div>
+            <div><b>Бюджет:</b> {el.budget}</div>
+            <div><b>Начальная дата:</b> {moment(el.startDate).format("DD.MM.YYYY")}</div>
+            <div><b>Конечная дата:</b> {moment(el.endDate).format("DD.MM.YYYY")}</div>
 
             <HistoryMap el={el} />
 
 
             {/* <Link to={el._id}>Edit</Link> */}
 
-
-            <button data-id={el._id}><Link style={{ textDecoration: 'none' }} to={`/mytrips/${el._id}`}>Редактировать</Link></button>
-            <button data-id={el._id} onClick={deleteHandler}>
-              Удалить
-            </button>
+            <div className="buttonContainer">
+              <button data-id={el._id}><Link style={{ textDecoration: 'none' }} to={`/mytrips/${el._id}`}>Изменить</Link></button>
+              <button data-id={el._id} onClick={deleteHandler}>Удалить</button>
+            </div>
           </div>
+
         ))
       }
     </div>

@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { YMaps, Map, GeoObject, Placemark, } from 'react-yandex-maps';
-import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ru from 'date-fns/locale/ru';
 import { useDispatch, useSelector } from 'react-redux';
-import { addTripFetchAC } from "../../redux/Thunk/tripsFetchesAC";
 import { fetchSubmitJourneyAC } from '../../redux/actions';
-
-import { BrowserRouter as Router, Switch, Route, Link, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 
 
 function FirstPointMap({ props }) {
@@ -18,7 +15,6 @@ function FirstPointMap({ props }) {
   const req = useSelector(store => store.fetch.fetchSubmitJourney)
   useEffect(() => {
     if (countUseEffect > 0 && req?.status) {
-      console.log(req);
       history.push('/mytrips')
     }
     setCountUseEffect(countUseEffect => countUseEffect = countUseEffect + 1)
@@ -60,89 +56,83 @@ function FirstPointMap({ props }) {
   return (
     <div >
       <div className='mapContainer'>
-      <YMaps>
-        <Map defaultState={{
-          center: props.data,
-          zoom: 5,
-        }}
-          height={500}
-          width={700}
+        <YMaps>
+          <Map defaultState={{
+            center: props.data,
+            zoom: 5,
+          }}
+            height={500}
+            width={700}
+            onClick={(e) => HandlerCreateRoute(e)}
+          >
+            {routePoint && routePoint.map(el =>
+              <Placemark key={el} geometry={el}
+                options={{
+                  iconLayout: 'default#image',
 
-          onClick={(e) => HandlerCreateRoute(e)}
-        >
-          {routePoint && routePoint.map(el =>
-            <Placemark key={el} geometry={el}
-              options={{
-                iconLayout: 'default#image',
+                  iconImageOffset: [-16, -38],
+                  iconImageHref: 'https://static.thenounproject.com/png/320187-200.png'
+                }}
+                onContextMenu={(e) => { HandlerEditRoute(e) }} />)}
 
-                iconImageOffset: [-16, -38],
-                iconImageHref: 'https://static.thenounproject.com/png/320187-200.png'
-              }}
-              onClick={(e) => console.log(e.originalEvent.target.geometry._coordinates)}
-              onContextMenu={(e) => {
-                console.log(e.originalEvent.target.geometry._coordinates);
-                HandlerEditRoute(e)
-              }} />)}
-
-          {routePoint.length >= 2 && (
-            <GeoObject
-              geometry={{
-                type: 'LineString',
-                coordinates: routePoint,
-              }}
-              options={{
-                geodesic: true,
-                strokeWidth: 5,
-                strokeColor: '#F008',
-                openBalloonOnClick: true,
-              }}
-              onClick={(e) => console.log(e.originalEvent.target.geometry._coordPath._coordinates)}
-            />
-          )}
-        </Map>
-      </YMaps>
+            {routePoint.length >= 2 && (
+              <GeoObject
+                geometry={{
+                  type: 'LineString',
+                  coordinates: routePoint,
+                }}
+                options={{
+                  geodesic: true,
+                  strokeWidth: 5,
+                  strokeColor: '#F008',
+                  openBalloonOnClick: true,
+                }}
+              />
+            )}
+          </Map>
+        </YMaps>
       </div>
-<div>
-      <form onSubmit={(e) => tripHandler(e)}>
-        <div style={{
-          display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
-        }}
-        >
-          {/* <input placeholder="Страна" name="country" /> */}
-          <DatePicker required
-            name="startDate"
-            placeholderText="Начальная дата"
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
-            dateFormat="dd.MM.yyyy"
-            minDate={new Date()}
-            maxDate={selectedDateSecond}
-            isClearable
-            showYearDropdown
-            scrollableMonthYearDropdown
-            locale={ru}
-          />
+      <div>
+        <form onSubmit={(e) => tripHandler(e)}>
+          <div style={{
+            display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
+          }}
+          >
+            {/* <input placeholder="Страна" name="country" /> */}
+            <DatePicker required
+              name="startDate"
+              placeholderText="Начальная дата"
+              selected={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              dateFormat="dd.MM.yyyy"
+              minDate={new Date()}
+              maxDate={selectedDateSecond}
+              // isClearable
+              showYearDropdown
+              scrollableMonthYearDropdown
+              locale={ru}
+            />
 
-          <DatePicker required
-            name="endDate"
-            placeholderText="Конечная дата"
-            selected={selectedDateSecond}
-            onChange={(date) => setSelectedDateSecond(date)}
-            dateFormat="dd.MM.yyyy"
-            minDate={new Date() && selectedDate}
-            isClearable
-            showYearDropdown
-            scrollableMonthYearDropdown
-            locale={ru}
-          />
-          <input required type='number' placeholder="бюджет" name="budget" />
+            <DatePicker required
+              name="endDate"
+              placeholderText="Конечная дата"
+              selected={selectedDateSecond}
+              onChange={(date) => setSelectedDateSecond(date)}
+              dateFormat="dd.MM.yyyy"
+              minDate={new Date() && selectedDate}
+              // isClearable
+              showYearDropdown
+              scrollableMonthYearDropdown
+              locale={ru}
+            />
+            <input required type='number' placeholder="бюджет" name="budget" />
 
-        </div>
-        <div>
-          <textarea required name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
-          <button>Создать путешествие</button>
-        </div>
-      </form>
+          </div>
+          <div>
+            <textarea required name="tripInfo" require rows="10" cols="70" placeholder="Информация о поездке" />
+            <button>Создать путешествие</button>
+          </div>
+        </form>
       </div>
 
 

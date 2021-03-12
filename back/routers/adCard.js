@@ -8,7 +8,6 @@ const router = express.Router();
 router
   .route("/")
   .get(async (req, res) => {
-    // console.log(Date.now());
     const cardsToRender = await AdCard.find({
       postedStatus: true,
     })
@@ -17,18 +16,14 @@ router
     res.json(cardsToRender);
   })
   .post(async (req, res) => {
-    // console.log(req.body);
     const coord = [req.body.coords[1], req.body.coords[0]];
     const querysToRender = await AdCard.find({
       startCoords: coord,
     }).populate("author");
-    // console.log(querysToRender);
-
     res.json({ message: "Поездка создана", response: querysToRender });
   });
 
 router.route("/new").post(async (req, res) => {
-  console.log(req.body, "req-body");
   const {
     budget,
     country,
@@ -42,7 +37,6 @@ router.route("/new").post(async (req, res) => {
   } = req.body;
   const user = await User.findOne({ email });
   const testDate = moment(startDate, "DD-MM-YYYY");
-  console.log(testDate, "test");
 
   try {
     const newCard = new AdCard({
@@ -57,14 +51,13 @@ router.route("/new").post(async (req, res) => {
       startCoords,
       finalCoords,
     });
-
     await newCard.save();
     res.json({ status: true });
   } catch (err) {
     res.json({ status: false });
   }
 
-  // }
+
 });
 
 router
@@ -82,26 +75,12 @@ router
 
   .put(async (req, res) => {
     try {
-      const { startDate, endDate, budget, tripInfo, participants } = req.body;
-      console.log(req.params, "======", req.body);
-      console.log(req.params.id);
+      const { startDate, endDate, budget, tripInfo } = req.body;
       const cardToEdit = await AdCard.findById({ _id: req.params.id });
-      console.log(cardToEdit, "====");
-
-      //  const cardToEdit = await AdCard.findByIdAndUpdate({ _id: req.params.id }, { budget, tripInfo, participants});
-
-      // cardToEdit.startDate=startDate
-      // cardToEdit.endDate=endDate
-      cardToEdit.startDate= moment(startDate, "DD-MM-YYYY")
-      cardToEdit.endDate=moment(endDate, "DD-MM-YYYY")
-      // startDate: moment(startDate, "DD-MM-YYYY"),
-      // endDate: moment(endDate, "DD-MM-YYYY"),
-
+      cardToEdit.startDate = moment(startDate, "DD-MM-YYYY")
+      cardToEdit.endDate = moment(endDate, "DD-MM-YYYY")
       cardToEdit.budget = budget;
       cardToEdit.tripInfo = tripInfo;
-      // cardToEdit.participants=participants   // XUINYAAAAAAAAAAA
-
-      console.log(">>>>>>", cardToEdit);
       await cardToEdit.save();
 
       if (cancelStatus) {
@@ -117,7 +96,6 @@ router
   });
 
 router.route("/new").post(async (req, res) => {
-  console.log(req.body, "req-body");
   const {
     budget,
     country,
@@ -131,7 +109,6 @@ router.route("/new").post(async (req, res) => {
   } = req.body;
   const user = await User.findOne({ email });
   const testDate = moment(startDate, "DD-MM-YYYY");
-  console.log(testDate, "test");
 
   try {
     const newCard = new AdCard({

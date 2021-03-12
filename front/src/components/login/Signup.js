@@ -1,15 +1,11 @@
-
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AUTH_SUCCESSFULLY } from "../../redux/types";
-import { Container, Row, Col, Button, Alert, Breadcrumb, Card, Form } from 'react-bootstrap'
 import { signUpFetchAC } from '../../redux/Thunk/authFetchesAC'
 
 function Signup(props) {
   const [error, setError] = useState('');
   const [countUseEffect, setCountUseEffect] = useState(0)
-
   const dispatch = useDispatch();
   const handlerSign = (event) => {
     const {

@@ -1,6 +1,5 @@
-import { addProfilePhotoAC, addProfilePictureAC, changeDataAC, changeErrorAC, initProfileAC, authErrorAC,authSuccessfullyAC, signupSuccessfullyAC } from "../actionCreators";
+import { addProfilePhotoAC,  changeDataAC,  initProfileAC, authErrorAC,authSuccessfullyAC, signupSuccessfullyAC } from "../actionCreators";
 import axios from "axios";
-// import { AUTH_SUCCESSFULLY, AUTH_ERROR ,SIGNUP_SUCCESSFULLY } from '../types'
 
 export const changeInfoFetchAC = (name, email, about, user) => (dispatch) => {
   fetch(`${process.env.REACT_APP_URL}/profile/${user._id}`, {
@@ -40,10 +39,8 @@ export const signInFetchAC = ({ email, password }) => async (dispatch) => {
     email,
     password
   })
-  console.log(response, '<<<<');
 
   if (response.data.success === true) {
-    // dispatch({ type: AUTH_SUCCESSFULLY, payload: response.data.user });
     dispatch(authSuccessfullyAC(response.data.user ))
   }
   else if (response.data.message == 'Пароли не совпали') {
@@ -62,9 +59,7 @@ export const signUpFetchAC = ({ name, email, password }) => async (dispatch) => 
     email,
     password
   })
-  console.log(response, '<<<<');
   if (response.data.success === true) {
-    // dispatch({ type: SIGNUP_SUCCESSFULLY, payload: response.data });
     dispatch(signupSuccessfullyAC(response.data ))
   }
   else if (response.data.message == 'Такой пользователь уже есть') {

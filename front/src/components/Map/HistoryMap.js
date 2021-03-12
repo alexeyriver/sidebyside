@@ -1,12 +1,7 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { YMaps, Map, GeoObject, Placemark } from 'react-yandex-maps';
 
 function HistoryMap({el}) {
-//  const [bet,setBet]= useState(el.betweenCoords)
-  // if(el.betweenCoords.length>1){
-  //   el.betweenCoords=[...el.betweenCoords]
-  // }
-  // console.log(bet);
 
   return (
     <div className='mapContainer'>
@@ -19,8 +14,7 @@ function HistoryMap({el}) {
           <GeoObject
             geometry={{
               type: 'LineString',
-              coordinates: [el.startCoords, el.betweenCoords, el.finalCoords]
-              // coordinates: [el.startCoords, bet, el.finalCoords]
+              coordinates: [el.startCoords, ...el.betweenCoords, el.finalCoords]
             }}
             options={{
               geodesic: true,
