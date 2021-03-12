@@ -37,12 +37,12 @@ function OneRegionCard({ el }) {
           <div>
             <h4 onClick={() => Handleclicker(el.author._id)}>{el.author.name}</h4>
             <div className="content">
-              <div className='cardText'>Путешествие с: {moment(el.startDate).format("DD.MM.YYYY")}</div>
+              <div className='cardText'>Старт: {moment(el.startDate).format("DD.MM.YYYY")}</div>
               <div className='cardText'>До: {moment(el.endDate).format("DD.MM.YYYY")}</div>
               <div className='cardText'>Бюджет: {el.budget}</div>
               {/* <div>Информация о мршруте: {el.tripInfo}</div> */}
-              <div className='cardText'><b>Участники:</b> {el.participants.length > 1 ? el.participants.length : 'Успейте присоединиться первым!'}</div>
-              <button onClick={() => ButtonHandler(el)}>Связаться с автором</button>
+              <div className='cardText'><b>Участники:</b> {el.participants.length > 1 ? el.participants.length : 'Вы будете первым!'}</div>
+              <button onClick={() => ButtonHandler(el)}>Откликнуться</button>
             </div>
           </div>
         </article>
