@@ -44,6 +44,9 @@ const  HandlerBudget = (e) =>{
     <div style={{
       display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
     }}>
+
+
+
       <form  onSubmit={editHandler}>
         <label>Бюджет<input name="budget" type ='number' onChange={(e)=>{HandlerBudget(e)}}  defaultValue={budget}></input></label>
         
