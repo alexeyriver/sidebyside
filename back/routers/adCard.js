@@ -75,7 +75,7 @@ router
 
   .put(async (req, res) => {
     try {
-      const { startDate, endDate, budget, tripInfo, participants } = req.body;
+      const { startDate, endDate, budget, tripInfo } = req.body;
       const cardToEdit = await AdCard.findById({ _id: req.params.id });
       cardToEdit.startDate = moment(startDate, "DD-MM-YYYY")
       cardToEdit.endDate = moment(endDate, "DD-MM-YYYY")
