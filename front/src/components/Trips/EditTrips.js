@@ -9,48 +9,49 @@ import moment from 'moment'
 
 
 function EditTrips(props) {
-  
-  const { id } = useParams();console.log(id);
+
+  const { id } = useParams(); console.log(id);
   const trips = useSelector((state) => state.tripState.trips);
-  
+
   const oneTrip = trips.filter((el) => el._id === id);
   const dispatch = useDispatch();
-  
-  const[newStartDate,setNewStartDate]=useState(null)
-  const[newEndDate,setNewEndDate]=useState(null)
 
-    const[budget,setBudget]=useState(oneTrip[0].budget)
-    const[tripinfo,setTripinfo]=useState(oneTrip[0].tripInfo)
+  const [newStartDate, setNewStartDate] = useState(null)
+  const [newEndDate, setNewEndDate] = useState(null)
+  const [flagEdit, setFlagEdit] = useState(true)
+  const [budget, setBudget] = useState(oneTrip[0].budget)
+  const [tripinfo, setTripinfo] = useState(oneTrip[0].tripInfo)
 
-const  HandlerBudget = (e) =>{
+  const HandlerBudget = (e) => {
 
-   }
+  }
   const editHandler = (event) => {
     event.preventDefault()
     const { budget, startDate, endDate, tripInfo } = event.target;
-    const value={
-        budget: budget.value,
-        startDate: startDate.value,
-        endDate: endDate.value,
-        tripInfo: tripInfo.value,
-        itemId : id
-      }
+    const value = {
+      budget: budget.value,
+      startDate: startDate.value,
+      endDate: endDate.value,
+      tripInfo: tripInfo.value,
+      itemId: id
+    }
     dispatch(
       editMyTripFetchAC(value)
     );
+    setFlagEdit(false)
   };
 
   return (
     <div style={{
       display: 'flex', border: 'solid 1px', maxWidth: '900px', minHeight: '50px', alignItems: 'center',
     }}>
+      {!flagEdit && (<p>Поездка изменена</p>)}
+      {flagEdit &&
 
+        (<form onSubmit={editHandler}>
+          <label>Бюджет<input name="budget" type='number' onChange={(e) => { HandlerBudget(e) }} defaultValue={budget}></input></label>
 
-
-      <form  onSubmit={editHandler}>
-        <label>Бюджет<input name="budget" type ='number' onChange={(e)=>{HandlerBudget(e)}}  defaultValue={budget}></input></label>
-        
-        <DatePicker 
+          <DatePicker
             name="startDate"
             placeholderText="Начальная дата"
             selected={newStartDate}
@@ -63,7 +64,7 @@ const  HandlerBudget = (e) =>{
             scrollableMonthYearDropdown
             locale={ru}
           />
-        <DatePicker 
+          <DatePicker
             name="endDate"
             placeholderText="Конечная дата"
             selected={newEndDate}
@@ -75,10 +76,10 @@ const  HandlerBudget = (e) =>{
             scrollableMonthYearDropdown
             locale={ru}
           />
-      
-      <label>Информация о поездке<textarea  name="tripInfo" defaultValue={tripinfo}/></label>
+
+          <label>Информация о поездке<textarea name="tripInfo" defaultValue={tripinfo} /></label>
           <button>Изменить</button>
-     </form>
+        </form>)}
     </div>
   );
 }
